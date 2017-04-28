@@ -5,4 +5,5 @@
 * [Angular - simple Router example](angular-simple-router-example.md)
 * [JS - calculate a random number](js-calculate-a-random-number.md)
 * [JS - setTimeout](js-settimeout.md)
+* [JS - Switch statement](js-switch-statement.md)
 
