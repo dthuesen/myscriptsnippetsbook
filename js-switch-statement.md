@@ -21,28 +21,28 @@ Switch statement with included if\(\) loop
 
 ```
 switch (value) {
-       case 3:
-        if (player > computer) {
-          reason = this.reasons[0];
-        } else {
-          reason = this.reasons[2];
-        }
-        break;
-      case 5:
-        if (player > computer) {
-          reason = this.reasons[3];
-        } else {
-          reason = this.reasons[4];
-        }
-        break;
-      case 4:
-        if (player < computer) {
-          reason = this.reasons[5];
-        } else {
-          reason = this.reasons[2];
-        }
-        break;
+   case 3:
+    if (player > computer) {
+      reason = this.reasons[0];
+    } else {
+      reason = this.reasons[2];
     }
+    break;
+  case 5:
+    if (player > computer) {
+      reason = this.reasons[3];
+    } else {
+      reason = this.reasons[4];
+    }
+    break;
+  case 4:
+    if (player < computer) {
+      reason = this.reasons[5];
+    } else {
+      reason = this.reasons[2];
+    }
+    break;
+}
 ```
 
 
