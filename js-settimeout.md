@@ -2,7 +2,7 @@
 
 ```
 setTimeout( () => {
-    this.computerText = 'Schere';
+    computerText = 'Schere';
 }, 800);
 ```
 
