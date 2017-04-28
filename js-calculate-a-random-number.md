@@ -8,7 +8,7 @@ randomNumber() {
 
 _This would calculate for a random integer between 1 and 3._
 
-
+---
 
 ```
 randomNumber() {
@@ -18,7 +18,7 @@ randomNumber() {
 
 _This would calculate for a random integer between 0 and 10._
 
-
+---
 
 ```
 randomNumber() {
