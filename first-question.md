@@ -2,13 +2,13 @@
 
 E.g. you want to deploy to an external server but not into the root of that server rather to a subfolder, like so:
 
-                NOT to this directory **www.dthuesen.de**
+```
+            From to this directory **www.dthuesen.de**
 
-                BUT to this directory **www.dthuesen.de/subdirectory**
+            to this directory **www.dthuesen.de/subdirectory**
+```
 
-
-
-**Than you have to do this:**
+**Then you have to do this:**
 
 Running a deployment of Angular in a subdirectory requires to set the base tag in index.html to the desired sub-folder by running the build command with the according option: Usage: **ng build --base-href &lt;base&gt; **or** ng build --base-href /myUrl/ **or** ng build --bh /myUrl/**
 
