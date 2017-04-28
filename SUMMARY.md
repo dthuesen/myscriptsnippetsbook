@@ -1,6 +1,6 @@
 # Summary
 
 * [Introduction](README.md)
-* [Angular \(2+, 4+\) - Setting base tag for sub-folder](first-question.md)
-* [How can I do X?](second-question.md)
+* [Angular - Setting base tag for sub-folder](angular-base-tag.md)
+* [Angular - simple Router example](angular-simple-router-example.md)
 
