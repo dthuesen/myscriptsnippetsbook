@@ -112,5 +112,33 @@ export class GameComponent {
 }
 ```
 
+### Output with Interface
+
+If there's an Interface defined the Output property for data would be assigned and annotated like this:
+
+    import { Component, Output, EventEmitter } from '@angular/core';
+    import { IAddress } from './address'; // The interface
+
+    @Component({
+      selector: 'app-address',
+      template: `
+        <div >
+          <button (click)="onSubmitAddress()">To-Do hinzufügen</button>
+        </div>
+      `,
+      styleUrls: ['./container.component.css']
+    })
+    export class AddressComponent {
+
+    @Output() onGetAddress: EventEmitter<IAddress> = new EventEmitter();
+
+    address = new IAddress();
+
+    constructor() { }
+
+    onSubmitAddress() {
+      this.onSetAddress.emit(this.todo);
+    }
+
 
 
