@@ -43,7 +43,7 @@ With that said, the view of the child component, the **ChildComponent.html,** wo
 
 Passing data from a child component to a container \(parent\) component uses the EventEmitter provided by @angular/core.
 
-As the name says it emits data triggered by an event. Therefore the event will be e.g. triggered by an event from the view of the child component. this could be a click event, a mouse over event or a page load event. Or whatever triggers an event. Taking the event from a DOM element, a click event, it could go like this: 
+As the name says it emits data triggered by an event. Therefore the event will be e.g. triggered by an event from the view of the child component. this could be a click event, a mouse over event or a page load event. Or whatever triggers an event. Taking the event from a DOM element, a click event, it could go like this:
 
 1. The user clicks on a button in the child view, 
 2. that button calls a method in the component controller, 
@@ -75,17 +75,17 @@ export class ChildComponent {
   @Output() choiceSet = new EventEmitter();
 
   constructor() {}
-  
+
   setPlayersChoice(choice) {
     this.choiceSet.emit(choice);
   }
 }
 ```
 
- The ContainerComponent.html \(view\):
+The ContainerComponent.html \(view\):
 
 ```
-<app-child (choiceSet)="setPlayersChoice($event)" ></app-child>
+<app-child (choiceSet)="setPlayersChoice($event)" ></app-child>   // The $event obeject submits data load
 ```
 
 The ContainerComponent.ts \(controller\):
@@ -104,7 +104,7 @@ export class GameComponent {
     playersChoice = ''; // Type string trivially inferred from a string literal, no type annotation needed 
 
     constructor() {}
-  
+
     setPlayersChoice(choice) {
       this.playersChoice = choice;
     }
