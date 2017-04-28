@@ -1,5 +1,7 @@
 # JavaScript - Switch statement
 
+Simple switch statement:
+
 ```
 switch (choice) {
   case 'rock':
@@ -17,7 +19,7 @@ switch (choice) {
 }
 ```
 
-Switch statement with included if\(\) loop
+Switch statement with included if...else statement:
 
 ```
 switch (value) {
