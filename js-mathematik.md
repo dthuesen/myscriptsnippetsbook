@@ -1,4 +1,4 @@
-# JavaScript - Mathematik
+# JavaScript - Math
 
 ### Zahlen potenzieren
 
@@ -8,18 +8,18 @@
 
 9 \*\* 2   // 81
 
-### **`Math.pow()`**gibt die Potenz der `Basis` mit dem `Exponenten`an \(Basis^Eponent\)
+### `Math.pow()`gibt die Potenz der `Basis` mit dem `Exponenten`an \(Basis^Eponent\)
 
-Parameter: 
+Parameter:
 
 * **Basis** \(auch: die Grundzahl\)
-* **Exponent** \(auch: die Hochzahl\)
+* **Exponent** \(auch: die Hochzahl\)
 
 Rückgabewert
 
 * Eine Zahl, die die Basis potenziert mit dem Exponenten repräsentiert.
 
-Weil **`pow()`**eine statische Funktion von **`Math `**ist, wird es immer als **`Math.pow()`**eingesetzt, jedoch nicht als Methode eines erzeugten`Math`Objektes \(**`Math`**` `ist kein Konstruktor\).
+Weil `pow()`eine statische Funktion von `Math`ist, wird es immer als `Math.pow()`eingesetzt, jedoch nicht als Methode eines erzeugten`Math`Objektes \(`Math `ist kein Konstruktor\).
 
 ```
 Math.pow(7, 2);    // 49
@@ -52,8 +52,7 @@ Math.random() * (8 - 2) + 2; // 7.996127438621551 - Gibt eine Zufallszahl zwisch
 Math.floor(Math.random() * (8 - 2)) + 2;  // 5 - Die Verwendung von Math.random() erzeugt ganzzahlige Zahlen
 
 // Math.floor(Math.random() * (max - min +1)) + min; eine Zufallszahl zwischen min (inklusive) und max (inklusive)
-Math.floor(Math.random() * (8 - 2 +1)) + 2; 
-
+Math.floor(Math.random() * (8 - 2 +1)) + 2;
 ```
 
 ### `Math.ceil()` {#Example:_Using_Math.ceil}
@@ -94,10 +93,6 @@ Math.abs({});       // NaN
 Math.abs('string'); // NaN
 Math.abs();         // NaN
 ```
-
-
-
-
 
 
 

@@ -1,4 +1,4 @@
-# JavaScript Boolean .indexOf\(\) with ~
+# JavaScript - Boolean .indexOf\(\) with ~
 
 Normally ~ is a bitwise operator and is the same as `-(x+1)`. That means:
 
