@@ -21,7 +21,6 @@ Then one is able to find out if an **apple** is in the list with the use of `~` 
 Here's the example:
 
 ```
-
 let list = ['apple', 'flower', 'car', 23, {'name': 'Detlef', 'age': '51'}, 'bus'];
 
 ~list.indexOf('apple')
@@ -37,7 +36,21 @@ $: false      // for the use case of finding something in an Array !!~ is a bett
 
 But one have to keep in mind, that an expression like this is not clear, it is not readable a an english phrase
 
-**Further tests for the `!~` and `!!~` combination:**
+**The use case:**
+
+```
+if (~someString.indexOf(something)) {
+}
+```
+
+is in plain 'english':
+
+```
+if (someString.indexOf(something) >= 0) {
+}
+```
+
+**Further tests for the **`!~`** and **`!!~`** combination:**
 
 ```
 let list = ['apple', 'flower', 'car']
@@ -47,6 +60,18 @@ let list = ['apple', 'flower', 'car']
 (~list.indexOf('apple')) === true       // false
 (~list.indexOf('apple')) == true        // false
 (~list.indexOf('apple')) == false       // false
+
+let itemA = 'henry';
+let itemB = ~~itemA;
+itemB                                   // 0
+let itemC = ~itemA
+itemC                                   // -1
+
+let itemStringNumber = '23' 
+let itemNum = ~~itemStringNumber
+itemNum                                 // 23  -> converts a string number into a number
+let itemNumWhatever = ~itemStringNumber
+itemNumWhatever                         // -24 -> converts into number and adds -1
 ```
 
 
