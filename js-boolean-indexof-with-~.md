@@ -128,7 +128,6 @@ same as
 
 By the way
     ~town.indexOf('xz');          // returns 0
-
 ```
 
 

@@ -7,7 +7,7 @@
 * [JS Mathematik](js-mathematik.md)
 * [JS Array](js-array.md)
 * [JS Boolean .indexOf\(\) with ~](js-boolean-indexof-with-~.md)
-* [Angular - Setting base tag for sub-folder](angular-base-tag.md)
-* [Angular - simple Router example](angular-simple-router-example.md)
 * JS Boolean .indexOf\(\) with ~
+* [Angular - Setting base tag for sub-folder](angular-base-tag.md)
+* [JS Boolean .indexOf\(\) with ~](js-boolean-indexof-with-~.md)
 
