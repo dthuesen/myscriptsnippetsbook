@@ -32,18 +32,18 @@ The most common use of a closure in JS is the module pattern. Modules lets defin
 ```
 function User() {
     let userName, password;
-    
+
     function doLogin(user, password) {
         userName = user;
         password = pw;
-        
+
         // the other login logic
     }
-    
+
     let publicAPI = {
         login: doLogin
     }
-    
+
     return publicAPI;
 }
 
@@ -53,7 +53,5 @@ let Fred = User();
 Fred.login('fred', '!43TrippleX1234');
 ```
 
-The `User` function serves an outer scope that holds the variables `userName` and `password`, as well as the inner `doLogin()` function.
-
-
+The `User` function serves an outer scope that holds the variables `userName` and `password`, as well as the inner `doLogin()` function. The variables `userName` and `password` are as well private details as the `doLogin()` function.
 
