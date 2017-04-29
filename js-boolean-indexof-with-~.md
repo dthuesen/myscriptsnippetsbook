@@ -1,0 +1,53 @@
+# JavaScript Boolean .indexOf\(\) with ~
+
+Normally ~ is a bitwise operator and is the same as `-(x+1)`. That means:
+
+```
+~1    // = -2 because -(1+1) = -2
+~2    // = -3 because -(2+1) = -3 
+and so on...
+```
+
+But one can take to get a boolean return with the use of `.indexOf()`
+
+**.indexOf\(\)**
+
+Assume we have a **list**
+
+`let list = ['apple', 'flower', 'car', 23, {'name': 'Detlef', 'age': '51'}, 'bus'];`
+
+Then one is able to find out if an **apple** is in the list with the use of `~` and `.indeOf()`
+
+Here's the example:
+
+```
+
+let list = ['apple', 'flower', 'car', 23, {'name': 'Detlef', 'age': '51'}, 'bus'];
+
+~list.indexOf('apple')
+$: -1         // the return value is -1 because it is on index 0 and the ~ adds -1 what makes -1
+
+!~list.indexOf('apple')
+$: false      // now the return value is false because it was converted into a boolean operator (~! together)
+!!~list.indexOf('apple')
+$: true       // it's clear, that this returns true
+!!~list.indexOf('toast')
+$: false      // for the use case of finding something in an Array !!~ is a better return
+```
+
+But one have to keep in mind, that an expression like this is not clear, it is not readable a an english phrase
+
+**Further tests for the `!~` and `!!~` combination:**
+
+```
+let list = ['apple', 'flower', 'car']
+
+(!~list.indexOf('apple')) == false      // true
+(!~list.indexOf('apple')) === false     // true
+(~list.indexOf('apple')) === true       // false
+(~list.indexOf('apple')) == true        // false
+(~list.indexOf('apple')) == false       // false
+```
+
+
+

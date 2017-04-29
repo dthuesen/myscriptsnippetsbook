@@ -72,7 +72,7 @@ a.pop();
 console.log(a); // [1, 2]
 ```
 
-.map\(\)  - creates a new array with the results  [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Array/map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map "Array on MDN")
+**.map\(\)**  - creates a new array with the results  [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Array/map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map "Array on MDN")
 
 ```
 var numbers = [1, 5, 10, 15];
@@ -95,6 +95,33 @@ callback             ->Function that produces an element of the new Array, takin
       index          -> The index of the current element being processed in the array.
       array          -> The array map was called upon.
 thisArg              -> Optional. Value to use as this when executing callback.
+```
+
+**.reduce\(\)  **[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Array/Reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
+
+```
+var sum = [0, 1, 2, 3].reduce(function(acc, val) {
+  return acc + val;
+}, 0);
+// sum is 6
+
+var list1 = [[0, 1], [2, 3], [4, 5]];
+var list2 = [0, [1, [2, [3, [4, [5]]]]]];
+
+const flatten = arr => arr.reduce(
+  (acc, val) => acc.concat(
+    Array.isArray(val) ? flatten(val) : val
+  ),
+  []
+);
+flatten(list1); // returns [0, 1, 2, 3, 4, 5]
+flatten(list2); // returns [0, 1, 2, 3, 4, 5]
+
+Side Note Explanation of recursion:
+1.flatten[] --> []
+2.flatten[0] --> [] + 0 --> [0]
+3.flatten[0,1] --> [] + 0 --> [0] + 1 --> [0,1]
+4.flatten[0,[1]] --> [] + 0 --> [0] + flatten[1] --> [0] + ([]+1) --> [0] + ([1]) --> [0,1]
 ```
 
 
