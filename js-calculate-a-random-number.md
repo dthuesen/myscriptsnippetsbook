@@ -1,4 +1,4 @@
-# JavaScript -  calculate a random number
+# JavaScript -  Calculate a random number
 
 ```
 randomNumber() {
