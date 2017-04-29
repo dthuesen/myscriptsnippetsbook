@@ -48,6 +48,14 @@ is in plain 'english':
 ```
 if (someString.indexOf(something) >= 0) {
 }
+
+or like this
+
+if (~list.indexOf(item)) {
+   // item in list
+ } else {
+   // item *not* in list
+ }
 ```
 
 **Further tests for the **`!~`** and **`!!~`** combination:**
