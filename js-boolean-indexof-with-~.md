@@ -39,14 +39,14 @@ But one have to keep in mind, that an expression like this is not clear, it is n
 **The use case:**
 
 ```
-if (~someString.indexOf(something)) {
+if (~list.indexOf(something)) {
 }
 ```
 
 is in plain 'english':
 
 ```
-if (someString.indexOf(something) >= 0) {
+if (list.indexOf(something) >= 0) {
 }
 
 or like this
