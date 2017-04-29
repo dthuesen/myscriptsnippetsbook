@@ -7,6 +7,7 @@
 * [JS - Closure / Module](js-closure.md)
 * [JS - setTimeout](js-settimeout.md)
 * [JS - Math](js-mathematik.md)
+* [JS - String methods](js-string-methods.md)
 * [JS - Switch statement](js-switch-statement.md)
-* [Angular - Setting base tag for sub-folder](angular-base-tag.md)
+* JS - String methods
 
