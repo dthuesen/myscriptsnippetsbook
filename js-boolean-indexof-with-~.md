@@ -82,5 +82,54 @@ let itemNumWhatever = ~itemStringNumber
 itemNumWhatever                         // -24 -> converts into number and adds -1
 ```
 
+`!~`** and **`!!~`**tests with a String:**
+
+```
+    let town = 'Hamburg'
+    town.indexOf('mb');
+$: 2
+
+    ~town.indexOf('mb');
+$: -3
+
+    ~~town.indexOf('mb');
+$: 2
+
+    ~~town.indexOf('xz');
+$: -1
+
+    ~town.indexOf('xz');
+$: 0
+
+    town.indexOf('xz');
+$: -1
+
+
+My opinion: better only take .indexOf for these use cases:
+
+    let town = 'Hamburg'
+
+    if(town.indexOf('mb') > 0) {     // returns true, it is on index 2
+        // do something
+    };
+
+or
+
+    if(town.indexOf('xy') > 0) {     // returns false, it is on index -1
+        // do something
+    };
+
+same as
+
+    if(town.indexOf('xy') === -1) {   // returns false, it is on index -1
+        // do something
+    };
+
+
+By the way
+    ~town.indexOf('xz');          // returns 0
+
+```
+
 
 
