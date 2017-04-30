@@ -7,6 +7,13 @@
 * [match\(\)](#match)
 * [padStart\(\) / padEnd ](#padstart--padend-) \(ECMAScript 2017\)
 * [repeat\(\)](#repeat)
+* [search\(\)](#search)
+* [slice\(\)](#slice)
+* [split\(\)](#split)
+* [substr\(\)](#substr)
+* [substring\(\)](#substring)
+* [trim\(\)](#trim)
+* [value\(\)](#value)
 
 #### **concat\(\)** {#concat}
 
@@ -163,29 +170,150 @@ The `padEnd()` method pads the current string with a given string \(repeated, if
 // 'abcabc' (repeat() is a generic method)
 ```
 
-search\(\)
+#### search\(\)
 
 The search\(\) method executes a search for a match between a regular expression and this String object.
 
 Syntax: `str.search(regexp)`
 
-The index of the first match between the regular expression and the given string; if not found, -1.  if \(str.search\(re\) != -1\) {let
+The index of the first match between the regular expression and the given string; If not found, -1. 
 
 ```
 let re = /Hamburg/i
-let str = 'Heute scheint in Hamburg den ganzen Tag die Sonne.'
+let str = "Heute scheint in Hamburg den ganzen Tag die Sonne."
 
 function testinput(re, str) {
-  var midstring;
-  if (str.search(re) != -1) {
-    midstring = ' contains ';
-  } else {
-    midstring = ' does not contain ';
-  }
-  console.log(str + midstring + re);
+var midstring;
+if (str.search(re) != -1) {
+midstring = ' contains ';
+} else {
+midstring = ' does not contain ';
+}
+console.log(str + midstring + re);
 }
 
-testinput(re, str);
+testinput(re, str); 
+
+// Heute scheint in Hamburg den ganzen Tag die Sonne. contains /Hamburg/i
+```
+
+#### slice\(\)
+
+```
+var str1 = 'The morning is upon us.', // the length of str1 is 23.
+    str2 = str1.slice(1, 8),
+    str3 = str1.slice(4, -2),
+    str4 = str1.slice(12),
+    str5 = str1.slice(30);
+console.log(str2); // OUTPUT: he morn
+console.log(str3); // OUTPUT: morning is upon u
+console.log(str4); // OUTPUT: is upon us.
+console.log(str5); // OUTPUT: ""
+
+// With negative values:
+var str = 'The morning is upon us.';
+str.slice(-3);     // returns 'us.'
+str.slice(-3, -1); // returns 'us'
+str.slice(0, -1);  // returns 'The morning is upon us'
+```
+
+#### split\(\)
+
+```
+function splitString(stringToSplit, separator) {
+  var arrayOfStrings = stringToSplit.split(separator);
+
+  console.log('The original string is: "' + stringToSplit + '"');
+  console.log('The separator is: "' + separator + '"');
+  console.log('The array has ' + arrayOfStrings.length + ' elements: ' + arrayOfStrings.join(' / '));
+}
+
+var tempestString = 'Oh brave new world that has such people in it.';
+var monthString = 'Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec';
+
+var space = ' ';
+var comma = ',';
+
+splitString(tempestString, space);
+splitString(tempestString);
+splitString(monthString, comma);
+```
+
+#### substr\(\)
+
+Syntax: `str.substr(`**`start`**` , `**`length`**`)var str = 'abcdefghij';`
+
+```
+
+console.log('(1, 2): '   + str.substr(1, 2));   // '(1, 2): bc'
+console.log('(-3, 2): '  + str.substr(-3, 2));  // '(-3, 2): hi'
+console.log('(-3): '     + str.substr(-3));     // '(-3): hij'
+console.log('(1): '      + str.substr(1));      // '(1): bcdefghij'
+console.log('(-20, 2): ' + str.substr(-20, 2)); // '(-20, 2): ab'
+console.log('(20, 2): '  + str.substr(20, 2));  // '(20, 2): '
+```
+
+#### substring\(\)
+
+Syntax: `str.substring(`**`indexStart`**`[, `**`indexEnd`**`])`
+
+```
+var anyString = 'Mozilla';
+
+// Displays 'Moz'
+console.log(anyString.substring(0, 3));
+console.log(anyString.substring(3, 0));
+
+// Displays 'lla'
+console.log(anyString.substring(4, 7));
+console.log(anyString.substring(4));
+console.log(anyString.substring(7, 4));
+
+// Displays 'Mozill'
+console.log(anyString.substring(0, 6));
+
+// Displays 'Mozilla'
+console.log(anyString.substring(0, 7));
+console.log(anyString.substring(0, 10));
+
+
+/** Using substring() with length property */
+
+// Displays 'illa' the last 4 characters
+var anyString = 'Mozilla';
+var anyString4 = anyString.substring(anyString.length - 4);
+console.log(anyString4);
+
+// Displays 'zilla' the last 5 characters
+var anyString = 'Mozilla';
+var anyString5 = anyString.substring(anyString.length - 5);
+console.log(anyString5);
+
+
+/** Replacing a substring within a string */
+
+function replaceString(oldS, newS, fullS) {
+  return fullS.split(oldS).join(newS);
+}
+```
+
+#### trim\(\)
+
+```
+var orig = '   foo  ';
+console.log(orig.trim()); // 'foo'
+
+// Another example of .trim() removing whitespace from just one side.
+
+var orig = 'foo    ';
+console.log(orig.trim()); // 'foo'
+```
+
+#### value\(\)
+
+```
+var x = new String('Hello world');
+console.log(x.valueOf()); // Displays 'Hello world'
 ```
 
 
