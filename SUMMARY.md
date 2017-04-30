@@ -10,4 +10,5 @@
 * [JS - String methods](js-string-methods.md)
 * [JS - Switch statement](js-switch-statement.md)
 * JS - String methods
+* [JS - Object](js-object.md)
 
