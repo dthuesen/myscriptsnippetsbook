@@ -126,7 +126,7 @@ console.log(found);
 // The 'input' property is the original string that was parsed.
 ```
 
-#### padStart\(\) / padEnd 
+#### padStart\(\) / padEnd
 
 \(MDN: experimental technology - ECMAScript 2017\)
 
@@ -167,12 +167,12 @@ search\(\)
 
 The search\(\) method executes a search for a match between a regular expression and this String object.
 
-Syntax: **`str.search(regexp) `** 
+Syntax: `str.search(regexp)`
 
-The index of the first match between the regular expression and the given string; if not found, -1.  if \(str.search\(re\) != -1\) {let 
+The index of the first match between the regular expression and the given string; if not found, -1.  if \(str.search\(re\) != -1\) {let
 
 ```
-let re = 'Hamburg'
+let re = /Hamburg/i
 let str = 'Heute scheint in Hamburg den ganzen Tag die Sonne.'
 
 function testinput(re, str) {
