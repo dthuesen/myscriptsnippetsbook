@@ -3,8 +3,8 @@
 * [assign\(\)](#assign)
 * [create\(\)](#create)
 * [keys\(\)](#keys)
-* 
-#### assign\(\)
+* [hasOwnProperty\(\)](#hasownproperty)
+* #### assign\(\)
 
 **Syntax:** `Object.assign(target, ...sources)`
 
