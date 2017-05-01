@@ -1,4 +1,4 @@
-# Angular \(2+, 4+\) - Setting the base tag in index.html for a sub-folder for deploying to hosted server at build time.
+# Angular \(2+, 4+\) - Setting the base tag in index.html for a sub-folder for deploying to hosted server at build time. {#angular-setting-base-tag}
 
 E.g. you want to deploy to an external server but not into the root of that server rather to a subfolder, like so:
 
