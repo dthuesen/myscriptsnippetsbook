@@ -6,7 +6,7 @@
 
 * [Angular - Base Tag](/angular-base-tag.md)
 * [Angular - Input Property](/angular-input-property.md)
-* [Angular - Interface](angular-interface.md)
+* [Angular - Model or Interface](angular-interface.md)
 * [Angular - Service](angular-service.md)
 * [Angular - Simple Router Example](/angular-simple-router-example.md)
 
