@@ -5,6 +5,7 @@
 * [3. Testing the view](#3-testing-the-view)
 * [4. Testing the components properties](#4-testing-the-components-properties)
 * [5. Testing the components methods](#5-testing-the-components-methods)
+* [6. How to get elements, properties, etc...](#6-how-to-get-elements-properties-etc)
 
 #### 1. Import all related Modules, Components, Services, etc upfront
 
@@ -91,9 +92,9 @@ b\) Test if a specific `tag` is present
 
 c\) Test if a `button` queried by `tag` and `id` is labeled with 'Reset'
 
-d\) Test an `attribute` of a `tag `in this case: the name attribute like here: &lt;input name="name"&gt;
+d\) Test an `attribute` of a `tag` in this case: the name attribute like here: `<input name="name">`
 
-e\) + f\) When there are more than one `button` in this component, it is easier to test if they have id's for querying them. 
+e\) + f\) When there are more than one `button` in this component, it is easier to test if they have id's for querying them.
 
 ```
 describe('/ The ListComponent view', () => {
@@ -115,20 +116,20 @@ describe('/ The ListComponent view', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('button#new-game').textContent).toContain('Reset');
   });
-  
+
   // d)
   it('should render a <input> tag with attribute name="name"', () => {
     const compiled = fixture.debugElement.query(By.css('input'));
     expect(compiled).not.toBe(null);
     expect(compiled.attributes['name']).toBe('name');
   });
-  
+
   // e)
   it('should render a <button> tag with id="save"', () => {
     const compiled = fixture.debugElement.query(By.css('#save'));
     expect(compiled).not.toBe(null);
   });
-  
+
   // f)
   it('should render a <button> tag with id="abort"', () => {
     const compiled = fixture.debugElement.query(By.css('#abort'));
@@ -195,7 +196,7 @@ describe('/ 1. Game - methods general', () => {
     const app = fixture.debugElement.componentInstance;
     expect(app.countdown).not.toBe(undefined);
   });
-  
+
   // c) 
   it('"newGame()" should reset all properties', () => {
     const playersScore      = 0;
@@ -219,14 +220,14 @@ describe('/ 1. Game - methods general', () => {
     expect(app.playerText === playerText).toBe(true);
     expect(app.computerText === computerText).toBe(true);
   });
-  
+
   // d)
   it('"setPlayersChoice(scissors)" should set property "restartIsActive" to true', () => {
     const app = fixture.debugElement.componentInstance;
     app.setPlayersChoice('scissors');
     expect(app.restartIsActive).toBe(true);
   });
-  
+
   // e)
   it('"lookup()" should return 5 for 4 or 9 for 5', () => {
     fixture.detectChanges();
@@ -238,7 +239,7 @@ describe('/ 1. Game - methods general', () => {
     expect(app.lookup(5)).toBe(9);
     expect(app.lookup(42)).toBe(undefined);
   });
-  
+
   // f) 
   it('"setComputersChoice()" it\'s variable should get a random number', () => {
     const app = fixture.debugElement.componentInstance;
@@ -247,7 +248,7 @@ describe('/ 1. Game - methods general', () => {
     expect(app.computersChoice).toBeGreaterThan(0);
     expect(app.computersChoice).toBeLessThan(10);
   });
-  
+
   // g)
   it('"setComputersChoice()" should have called setComputersChoiceText()', () => {
     const app = fixture.debugElement.componentInstance;
@@ -256,7 +257,7 @@ describe('/ 1. Game - methods general', () => {
     fixture.detectChanges();
     expect(spy).toHaveBeenCalled();
   });
-  
+
   // h)
   it('"setComputersChoice()" should have set property buttonsDisabled to false', () => {
     const app = fixture.debugElement.componentInstance;
@@ -267,6 +268,70 @@ describe('/ 1. Game - methods general', () => {
   });
 
 });
+```
+
+#### 6. How to get elements, properties, etc...
+
+```
+a) Getting the compilation of the native elements (the tags of the view):
+```
+
+```
+const compiled = fixture.debugElement.nativeElement;
+```
+
+b\) Getting an element by css selector - tag:
+
+```
+const compiled = fixture.debugElement.query(By.css('input'));
+```
+
+c\) b\) Getting an element by css selector - id:
+
+```
+const compiled = fixture.debugElement.query(By.css('#abort'));
+```
+
+b\) Getting an instance of the app:
+
+```
+const app = fixture.debugElement.componentInstance;
+```
+
+c\) Getting the component:
+
+```
+let component: GameComponent;
+```
+
+d\) Getting the fixture:
+
+```
+let fixture: ComponentFixture<GameComponent>;
+```
+
+e\) triggering the change detection of Angular:
+
+```
+fixture.detectChanges();
+```
+
+f\) Installing jasmine clock \(e.g. in `beforeEach` method\):
+
+```
+jasmine.clock().install();
+```
+
+g\) Uninstalling the jasmine clock \(e.g. in `afterEach` method\)
+
+```
+jasmine.clock().uninstall();
+```
+
+h\) Setting the jasmine clock \(e.g. in the specific spec before a function call\)
+
+```
+jasmine.clock().tick(795);
 ```
 
 
