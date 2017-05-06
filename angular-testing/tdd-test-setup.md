@@ -85,11 +85,15 @@ describe('Rock, Paper, Stone Game - GameComponent (container component)', () => 
 
 #### 3. Testing the view
 
-a\) Testing a specific `tag` an its `textContent`
+a\) Test a specific `tag` an its `textContent`
 
-b\) Testing if a specific `tag` is present
+b\) Test if a specific `tag` is present
 
-c\) Testing if a `button` queried by `tag` and `id` is labeled with 'Reset'
+c\) Test if a `button` queried by `tag` and `id` is labeled with 'Reset'
+
+d\) Test an `attribute` of a `tag `in this case: the name attribute like here: &lt;input name="name"&gt;
+
+e\) + f\) When there are more than one `button` in this component, it is easier to test if they have id's for querying them. 
 
 ```
 describe('/ The ListComponent view', () => {
@@ -111,13 +115,33 @@ describe('/ The ListComponent view', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('button#new-game').textContent).toContain('Reset');
   });
+  
+  // d)
+  it('should render a <input> tag with attribute name="name"', () => {
+    const compiled = fixture.debugElement.query(By.css('input'));
+    expect(compiled).not.toBe(null);
+    expect(compiled.attributes['name']).toBe('name');
+  });
+  
+  // e)
+  it('should render a <button> tag with id="save"', () => {
+    const compiled = fixture.debugElement.query(By.css('#save'));
+    expect(compiled).not.toBe(null);
+  });
+  
+  // f)
+  it('should render a <button> tag with id="abort"', () => {
+    const compiled = fixture.debugElement.query(By.css('#abort'));
+    fixture.detectChanges();
+    expect(compiled).not.toBe(null);
+  });
 
 });
 ```
 
 #### 4. Testing the components properties
 
-a\) Test for `property` and its declared value
+a\) Test for `property` and its assigned value
 
 b\) Doubled test for a `property`  -  one for truthiness is present \(I don't think this test is perfect\) and one for **not to be** `undefined` \(has more value for the result\)
 
@@ -144,6 +168,18 @@ a\) The basic test for a method is like testing a property's presence
 
 b\) As well a basic test but with manual starting the Change Detection of Angular
 
+c\) Testing a method with several linked properties. In this case the method sets these properties to an initial value. To test it, these properties are declared as local variables of the specific test spec. Then the method 'newGame\(\)' is called and the spec compares the values.
+
+d\) This spec calls the method with an argument and tests if the property, which should be assigned with a specific value returned by this method, is equal.
+
+e\) This spec calls the method with several different arguments and tests if the expected value will be returned.
+
+f\) Testing a method which returns a random value is nearly useless but one can test if the minimum and maximum will not be exceeded.
+
+g\) Test if a function/method has been called. In this case a spy will be set on a component and the method to be tested \(`h spyOn(component, 'calculateWinner');`  the parameters are: component, nameOfTheMethod. The component has to be assigned upfront e.g. `let component: GameComponent;`
+
+h\) Another test with expectation to a set property after a method has been called.
+
 ```
 describe('/ 1. Game - methods general', () => {
 
@@ -158,6 +194,76 @@ describe('/ 1. Game - methods general', () => {
     fixture.detectChanges();
     const app = fixture.debugElement.componentInstance;
     expect(app.countdown).not.toBe(undefined);
+  });
+  
+  // c) 
+  it('"newGame()" should reset all properties', () => {
+    const playersScore      = 0;
+    const computersScore    = 0;
+    const winnerDisplayText = 'Neues Spiel, neues Glück!';
+    const playersChoice     = null;
+    const computersChoice   = null;
+    const playerText        = 'Spiel deine Hand!';
+    const computerText      = 'Computer wartet auf dich...';
+    this.restartIsActive    = false;
+    this.buttonsDisabled    = false;
+    fixture.detectChanges();
+    const app = fixture.debugElement.componentInstance;
+    app.newGame();
+    console.log('app.computerText: ', app.computerText);
+    expect(app.playersScore === playersScore).toBe(true);
+    expect(app.computersScore === computersScore).toBe(true);
+    expect(app.winnerDisplayText === winnerDisplayText).toBe(true);
+    expect(app.playersChoice).toBe(null);
+    expect(app.computersChoice).toBe(null);
+    expect(app.playerText === playerText).toBe(true);
+    expect(app.computerText === computerText).toBe(true);
+  });
+  
+  // d)
+  it('"setPlayersChoice(scissors)" should set property "restartIsActive" to true', () => {
+    const app = fixture.debugElement.componentInstance;
+    app.setPlayersChoice('scissors');
+    expect(app.restartIsActive).toBe(true);
+  });
+  
+  // e)
+  it('"lookup()" should return 5 for 4 or 9 for 5', () => {
+    fixture.detectChanges();
+    const app = fixture.debugElement.componentInstance;
+    expect(app.lookup(1)).toBe(1);
+    expect(app.lookup(2)).toBe(2);
+    expect(app.lookup(3)).toBe(3);
+    expect(app.lookup(4)).toBe(5);
+    expect(app.lookup(5)).toBe(9);
+    expect(app.lookup(42)).toBe(undefined);
+  });
+  
+  // f) 
+  it('"setComputersChoice()" it\'s variable should get a random number', () => {
+    const app = fixture.debugElement.componentInstance;
+    app.setComputersChoice();
+    fixture.detectChanges();
+    expect(app.computersChoice).toBeGreaterThan(0);
+    expect(app.computersChoice).toBeLessThan(10);
+  });
+  
+  // g)
+  it('"setComputersChoice()" should have called setComputersChoiceText()', () => {
+    const app = fixture.debugElement.componentInstance;
+    const spy = spyOn(component, 'setComputersChoiceText');
+    app.setComputersChoice();
+    fixture.detectChanges();
+    expect(spy).toHaveBeenCalled();
+  });
+  
+  // h)
+  it('"setComputersChoice()" should have set property buttonsDisabled to false', () => {
+    const app = fixture.debugElement.componentInstance;
+    const buttonsDisabled = app.buttonsDisabled;
+    app.setComputersChoice();
+    fixture.detectChanges();
+    expect(buttonsDisabled).toBe(false);
   });
 
 });
