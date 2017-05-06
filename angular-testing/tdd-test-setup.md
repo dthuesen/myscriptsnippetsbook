@@ -110,17 +110,57 @@ describe('/ The ListComponent view', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('button#new-game').textContent).toContain('Reset');
   });
-  
+
 });
 ```
 
 #### 4. Testing the components properties
 
+a\) Test for `property` and its declared value
 
+b\) Doubled test for a `property`  -  one for truthiness is present \(I don't think this test is perfect\) and one for **not to be** `undefined` \(has more value for the result\)
 
+    describe('/ ListComponent - properties', () => {
 
+      // a)
+      it(`should have a property "title": 'The list of games'`, () => {
+        const app = fixture.debugElement.componentInstance;
+        expect(app.title).toEqual('The list of games');
+      });
 
+      // b)
+      it('should have a property "playersScore"', () => {
+        const app = fixture.debugElement.componentInstance;
+        expect(app.playersScore).toBeTruthy;
+        expect(app.playersScore).not.toBe(undefined);
+      });
 
+    });
+
+#### 5. Testing the components methods
+
+a\) The basic test for a method is like testing a property's presence
+
+b\) As well a basic test but with manual starting the Change Detection of Angular
+
+```
+describe('/ 1. Game - methods general', () => {
+
+  // a)
+  it('should have a method "newGame()"', () => {
+    const app = fixture.debugElement.componentInstance;
+    expect(app.newGame).not.toBe(undefined);
+  });
+
+  // b)
+  it('should have a method "countdown()"', () => {
+    fixture.detectChanges();
+    const app = fixture.debugElement.componentInstance;
+    expect(app.countdown).not.toBe(undefined);
+  });
+
+});
+```
 
 
 
