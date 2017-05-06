@@ -4,6 +4,7 @@
 * [2. Basic structure](#2-basic-structure)
 * [3. Testing the view](#3-testing-the-view)
 * [4. Testing the components properties](#4-testing-the-components-properties)
+* [5. Testing the components methods](#5-testing-the-components-methods)
 
 #### 1. Import all related Modules, Components, Services, etc upfront
 
@@ -161,10 +162,6 @@ describe('/ 1. Game - methods general', () => {
 
 });
 ```
-
-
-
-
 
 
 
