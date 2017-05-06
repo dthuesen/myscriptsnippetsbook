@@ -12,7 +12,7 @@
 
 ## Angular-Testing
 
-* [TDD - Test setup](angular-testing/tdd-test-setup.md)
+* [TDD - Test setup & examples](angular-testing/tdd-test-setup.md)
 
 ## JavaScript
 

@@ -1,4 +1,4 @@
-# Angular Testing - TDD test setup
+# Angular Testing - TDD test setup and examples
 
 * [1. Import all related Modules, Components, Services, etc upfront](#1-import-all-related-modules-components-services-etc-upfront)
 * [2. Basic structure](#2-basic-structure)
