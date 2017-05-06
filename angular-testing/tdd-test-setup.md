@@ -171,7 +171,7 @@ b\) As well a basic test but with manual starting the Change Detection of Angula
 
 c\) Testing a method with several linked properties. In this case the method sets these properties to an initial value. To test it, these properties are declared as local variables of the specific test spec. Then the method 'newGame\(\)' is called and the spec compares the values.
 
-d\) This spec calls the method with an argument and tests if the property, which should be assigned with a specific value returned by this method, is equal.
+d\) This spec calls the method with an `argument` and tests if the `property`, which should be assigned with a specific `value` returned by this method, is equal.
 
 e\) This spec calls the method with several different arguments and tests if the expected value will be returned.
 
@@ -272,9 +272,7 @@ describe('/ 1. Game - methods general', () => {
 
 #### 6. How to get elements, properties, etc...
 
-```
-a) Getting the compilation of the native elements (the tags of the view):
-```
+a\) Getting the compilation of the native elements \(the tags of the view\):
 
 ```
 const compiled = fixture.debugElement.nativeElement;
@@ -286,31 +284,31 @@ b\) Getting an element by css selector - tag:
 const compiled = fixture.debugElement.query(By.css('input'));
 ```
 
-c\) b\) Getting an element by css selector - id:
+c\) Getting an element by css selector - id:
 
 ```
 const compiled = fixture.debugElement.query(By.css('#abort'));
 ```
 
-b\) Getting an instance of the app:
+d\) Getting an instance of the app:
 
 ```
 const app = fixture.debugElement.componentInstance;
 ```
 
-c\) Getting the component:
+e\) Getting the component:
 
 ```
 let component: GameComponent;
 ```
 
-d\) Getting the fixture:
+f\) Getting the fixture:
 
 ```
 let fixture: ComponentFixture<GameComponent>;
 ```
 
-e\) triggering the change detection of Angular:
+g\) triggering the change detection of Angular:
 
 ```
 fixture.detectChanges();
@@ -322,16 +320,22 @@ f\) Installing jasmine clock \(e.g. in `beforeEach` method\):
 jasmine.clock().install();
 ```
 
-g\) Uninstalling the jasmine clock \(e.g. in `afterEach` method\)
+h\) Uninstalling the jasmine clock \(e.g. in `afterEach` method\)
 
 ```
 jasmine.clock().uninstall();
 ```
 
-h\) Setting the jasmine clock \(e.g. in the specific spec before a function call\)
+i\) Setting the jasmine clock \(e.g. in the specific spec before a function call\)
 
 ```
 jasmine.clock().tick(795);
+```
+
+j\) getting a specific attribute of a tested dom element \(e.g. the name attribute `<input name="name">`\)
+
+```
+expect(compiled.attributes['name']).toBe('name');
 ```
 
 
