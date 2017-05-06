@@ -19,20 +19,24 @@ import { FormsModule } from '@angular/forms';
 
 import { ComputerComponent } from '../computer/computer.component';
 import { GameComponent } from './game.component';
+import { HighscoresService } from '../highscores.service';
 import { MdCard } from '@angular/material';
 
 describe('Rock, Paper, Stone Game - GameComponent (container component)', () => {
 
   beforeEach( () => {                                // Setups for all suites and specs
     TestBed.configureTestingModule({                 // Configuartion of testbed...
-      declarations: [                                // ...with all declarations...
+      declarations: [                                // ... with all declarations...
         ComputerComponent,
         GameComponent,
         MdCard
       ],
-      imports: [                                     // ...and related modules
+      imports: [                                     // ... related modules...
         FormsModule,
         BrowserAnimationsModule,
+      ],
+      providers: [
+        HighscoresService                            // ... and services
       ]
     })
     .compileComponents();
@@ -91,13 +95,13 @@ describe('/ The ListComponent view', () => {
     const compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('h1').textContent).toContain('This is the hadline');
   });
-  
+
   // b)
   it('should be able to render PlayerComponent tag (<app-player>)', () => {
     const compiled = fixture.debugElement.query(By.css('app-player'));
     expect(compiled).not.toBe(null);
   });
-  
+
   // c)
   it('should render button "Neustart"', () => {
     const compiled = fixture.debugElement.nativeElement;
@@ -106,7 +110,6 @@ describe('/ The ListComponent view', () => {
     fixture.detectChanges();
     expect(compiled.querySelector('button#new-game').textContent).toContain('Neustart');
   });
-
 ```
 
 
