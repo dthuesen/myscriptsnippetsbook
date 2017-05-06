@@ -3,6 +3,7 @@
 * [1. Import all related Modules, Components, Services, etc upfront](#1-import-all-related-modules-components-services-etc-upfront)
 * [2. Basic structure](#2-basic-structure)
 * [3. Testing the view](#3-testing-the-view)
+* [4. Testing the components properties](#4-testing-the-components-properties)
 
 #### 1. Import all related Modules, Components, Services, etc upfront
 
@@ -87,6 +88,8 @@ a\) Testing a specific `tag` an its `textContent`
 
 b\) Testing if a specific `tag` is present
 
+c\) Testing if a `button` queried by `tag` and `id` is labeled with 'Reset'
+
 ```
 describe('/ The ListComponent view', () => {
 
@@ -105,12 +108,23 @@ describe('/ The ListComponent view', () => {
   // c)
   it('should render button "Neustart"', () => {
     const compiled = fixture.debugElement.nativeElement;
-    const app = fixture.debugElement.componentInstance;
-    app.restartIsActive = true;
-    fixture.detectChanges();
-    expect(compiled.querySelector('button#new-game').textContent).toContain('Neustart');
+    expect(compiled.querySelector('button#new-game').textContent).toContain('Reset');
   });
+  
+});
 ```
+
+#### 4. Testing the components properties
+
+
+
+
+
+
+
+
+
+
 
 
 
