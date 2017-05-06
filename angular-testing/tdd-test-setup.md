@@ -79,15 +79,35 @@ describe('Rock, Paper, Stone Game - GameComponent (container component)', () => 
 
 #### 3. Testing the view
 
+a\) Testing a specific `tag` an its `textContent`
 
+b\) Testing if a specific `tag` is present
 
+```
+describe('/ The ListComponent view', () => {
 
+  // a)  
+  it('should render title in a h1 tag', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1').textContent).toContain('This is the hadline');
+  });
+  
+  // b)
+  it('should be able to render PlayerComponent tag (<app-player>)', () => {
+    const compiled = fixture.debugElement.query(By.css('app-player'));
+    expect(compiled).not.toBe(null);
+  });
+  
+  // c)
+  it('should render button "Neustart"', () => {
+    const compiled = fixture.debugElement.nativeElement;
+    const app = fixture.debugElement.componentInstance;
+    app.restartIsActive = true;
+    fixture.detectChanges();
+    expect(compiled.querySelector('button#new-game').textContent).toContain('Neustart');
+  });
 
-
-
-
-
-
+```
 
 
 
