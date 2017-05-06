@@ -10,6 +10,10 @@
 * [Angular - Service](angular-service.md)
 * [Angular - Simple Router Example](/angular-simple-router-example.md)
 
+## Angular-Testing
+
+* [TDD - Test setup](angular-testing/tdd-test-setup.md)
+
 ## JavaScript
 
 * [JS - Array](js-array.md)
