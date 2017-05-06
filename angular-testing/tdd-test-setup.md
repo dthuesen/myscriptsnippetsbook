@@ -1,10 +1,14 @@
 # Angular Testing - TDD test setup
 
-#### Import all related Modules, Components, Services, etc upfront 
+* [1. Import all related Modules, Components, Services, etc upfront](#1-import-all-related-modules-components-services-etc-upfront)
+* [2. Basic structure](#2-basic-structure)
+* [3. Testing the view](#3-testing-the-view)
 
-First, it is good to keep in mind, that every component, module, service or directive, that is dedicated to the component which is under test, has to be imported. That means, that if e.g. the view should be tested and Angualr Material components are included, they have to be imported to the test suite, like the component under test itself. 
+#### 1. Import all related Modules, Components, Services, etc upfront
 
-#### Basic structure
+First, it is good to keep in mind, that every component, module, service or directive, that is dedicated to the component which is under test, has to be imported. That means, that if e.g. the view should be tested and Angualr Material components are included, they have to be imported to the test suite, like the component under test itself.
+
+#### 2. Basic structure
 
 ```
 import { async, fakeAsync, tick, ComponentFixture, TestBed } from '@angular/core/testing';
@@ -43,11 +47,11 @@ describe('Rock, Paper, Stone Game - GameComponent (container component)', () => 
       component = fixture.componentInstance;
       fixture.detectChanges();
     });
-    
+
     it('should create', () => {                             // The initial test spec 
       expect(component).toBeTruthy();
     });
-    
+
     describe('/ Gamelogic timing tests - properties', () => {    // A further nested test suite...
       let app;
 
@@ -55,23 +59,31 @@ describe('Rock, Paper, Stone Game - GameComponent (container component)', () => 
         app = fixture.debugElement.componentInstance;   
         jasmine.clock().install();                               // Install clock instead of timeout
       });
-      
+
       afterEach( () => {                                         // Reset to basics
         jasmine.clock().uninstall();                             // Uninstall clock to clear the thimer
       });
-      
+
       it('Before 0.8s the property "computerText" should be empty',  () => {
         app.countdown();
         jasmine.clock().tick(795);
         expect(app.computerText).toEqual('' || 'Computer is waiting...');
       }); 
-        
+
     });
-    
+
   });
-    
+
 });
 ```
+
+#### 3. Testing the view
+
+
+
+
+
+
 
 
 
