@@ -6,6 +6,7 @@
 * [4. Testing the components properties](#4-testing-the-components-properties)
 * [5. Testing the components methods](#5-testing-the-components-methods)
 * [6. How to get elements, properties, etc...](#6-how-to-get-elements-properties-etc)
+* [7. Improve performance for test cycles:](#7-improve-performance-for-test-cycles)
 
 #### 1. Import all related Modules, Components, Services, etc upfront
 
@@ -181,6 +182,8 @@ g\) Test if a function/method has been called. In this case a spy will be set on
 
 h\) Another test with expectation to a set property after a method has been called.
 
+i\) Test whether a `property` is a **function or not **
+
 ```
 describe('/ 1. Game - methods general', () => {
 
@@ -266,6 +269,13 @@ describe('/ 1. Game - methods general', () => {
     fixture.detectChanges();
     expect(buttonsDisabled).toBe(false);
   });
+  
+  // i )
+  it('should have a method emitPlayerData()', () => {
+    fixture.detectChanges();
+    const app = fixture.debugElement.componentInstance;
+    expect(typeof component.emitPlayerData === 'function').toBe(true);
+  });
 
 });
 ```
@@ -337,6 +347,27 @@ j\) getting a specific attribute of a tested dom element \(e.g. the name attribu
 ```
 expect(compiled.attributes['name']).toBe('name');
 ```
+
+#### 7. Improve performance for test cycles:
+
+The standard call for the test is `ng test` but this leads to a slow pace of the test cycles. turning off the source maps makes it fast as a flash For turning off the source maps call `ng test --sourcemaps=false` 
+
+Another way to speed-up the testing is to set a focus to only one spec or suite with using `fdescribe()` or `fit()`. Or with turning off several suites with xdescribe\(\).
+
+The speed issue is under observation and there are already some fixes. Maybe a new version of the cli will get big improvements. For following the issue ticket on github see "[Test development cycle is slow unless sourcemaps are turned off\#5423](https://github.com/angular/angular-cli/issues/5423)".
+
+#### 8. Code coverage
+
+It's always good practice to have an eye on the unit test code coverage. A good cover is nearly or exactly 100 percent. 
+
+To find out what coverage the current project actually has just type either
+
+* `ng test --code-coverage=true` 
+* or the shorter version: `ng test -cc=true`
+
+
+
+
 
 
 
