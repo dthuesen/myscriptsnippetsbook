@@ -269,7 +269,7 @@ describe('/ 1. Game - methods general', () => {
     fixture.detectChanges();
     expect(buttonsDisabled).toBe(false);
   });
-  
+
   // i )
   it('should have a method emitPlayerData()', () => {
     fixture.detectChanges();
@@ -350,7 +350,7 @@ expect(compiled.attributes['name']).toBe('name');
 
 #### 7. Improve performance for test cycles:
 
-The standard call for the test is `ng test` but this leads to a slow pace of the test cycles. turning off the source maps makes it fast as a flash For turning off the source maps call `ng test --sourcemaps=false` 
+The standard call for the test is `ng test` but this leads to a slow pace of the test cycles. turning off the source maps makes it fast as a flash For turning off the source maps call `ng test --sourcemaps=false`
 
 Another way to speed-up the testing is to set a focus to only one spec or suite with using `fdescribe()` or `fit()`. Or with turning off several suites with xdescribe\(\).
 
@@ -358,16 +358,12 @@ The speed issue is under observation and there are already some fixes. Maybe a n
 
 #### 8. Code coverage
 
-It's always good practice to have an eye on the unit test code coverage. A good cover is nearly or exactly 100 percent. 
+It's always good practice to have an eye on the unit test code coverage. A good cover is nearly or exactly 100 percent.
 
 To find out what coverage the current project actually has just type either
 
 * `ng test --code-coverage=true` 
 * or the shorter version: `ng test -cc=true`
-
-
-
-
 
 
 
