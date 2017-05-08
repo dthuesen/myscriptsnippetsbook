@@ -4,6 +4,7 @@
 * [create\(\)](#create)
 * [keys\(\)](#keys)
 * [hasOwnProperty\(\)](#hasownproperty)
+* [Loop over an object](#loop-over-an-object)
 * #### assign\(\)
 
 **Syntax:** `Object.assign(target, ...sources)`
