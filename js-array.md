@@ -111,9 +111,9 @@ Syntax:
 var new_array = arr.map(callback[, thisArg])
 
 callback             ->Function that produces an element of the new Array, taking three arguments:
-      currentValue   -> The current element being processed in the array.
-      index          -> The index of the current element being processed in the array.
-      array          -> The array map was called upon.
+      currentValue     -> The current element being processed in the array.
+      index            -> The index of the current element being processed in the array.
+      array            -> The array map was called upon.
 thisArg              -> Optional. Value to use as this when executing callback.
 ```
 
@@ -213,6 +213,19 @@ let [nameOne, nameTwo, nameThree, nameFour, nameFive, nameSix, nameSeven] = star
 console.log(nameSeven);
 
 // undefined
+```
+
+Immediately destructuring is a more shorter form of the example above:
+
+```
+let [a, b] = ["James Bond", "Dr. No", "Mrs Moneypenny"];
+
+console.log(a);
+console.log(b);
+
+// prints ou:
+"James Bond"
+"Dr. No"
 ```
 
 #### Destructuring with the rest parameter
