@@ -11,6 +11,10 @@
 * [.reduce\(\) ](#reduce-)
 * [Loop over an Array](#loop-over-an-array)
 * [for in loop - iterate over Array index](#for-in-loop---iterate-over-array-index)
+* [Destructuring](#destructuring)
+* [Destructuring with the rest parameter](#destructuring-with-the-rest-parameter)
+* [Destructuring with default parameter](#destructuring-with-default-parameter)
+* [Destructuring for swapping variables](#destructuring-for-swapping-variables)
 
 #### .**length**
 
@@ -86,7 +90,7 @@ a.pop();
 console.log(a); // [1, 2]
 ```
 
-#### **.map\(\)**  
+#### **.map\(\)**
 
 \(creates a new array with the results - more information:  [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Array/map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map "Array on MDN")\)
 
@@ -168,7 +172,7 @@ But be aware of the `for in loop` which has more value for object iterations:
 #### **for in loop - iterate over Array index**
 
 ```
-let stars = ["James Bond", "Mrs. Moneypenny", "Q", "M", "Octopussy", "Dr. No"]
+let stars = ["James Bond", "Mrs. Moneypenny", "Q", "M", "Octopussy", "Dr. No"];
 
 for (let star in stars) {
   console.log("I'm famous, my name is " + star);
@@ -182,6 +186,91 @@ for (let star in stars) {
 "I'm famous, my name is 3"
 "I'm famous, my name is 4"
 "I'm famous, my name is 5"
+```
+
+#### Destructuring
+
+```
+let stars = ["James Bond", "Mrs. Moneypenny", "Q", "M", "Octopussy", "Dr. No"];
+
+// assigning three of the values to three variables
+let [nameOne, nameTwo, nameThree] = stars;
+
+// printing out the variables...
+console.log('nameOne: ...... ' + nameOne);
+console.log('nameTwo: ...... ' + nameTwo);
+console.log('nameThree: .... ' + nameThree);
+
+// results like this (this does not touch the original array):
+"nameOne: ...... James Bond"
+"nameTwo: ...... Mrs. Moneypenny"
+"nameThree: .... Q"
+
+// when assigning more variables than the array contains will return undefined:
+
+let [nameOne, nameTwo, nameThree, nameFour, nameFive, nameSix, nameSeven] = stars;
+
+console.log(nameSeven);
+
+// undefined
+```
+
+#### Destructuring with the rest parameter
+
+```
+let stars = ["James Bond", "Mrs. Moneypenny", "Q", "M", "Octopussy", "Dr. No"];
+
+let [name1, ...name2] = stars;
+
+console.log('name1:');
+console.log(name1);
+console.log('name2:');
+console.log(name2);
+
+// prints out:
+"name1:"
+"James Bond"
+"name2:"
+["Mrs. Moneypenny", "Q", "M", "Octopussy", "Dr. No"]
+```
+
+#### Destructuring with default parameter
+
+```
+let array = [1, 2, "three", "x", 5];
+
+let [a = 'default', b, c, d, e, f = 'default'] = array;
+
+console.log(a);
+console.log(b);
+console.log(c);
+console.log(d);
+console.log(e);
+console.log(f);
+
+// prints out:
+1            // if a value exists it will overwrite the default value
+2
+"three"
+"x"
+5
+"default"    // this value didn't exist
+```
+
+#### Destructuring for swapping variables
+
+```
+let a = 15;
+let b = "fifteen";
+
+[a, b] = [b, a]           // here an array is actually destructured :-)
+
+console.log("a: " + a);
+console.log("b: " + b);
+
+// prints out:
+"a: fifteen"
+"b: 15"
 ```
 
 
