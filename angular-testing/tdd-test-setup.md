@@ -288,6 +288,20 @@ a\) Getting the compilation of the native elements \(the tags of the view\):
 const compiled = fixture.debugElement.nativeElement;
 ```
 
+... and puts them directly into the compiled variable - completing the line above like this:
+
+```
+const compiled = fixture.debugElement.nativeElement.querySelector('#buttons');
+```
+
+... or then extends the code with on extra line to query a tag:
+
+```
+buttonsDiv = compiled.querySelector('#buttons');
+```
+
+
+
 b\) Getting an element by css selector - tag:
 
 ```
