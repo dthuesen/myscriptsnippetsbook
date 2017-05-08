@@ -1,6 +1,18 @@
 # JavaScript Array
 
-.**legth**
+* [.length](#length)
+* [.concat\(\)](#concat)
+* [.filter\(\)  ](#filter--)
+* [.forEach\(\)](#foreach)
+* [.includes\(\)](#includes)
+* [.join\(\)](#join)
+* [.pop\(\)](#pop)
+* [.map\(\)  ](#map--)
+* [.reduce\(\) ](#reduce-)
+* [Loop over an Array](#loop-over-an-array)
+* [for in loop - iterate over Array index](#for-in-loop---iterate-over-array-index)
+
+#### .**length**
 
 ```
 let numbers = [1, 2, 3, 4, 5];
@@ -10,7 +22,7 @@ numbers                                   // [1, 2, 3]
 numbers.length                            // 3
 ```
 
-**.concat\(\)**
+#### **.concat\(\)**
 
 ```
 var arr1 = ['a', 'b', 'c'];
@@ -21,7 +33,9 @@ var arr3 = arr1.concat(arr2);
 // arr3 is a new array [ "a", "b", "c", "d", "e", "f" ]
 ```
 
-.**filter\(\)  - **creates a new array
+#### .**filter\(\)  **
+
+\(creates a new array\)
 
 ```
 var words = ["spray", "limit", "elite", "exuberant", "destruction", "present"];
@@ -33,7 +47,7 @@ var longWords = words.filter(function(word){
 // Filtered array longWords is ["exuberant", "destruction", "present"]
 ```
 
-**.forEach\(\)**
+#### **.forEach\(\)**
 
 ```
 var a = ['a', 'b', 'c'];
@@ -47,7 +61,7 @@ a.forEach(function(element) {
 // c
 ```
 
-**.includes\(\)**
+#### **.includes\(\)**
 
 ```
 var a = [1, 2, 3];
@@ -55,7 +69,7 @@ a.includes(2); // true
 a.includes(4); // false
 ```
 
-**.join\(\)**
+#### **.join\(\)**
 
 ```
 var a = ['Wind', 'Rain', 'Fire'];
@@ -63,7 +77,7 @@ a.join();    // 'Wind,Rain,Fire'
 a.join('-'); // 'Wind-Rain-Fire'
 ```
 
-**.pop\(\)**
+#### **.pop\(\)**
 
 ```
 var a = [1, 2, 3];
@@ -72,7 +86,9 @@ a.pop();
 console.log(a); // [1, 2]
 ```
 
-**.map\(\)**  - creates a new array with the results  [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Array/map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map "Array on MDN")
+#### **.map\(\)**  
+
+\(creates a new array with the results - more information:  [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Array/map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map "Array on MDN")\)
 
 ```
 var numbers = [1, 5, 10, 15];
@@ -97,7 +113,9 @@ callback             ->Function that produces an element of the new Array, takin
 thisArg              -> Optional. Value to use as this when executing callback.
 ```
 
-**.reduce\(\)  **[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Array/Reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
+#### **.reduce\(\) **
+
+\(more information:** **[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Array/Reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)\)
 
 ```
 var sum = [0, 1, 2, 3].reduce(function(acc, val) {
@@ -147,7 +165,7 @@ for (let star of stars) {
 
 But be aware of the `for in loop` which has more value for object iterations:
 
-**for in loop - iterate over Array index**
+#### **for in loop - iterate over Array index**
 
 ```
 let stars = ["James Bond", "Mrs. Moneypenny", "Q", "M", "Octopussy", "Dr. No"]
