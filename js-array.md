@@ -273,5 +273,20 @@ console.log("b: " + b);
 "b: 15"
 ```
 
+#### Destructuring with leaving out some values
+
+```
+let array = [1, 2, "three", "x", 5];
+
+let [a, , c] = array;
+
+console.log("a: " + a);
+console.log("c: " + c);
+
+// prints out:
+"a: 1"
+"c: three"
+```
+
 
 
