@@ -273,7 +273,7 @@ console.log("b: " + b);
 "b: 15"
 ```
 
-#### Destructuring with leaving out some values
+#### Destructuring with leaving out one or some values
 
 ```
 let array = [1, 2, "three", "x", 5];
