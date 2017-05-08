@@ -300,8 +300,6 @@ const compiled = fixture.debugElement.nativeElement.querySelector('#buttons');
 buttonsDiv = compiled.querySelector('#buttons');
 ```
 
-
-
 b\) Getting an element by css selector - tag:
 
 ```
