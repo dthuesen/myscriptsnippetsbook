@@ -204,5 +204,54 @@ foo.hasOwnProperty('bar'); // always returns false
 Object.prototype.hasOwnProperty.call(foo, 'bar'); // true
 ```
 
+#### Loop over an object
+
+**for in loop - iteration over props** \(or keys\)
+
+```
+let obj = {
+  name: 'James',
+  lastname: 'Bond',
+  age: 108,
+  city: 'London',
+  street: 'bondstreet'
+}
+
+for (let key in obj) {
+  console.log(obj);
+}
+
+// prints out:
+"name"
+"lastname"
+"age"
+"city"
+"street"
+```
+
+**for in loop - iteration over values**
+
+```
+let obj = {
+  name: 'James',
+  lastname: 'Bond',
+  age: 108,
+  city: 'London',
+  street: 'bondstreet'
+}
+
+for (let key in obj) {
+  console.log(obj[key]);
+}
+
+// prints out:
+
+"James"
+"Bond"
+108
+"London"
+"bondstreet"
+```
+
 
 

@@ -124,5 +124,47 @@ Side Note Explanation of recursion:
 4.flatten[0,[1]] --> [] + 0 --> [0] + flatten[1] --> [0] + ([]+1) --> [0] + ([1]) --> [0,1]
 ```
 
+#### Loop over an Array
+
+**for of loop - iterate over Array values**
+
+```
+let stars = ["James Bond", "Mrs. Moneypenny", "Q", "M", "Octopussy", "Dr. No"]
+
+for (let star of stars) {
+  console.log("I'm famous, my name is " + star);
+}
+
+// prints out:
+
+"I'm famous, my name is James Bond"
+"I'm famous, my name is Mrs. Moneypenny"
+"I'm famous, my name is Q"
+"I'm famous, my name is M"
+"I'm famous, my name is Octopussy"
+"I'm famous, my name is Dr. No"
+```
+
+But be aware of the `for in loop` which has more value for object iterations:
+
+**for in loop - iterate over Array index**
+
+```
+let stars = ["James Bond", "Mrs. Moneypenny", "Q", "M", "Octopussy", "Dr. No"]
+
+for (let star in stars) {
+  console.log("I'm famous, my name is " + star);
+}
+
+// prints out:
+
+"I'm famous, my name is 0"
+"I'm famous, my name is 1"
+"I'm famous, my name is 2"
+"I'm famous, my name is 3"
+"I'm famous, my name is 4"
+"I'm famous, my name is 5"
+```
+
 
 
