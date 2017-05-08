@@ -360,7 +360,7 @@ j\) getting a specific attribute of a tested dom element \(e.g. the name attribu
 expect(compiled.attributes['name']).toBe('name');
 ```
 
-#### 7. Improve performance for test cycles:
+#### 7. Improving performance for test cycles:
 
 The standard call for the test is `ng test` but this leads to a slow pace of the test cycles. turning off the source maps makes it fast as a flash For turning off the source maps call `ng test --sourcemaps=false`
 
