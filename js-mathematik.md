@@ -7,8 +7,7 @@
 * [Math.ceil\(\)](#mathceil)
 * [Math.trunc\(\)](#mathtrunc)
 * [Math.abs\(\)](#mathabs)
-* 
-#### Zahlen potenzieren
+* #### Zahlen potenzieren
 
 2 \*\* 2   // 4
 
@@ -67,6 +66,8 @@ Math.floor(Math.random() * (8 - 2 +1)) + 2;
 
 #### `Math.ceil()`
 
+\(Immer aufrunden\)
+
 ```
 Math.ceil(.95);    // 1
 Math.ceil(4);      // 4
@@ -77,6 +78,8 @@ Math.ceil(-7.004); // -7
 ```
 
 #### `Math.trunc()`
+
+\(Nachkommastellen unter den wegfallen lassen\)
 
 ```
 Math.trunc(13.37);    // 13
@@ -144,7 +147,7 @@ Gleiches gilt für Math.min\(\).
 
 Angenommen ein Zahlenliste wird als Array zurück gegeben und man möchte mit dem **Maximal-** und dem **Minimalwert** **Limitierung** für das Auffinden einer **Zufallszahl** festlegen. Dann sähe das so aus:
 
-Zur Erinnerung, die Syntax dafür ist folgende `Math.random() * (max - min) + min`:  
+Zur Erinnerung, die Syntax dafür ist folgende `Math.random() * (max - min) + min`:
 
 ```
 let array = [9, 55, 36, 3, 89, 107, 88, 15, 12, 43, 201, 8, 19]
@@ -164,7 +167,6 @@ console.log( Math.floor(Math.random() * (Math.max(...array) - Math.min(...array)
 
 ```
 console.log( Math.floor(Math.random() * ((Math.max(...array) +1) - Math.min(...array)) + Math.min(...array)) );
-
 ```
 
 
