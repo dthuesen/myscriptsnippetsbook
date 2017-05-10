@@ -5,6 +5,7 @@
 * [keys\(\)](#keys)
 * [hasOwnProperty\(\)](#hasownproperty)
 * [Loop over an object](#loop-over-an-object)
+* [.is\(\)](#is)
 * #### assign\(\)
 
 **Syntax:** `Object.assign(target, ...sources)`
@@ -254,5 +255,47 @@ for (let key in obj) {
 "bondstreet"
 ```
 
+#### .is\(\)
 
+Comparing two objects, like == and === but better.
+
+Syntax: Object.is\(objectA, objectB\)
+
+Some Examples:
+
+    console.log(`
+        ${0 === 0}                    // true
+        ${0 === "A"}                  // false
+        ${0 === undefined}            // false
+        ${0 === null}                 // false
+        ${0 === true}                 // false
+        ${0 === false}                // false
+        ${0 === NaN}                  // false
+        ${0 === ''}                   // false
+        ${"A" === NaN}                // false
+        ${undefined === ''}           // false
+        ${NaN === NaN}                // false
+        ${undefined === null}         // false
+        ${null === ''}                // false
+        ${''=== ''}                   // true
+        ${null === undefined}         // false
+
+        ${Object.is(0, 0)}            // true
+        ${Object.is(0, "A")}          // false
+        ${Object.is(0, undefined)}    // false
+        ${Object.is(0, null)}         // false
+        ${Object.is(0, true)}         // false
+        ${Object.is(0, false)}        // false
+        ${Object.is(0, NaN)}          // false
+        ${Object.is(0, '')}           // false
+        ${Object.is("A", NaN)}        // false
+        ${Object.is(undefined, '')}   // false
+        ${Object.is(NaN, NaN)}        // true    <---
+        ${Object.is(undefined, null)} // false
+        ${Object.is(null, '')}        // false
+        ${Object.is('', '')}          // true
+        ${Object.is(null, undefined)} // false
+    `);
+
+More about that topic and why better to use Obejct.is\(\) here: [Equality comparisons and sameness](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
 
