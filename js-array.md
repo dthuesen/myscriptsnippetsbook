@@ -9,6 +9,8 @@
 * [.pop\(\)](#pop)
 * [.map\(\)  ](#map--)
 * [.reduce\(\) ](#reduce-)
+* [.some\(\)](#some)
+* [.find\(\)](#find)
 * [Loop over an Array](#loop-over-an-array)
 * [for in loop - iterate over Array index](#for-in-loop---iterate-over-array-index)
 * [Destructuring](#destructuring)
@@ -144,6 +146,127 @@ Side Note Explanation of recursion:
 2.flatten[0] --> [] + 0 --> [0]
 3.flatten[0,1] --> [] + 0 --> [0] + 1 --> [0,1]
 4.flatten[0,[1]] --> [] + 0 --> [0] + flatten[1] --> [0] + ([]+1) --> [0] + ([1]) --> [0,1]
+```
+
+#### .some\(\)
+
+Evaluates whether some element passes a test provided by a callback function.
+
+**Syntax:** `arr.some(callback[, thisArg])`
+
+```
+function isBiggerThan10(element, index, array) {
+  return element > 10;
+}
+
+[2, 5, 8, 1, 4].some(isBiggerThan10);  // false
+[12, 5, 8, 1, 4].some(isBiggerThan10); // true
+
+
+or with arrow functions:
+
+[2, 5, 8, 1, 4].some(x => x > 10);  // false
+[12, 5, 8, 1, 4].some(x => x > 10); // true
+```
+
+**Checking whether a value exists in an array**
+
+```
+var fruits = ['apple', 'banana', 'mango', 'guava'];
+
+function checkAvailability(arr, val) {
+  return arr.some(function(arrVal) {
+    return val === arrVal;
+  });
+}
+
+checkAvailability(fruits, 'kela');   // false
+checkAvailability(fruits, 'banana'); // true
+
+
+... or with arrow functions:
+
+var fruits = ['apple', 'banana', 'mango', 'guava'];
+
+function checkAvailability(arr, val) {
+  return arr.some(arrVal => val === arrVal);
+}
+
+checkAvailability(fruits, 'kela');   // false
+checkAvailability(fruits, 'banana'); // true
+```
+
+**Converting any value to Boolean**
+
+```
+var TRUTHY_VALUES = [true, 'true', 1];
+
+function getBoolean(a) {
+  'use strict';
+  
+  var value = a;
+   
+  if (typeof value === 'string') { 
+    value = value.toLowerCase().trim();
+  }
+
+  return TRUTHY_VALUES.some(function(t) {
+    return t === value;
+  });
+}
+
+getBoolean(false);   // false
+getBoolean('false'); // false
+getBoolean(1);       // true
+getBoolean('true');  // true
+```
+
+#### .find\(\)
+
+Returns the value of the first element inan array that fits the testing function.
+
+**Syntax:** `arr.find(callback[, thisArg])`
+
+```
+function isBigEnough(element) {
+  return element >= 15;
+}
+
+[12, 5, 8, 130, 44].find(isBigEnough); // 130
+```
+
+**Find an object in an array by one of its properties:**
+
+```
+var inventory = [
+    {name: 'apples', quantity: 2},
+    {name: 'bananas', quantity: 0},
+    {name: 'cherries', quantity: 5}
+];
+
+function findCherries(fruit) { 
+    return fruit.name === 'cherries';
+}
+
+console.log(inventory.find(findCherries)); 
+// { name: 'cherries', quantity: 5 }
+```
+
+**Find a prime number in an array:**
+
+```
+function isPrime(element, index, array) {
+  var start = 2;
+  while (start <= Math.sqrt(element)) {
+    if (element % start++ < 1) {
+      return false;
+    }
+  }
+  return element > 1;
+}
+
+console.log([4, 6, 8, 12].find(isPrime)); // undefined, not found
+console.log([4, 5, 8, 12].find(isPrime)); // 5
 ```
 
 #### Loop over an Array
