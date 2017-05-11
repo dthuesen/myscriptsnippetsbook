@@ -64,6 +64,20 @@ Math.floor(Math.random() * (8 - 2)) + 2;  // 5 - Die Verwendung von Math.random(
 Math.floor(Math.random() * (8 - 2 +1)) + 2;
 ```
 
+**Looking for a random boolean \(true/false or 0/1\)**
+
+```
+let bool = Math.random()<0.5      
+console.log(bool);  
+// returns true or false
+
+// similar to the code above but with 0 or 1:
+
+let boolNumber = new Date&1;
+console.log(boolNumber);
+// returns 0 or 1
+```
+
 #### `Math.ceil()`
 
 \(Immer aufrunden\)
