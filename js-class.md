@@ -3,6 +3,7 @@
 * [Inheritance \(ancestor and descendant constructor functions\)](#inheritance-ancestor-and-descendant-constructor-functions)
 * [Overwrite Methods and call super\(\) for calling the ancestors method](#overwrite-methods-and-call-super-for-calling-the-ancestors-method)
 * [Classes have to be instantiated, but not always](#classes-have-to-be-instantiated-but-not-always)
+* [Export a helper class](#export-a-helper-class)
 
 #### Inheritance \(ancestor and descendant constructor functions\)
 
@@ -119,6 +120,22 @@ Helper.logTwice("Logged!");  // <-- This wouldn't work
 
 ```
 class Helper {
+  static logTwice(message) {   // using the static keyword
+    console.log(message);
+    console.log(message);
+  }
+}
+
+Helper.logTwice("Logged!");  // <-- This works!!!
+^^
+```
+
+#### Export a helper class
+
+The helper class above is of cause able to be exported \(like other modules in ES6\)  and can then be shared with other modules:
+
+```
+export class Helper {
   static logTwice(message) {   // using the static keyword
     console.log(message);
     console.log(message);
