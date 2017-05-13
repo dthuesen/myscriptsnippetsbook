@@ -178,5 +178,7 @@ person.name = prompt('Name: ', '')              // <-- setting the name through 
 console.log(person.name);                       // <-- getting the name through the getter function
 ```
 
-**// output: **    ![](/assets/gettersetter.png)
+**// output:**    
+
+![](/assets/gettersetter.png)
 
