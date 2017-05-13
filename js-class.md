@@ -67,7 +67,7 @@ class Ich extends Person {
 
   greetTwice() {
     console.clear();
-    super.greet();          // calling the greet() method from the ancestor class
+    super.greet();          // calling the greet() method from the ancestor/parent class
     this.greet();           // calling the greet() method from this class
   }
 
