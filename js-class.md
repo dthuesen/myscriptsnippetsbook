@@ -4,6 +4,7 @@
 * [Overwrite Methods and call super\(\) for calling the ancestors method](#overwrite-methods-and-call-super-for-calling-the-ancestors-method)
 * [Classes have to be instantiated, but not always](#classes-have-to-be-instantiated-but-not-always)
 * [Export a helper class](#export-a-helper-class)
+* [Getters and setters](#getters-and-setters)
 
 #### Inheritance \(ancestor and descendant constructor functions\)
 
@@ -154,11 +155,11 @@ class Person {
   constructor(name) {
     this._name = name;
   }
-  
+
   get name() {                                   // <-- the getter function
     return this._name.toUpperCase();
   }
-  
+
   set name(value) {                              // <-- the setter function
     if (value.length > 2) {
       this._name = value;
