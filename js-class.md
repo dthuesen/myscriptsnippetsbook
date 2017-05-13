@@ -146,5 +146,36 @@ Helper.logTwice("Logged!");  // <-- This works!!!
 ^^
 ```
 
+#### Getters and setters
 
+```
+class Person {
+
+  constructor(name) {
+    this._name = name;
+  }
+  
+  get name() {                                   // <-- the getter function
+    return this._name.toUpperCase();
+  }
+  
+  set name(value) {                              // <-- the setter function
+    if (value.length > 2) {
+      this._name = value;
+      console.log("Name taken!");
+    } else if (value.length <= 2) {
+      alert("You're not allowed 'cause the given name is too short!!!");
+    }
+    console.log('done!');
+  }
+}
+
+person = new Person();
+
+person.name = prompt('Name: ', '')              // <-- setting the name through the setter function
+
+console.log(person.name);                       // <-- getting the name through the getter function
+```
+
+**// output: **    ![](/assets/gettersetter.png)
 
