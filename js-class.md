@@ -1,5 +1,9 @@
 #### JavaScript - Class \(ES6\)
 
+* [Inheritance \(ancestor and descendant constructor functions\)](#inheritance-ancestor-and-descendant-constructor-functions)
+* [Overwrite Methods and call super\(\) for calling the ancestors method](#overwrite-methods-and-call-super-for-calling-the-ancestors-method)
+* [Classes have to be instantiated, but not always](#classes-have-to-be-instantiated-but-not-always)
+
 #### Inheritance \(ancestor and descendant constructor functions\)
 
 ```
@@ -76,6 +80,53 @@ class Ich extends Person {
 let ich = new Ich('Detlef', 51)
 
 ich.greetTwice();
+```
+
+#### Classes have to be instantiated, but not always
+
+Normally a class has to be instantiated before a method of a class can be called. But if there is no need for instantiation, it might be better not to do it. With the static keyword there's a way around that:
+
+**Class instantiation:**
+
+```
+class Helper {
+  logTwice(message) {   
+    console.log(message);
+    console.log(message);
+  }
+}
+
+let helper = new Helper();   // <-- instantiation
+
+helper.logTwice("Logged!");  // <-- w/o instantiation the logTwice() method can be called
+```
+
+**No instantiation and no static keyword:**
+
+```
+class Helper {
+  logTwice(message) {   
+    console.log(message);
+    console.log(message);
+  }
+}
+
+Helper.logTwice("Logged!");  // <-- This wouldn't work
+^^
+```
+
+**Using the static keyword w/o instantiation**
+
+```
+class Helper {
+  static logTwice(message) {   // using the static keyword
+    console.log(message);
+    console.log(message);
+  }
+}
+
+Helper.logTwice("Logged!");  // <-- This works!!!
+^^
 ```
 
 
