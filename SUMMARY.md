@@ -19,6 +19,7 @@
 * [JS - Array](js-array.md)
 * [JS - Boolean .indexOf\(\) with ~](js-boolean-indexof-with-~.md)
 * [JS - Calculate a random number](js-calculate-a-random-number.md)
+* [JS - Class](js-class.md)
 * [JS - Closure / Module](js-closure.md)
 * [JS - Console tips](js-console-tips.md)
 * [JS - Fat Arrows: when not to use](js-when-not-to-use-fat-arrows.md)
