@@ -1,5 +1,13 @@
 #### JavaScript - Console tips
 
+* [.time/timeEnd - a console timer](#timetimeend---a-console-timer)
+* [.clear\(\) - clears the console](#clear---clears-the-console)
+* [.count\(\)](#count)
+* [.assert\(\)](#assert)
+* [.warn\(\)](#warn)
+* [Styling console output with CSS](#styling-console-output-with-css)
+* [.table\(\)](#table)
+
 #### .time/timeEnd - a console timer
 
 The string in bracket will be printed out after the console.timeEnd\(\) is reached. The string for taking the time is an identifier and has to be in .time\(\) and .timeEnd\(\) the same.
@@ -11,8 +19,6 @@ console.time(' ...logging ends after: ');
 // computation
 console.timeEnd(' ...logging ends after: ');
 ```
-
-
 
 #### .clear\(\) - clears the console
 
@@ -82,19 +88,19 @@ Writes an error message to the console if the assertion is false. If the asserti
 
 **Parameters**
 
-**`assertion`**
+`assertion`
 
 * Any boolean expression. If the assertion is false, the message is written to the console.
 
-**`obj1 ... objN`**
+`obj1 ... objN`
 
 * A list of JavaScript objects to output. The string representations of each of these objects are appended together in the order listed and output.
 
-**`msg`**
+`msg`
 
 * A JavaScript string containing zero or more substitution strings.
 
-**`subst1 ... substN`**
+`subst1 ... substN`
 
 * JavaScript objects with which to replace substitution strings within msg. This parameter gives you additional control over the format of the output.
 
@@ -107,8 +113,6 @@ greaterThan(5,6);
 // output to console:
 Assertion failed: Object {message: "a is not greater than b", a: 5, b: 6}
 ```
-
-
 
 #### .warn\(\)
 
@@ -128,5 +132,32 @@ console.log("%cThis will be formatted with large, blue text", "color: blue; font
 
 ![](/assets/styling.png)
 
+#### .table\(\)
 
+```
+console.table([{a:1, b:2, c:3}, {a:"foo", b:false, c:undefined}]);
+console.table([[1,2,3], [2,3,4]]);
+```
+
+![](/assets/table.png)
+
+or more complex:
+
+```
+function Person(firstName, lastName, age) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.age = age;
+}
+
+var family = {};
+family.mother = new Person("Susan", "Doyle", 32);
+family.father = new Person("John", "Doyle", 33);
+family.daughter = new Person("Lily", "Doyle", 5);
+family.son = new Person("Mike", "Doyle", 8);
+
+console.table(family, ["firstName", "lastName", "age"]);
+```
+
+![](/assets/table2.png)
 
