@@ -84,7 +84,7 @@ ich.greetTwice();
 
 #### Classes have to be instantiated, but not always
 
-Normally a class has to be instantiated before a method of a class can be called. But if there is no need for instantiation, it might be better not to do it. With the static keyword there's a way around that:
+Normally a class has to be instantiated before a method of a class can be called. But if there is no need for instantiation or one want to share the class around in the code \(e.g. a helper class\), it might be better not to do it. With the static keyword there's a way around that:
 
 **Class instantiation:**
 
