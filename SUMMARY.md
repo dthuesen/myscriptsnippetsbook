@@ -26,7 +26,7 @@
 * [JS - Math](js-mathematik.md)
 * [JS - Object](js-object.md)
 * [JS - setTimeout](js-settimeout.md)
-* JS - Console tips
+* [JS - Console tips](js-console-tips.md)
 
 ## Project Organization
 
