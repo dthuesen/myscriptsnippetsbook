@@ -56,7 +56,7 @@ class Ich extends Person {
     super(name);
     this.age = age;
   }
-  
+
   greet() {
     let date = new Date();
     let day = date.getDate();
@@ -64,12 +64,11 @@ class Ich extends Person {
     let year = date.getFullYear();
     console.log('And today is ' + day + '.'+ month + '.' + year )
   }
-  
+
   greetTwice() {
-    
     console.clear();
-    super.greet();
-    this.greet();
+    super.greet();          // calling the greet() method from the ancestor class
+    this.greet();           // calling the greet() method from this class
   }
 
 }
@@ -77,7 +76,6 @@ class Ich extends Person {
 let ich = new Ich('Detlef', 51)
 
 ich.greetTwice();
-
 ```
 
 
