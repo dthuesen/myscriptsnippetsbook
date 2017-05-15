@@ -27,11 +27,9 @@
 * [JS - Object](js-object.md)
 * [JS - setTimeout](js-settimeout.md)
 * [JS - String Methods](/js-string-methods.md)
-* [Switch Statement](/js-switch-statement.md)
+* [JS - Switch Statement](/js-switch-statement.md)
 
 ## Project Organization
 
 * [NVM - nvm use command automation](project-organization/nvm-nvm-use-command-automation.md)
-
-
 
