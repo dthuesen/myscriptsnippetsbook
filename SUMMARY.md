@@ -26,7 +26,8 @@
 * [JS - Math](js-mathematik.md)
 * [JS - Object](js-object.md)
 * [JS - setTimeout](js-settimeout.md)
-* [String Methods](/js-string-methods.md)
+* [JS - String Methods](/js-string-methods.md)
+* [Switch Statement](/js-switch-statement.md)
 
 ## Project Organization
 
