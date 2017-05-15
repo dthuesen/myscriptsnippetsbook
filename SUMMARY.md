@@ -26,9 +26,11 @@
 * [JS - Math](js-mathematik.md)
 * [JS - Object](js-object.md)
 * [JS - setTimeout](js-settimeout.md)
-* [JS - Console tips](js-console-tips.md)
+* [String Methods](/js-string-methods.md)
 
 ## Project Organization
 
 * [NVM - nvm use command automation](project-organization/nvm-nvm-use-command-automation.md)
+
+
 
