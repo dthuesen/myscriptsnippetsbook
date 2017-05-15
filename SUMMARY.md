@@ -26,6 +26,7 @@
 * [JS - Math](js-mathematik.md)
 * [JS - Object](js-object.md)
 * [JS - setTimeout](js-settimeout.md)
+* [JS - Try-Catch](js-try-catch.md)
 * [JS - String Methods](/js-string-methods.md)
 * [JS - Switch Statement](/js-switch-statement.md)
 

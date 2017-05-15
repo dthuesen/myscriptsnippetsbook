@@ -203,9 +203,9 @@ var TRUTHY_VALUES = [true, 'true', 1];
 
 function getBoolean(a) {
   'use strict';
-  
+
   var value = a;
-   
+
   if (typeof value === 'string') { 
     value = value.toLowerCase().trim();
   }
@@ -338,7 +338,7 @@ console.log(nameSeven);
 // undefined
 ```
 
-Immediately destructuring is a more shorter form of the example above:
+**Immediately destructuring** is a more shorter form of the example above:
 
 ```
 let [a, b] = ["James Bond", "Dr. No", "Mrs Moneypenny"];
@@ -350,6 +350,17 @@ console.log(b);
 "James Bond"
 "Dr. No"
 ```
+
+**Destructuring in a for...of statement**
+
+    for (let [a, b, ] of [[10, 20]]) {
+        console.log(`${a} and ${b}`)
+    }
+
+    // prints out:
+    10 and 20
+
+_!!! Notice the double square brackets for the second array. That's because the "of" loops over an array. So then "x of y" would no destructure. But it works with an array in an array like in this example. _
 
 #### Destructuring with the rest parameter
 
