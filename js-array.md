@@ -11,7 +11,7 @@
 * [.reduce\(\) ](#reduce-)
 * [.some\(\)](#some)
 * [.find\(\)](#find)
-* [Loop over an Array](#loop-over-an-array)
+* * [Loop over an Array](#loop-over-an-array)
 * [for in loop - iterate over Array index](#for-in-loop---iterate-over-array-index)
 * [Destructuring](#destructuring)
 * [Destructuring with the rest parameter](#destructuring-with-the-rest-parameter)
@@ -309,6 +309,22 @@ for (let star in stars) {
 "I'm famous, my name is 3"
 "I'm famous, my name is 4"
 "I'm famous, my name is 5"
+```
+
+#### .from\(\)
+
+Creating an Array from a String:
+
+```
+let word = "Wolf";
+
+let array = Array.from(word);
+
+console.log(array);
+
+// prints out:
+
+["W", "o", "l", "f"]
 ```
 
 #### Destructuring
