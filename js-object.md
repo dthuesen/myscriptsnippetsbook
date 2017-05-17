@@ -302,6 +302,8 @@ More about that topic and why better to use Obejct.is\(\) here: [Equality compar
 
 #### .setPrototypeOf\(\)
 
+For setting an Object as a  prototype of another Object use `Object.setPrototypeOf(childObject, parentObject)`
+
 ```
 let a = {
   x: 1
