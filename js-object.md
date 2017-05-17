@@ -6,6 +6,7 @@
 * [hasOwnProperty\(\)](#hasownproperty)
 * [Loop over an object](#loop-over-an-object)
 * [.is\(\)](#is)
+* [.setPrototypeOf\(\)](#setprototypeof)
 * #### assign\(\)
 
 **Syntax:** `Object.assign(target, ...sources)`
@@ -298,4 +299,25 @@ Some Examples:
     `);
 
 More about that topic and why better to use Obejct.is\(\) here: [Equality comparisons and sameness](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
+
+#### .setPrototypeOf\(\)
+
+```
+let a = {
+  x: 1
+}
+
+let b = {
+  y: 2
+}
+
+Object.setPrototypeOf(a, b);
+console.log(a.y);
+
+// prints out:
+
+$ 2
+```
+
+
 
