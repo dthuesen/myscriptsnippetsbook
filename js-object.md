@@ -8,6 +8,8 @@
 * [.is\(\)](#is)
 * [.setPrototypeOf\(\)](#setprototypeof)
 
+---
+
 #### .assign\(\)
 
 **Syntax:** `Object.assign(target, ...sources)`
