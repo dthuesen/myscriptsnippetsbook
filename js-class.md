@@ -5,6 +5,7 @@
 * [Classes have to be instantiated, but not always](#classes-have-to-be-instantiated-but-not-always)
 * [Export a helper class](#export-a-helper-class)
 * [Getters and setters](#getters-and-setters)
+* [Inheritance using super\(\) for an Object instead a Class ](#inheritance-using-super-for-an-object-instead-a-class-)
 
 #### Inheritance \(ancestor and descendant constructor functions\)
 
@@ -181,4 +182,31 @@ console.log(person.name);                       // <-- getting the name through 
 **// output:**
 
 ![](/assets/gettersetter.png)
+
+#### Inheritance using super\(\) for an Object instead a Class 
+
+For having the same inheritance behavior using super it is possible to set an Object as a prototype for the child Object:
+
+```
+let project = {
+  getTaskCount() {
+    return 33;
+  }
+};
+
+let softwareProject = {
+  getTaskCount() {
+    return super.getTaskCount() + 6;
+  }
+}
+
+Object.setPrototypeOf(softwareProject, project);
+console.log(softwareProject.getTaskCount());
+
+// output:
+
+$ 39
+```
+
+
 
