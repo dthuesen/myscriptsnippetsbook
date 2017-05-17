@@ -15,6 +15,8 @@
 * [trim\(\)](#trim)
 * [value\(\)](#value)
 
+---
+
 #### **concat\(\)** {#concat}
 
 ```
