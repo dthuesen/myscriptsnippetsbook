@@ -24,7 +24,7 @@ class Person {
 class Ich extends Person {
 
   constructor(name, age) {
-    super(name);
+    super(name);                   // Extending needs 'super()' // passing an argument to its parent (name)
     this.age = age;
   }
 
@@ -178,7 +178,7 @@ person.name = prompt('Name: ', '')              // <-- setting the name through 
 console.log(person.name);                       // <-- getting the name through the getter function
 ```
 
-**// output:**    
+**// output:**
 
 ![](/assets/gettersetter.png)
 
