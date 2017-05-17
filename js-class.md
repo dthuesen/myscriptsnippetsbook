@@ -122,7 +122,7 @@ Helper.logTwice("Logged!");  // <-- This wouldn't work
 
 ```
 class Helper {
-  static logTwice(message) {   // using the static keyword
+  static logTwice(message) {   // the static keyword attaches this method as a constructor function to the Object
     console.log(message);
     console.log(message);
   }
@@ -143,6 +143,8 @@ export class Helper {
     console.log(message);
   }
 }
+
+// ... then imported in another module:
 
 Helper.logTwice("Logged!");  // <-- This works!!!
 ^^
