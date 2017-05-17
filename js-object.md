@@ -7,7 +7,8 @@
 * [Loop over an object](#loop-over-an-object)
 * [.is\(\)](#is)
 * [.setPrototypeOf\(\)](#setprototypeof)
-* #### assign\(\)
+
+#### .assign\(\)
 
 **Syntax:** `Object.assign(target, ...sources)`
 
