@@ -183,9 +183,9 @@ console.log(person.name);                       // <-- getting the name through 
 
 ![](/assets/gettersetter.png)
 
-#### Inheritance using super\(\) for an Object instead a Class 
+#### Inheritance using super\(\) for an Object instead a Class
 
-For having the same inheritance behavior using super it is possible to set an Object as a prototype for the child Object:
+For having the same inheritance behavior using super it is possible to set an Object as a prototype for the child Object. For setting an Object as a  prototype use `Object.setPrototypeOf(childObject, parentObject)`
 
 ```
 let project = {
