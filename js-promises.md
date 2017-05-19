@@ -1,5 +1,7 @@
 # JavaScript - Promises
 
+\(More information here: [MDM Global Objects / Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)\)
+
 * [Methods](#methods)
 * [Creating a Promise - example fulfilled](#creating-a-promise---example-fulfilled)
 * [Creating a Promise - example rejected](#creating-a-promise---example-rejected)
