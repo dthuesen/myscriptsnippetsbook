@@ -148,6 +148,32 @@ Side Note Explanation of recursion:
 4.flatten[0,[1]] --> [] + 0 --> [0] + flatten[1] --> [0] + ([]+1) --> [0] + ([1]) --> [0,1]
 ```
 
+**Converting Array of Objects with .reduce\(\)**
+
+```
+const peopleArray = [
+    { id: 123, name: "dave", age: 23 },
+    { id: 456, name: "chris", age: 21 },
+    { id: 789, name: "bob", age: 22 },
+    { id: 101, name: "paul", age: 24 },
+    { id: 102, name: "mary", age: 20 },
+]
+
+// normal selection of a person by id would look like this:
+
+let idToSelect = 789;
+let selectedPerson;
+
+for (let person of peopleArray) {
+    if (person.id === idToSelect) {
+        selectedPerson = person;
+        break;
+    }
+}
+
+
+```
+
 #### .some\(\)
 
 Evaluates whether some element passes a test provided by a callback function.
