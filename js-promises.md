@@ -1,7 +1,5 @@
 # JavaScript - Promises
 
-
-
 ---
 
 **Syntax:** `new Promise( /* executor */ function(resolve, reject) { ... } );`
@@ -92,7 +90,7 @@ doAsync() {
       reject('Not OK! :-(');
     }, 3000);
   })
-  
+
   let p = new Promise( function(resolve, reject) {
     console.log('In fourth A promise code, wait..');
     setTimeout( function() {
@@ -143,17 +141,12 @@ Promise.all([doAsync1, doAsync2]).then(                  // <--- all Promises ha
   function(reason) { console.log('NOPE!: ' + reason) },
 );
 
+// This could be useful for e.g. accessing redundant stores
 Promise.race([doAsync1, doAsync1]).then(                 // <--- the first resolved Promise wins the race, 
   function(value) { console.log('OK: ' + value) },       //      the next will be ignored.
   function(reason) { console.log('NOPE!: ' + reason) },
 );
 ```
-
-
-
-
-
-
 
 
 
