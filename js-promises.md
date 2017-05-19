@@ -1,5 +1,11 @@
 # JavaScript - Promises
 
+* [Methods](#methods)
+* [Creating a Promise - example fulfilled](#creating-a-promise---example-fulfilled)
+* [Creating a Promise - example rejected](#creating-a-promise---example-rejected)
+* [Creating a Promise - example how a Promise resolves with another Promise](#creating-a-promise---example-how-a-promise-resolves-with-another-promise)
+* [Creating a Promise - example with Promise.all\(\) and Promise.race\(\)](#creating-a-promise---example-with-promiseall-and-promiserace)
+
 ---
 
 **Syntax:** `new Promise( /* executor */ function(resolve, reject) { ... } );`
