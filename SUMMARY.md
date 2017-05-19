@@ -22,6 +22,7 @@
 * [JS - Class](js-class.md)
 * [JS - Closure / Module](js-closure.md)
 * [JS - Console tips](js-console-tips.md)
+* [JS - ES6 Modules](js-es6-modules.md)
 * [JS - Fat Arrows: when not to use](js-when-not-to-use-fat-arrows.md)
 * [JS - Math](js-mathematik.md)
 * [JS - Object](js-object.md)
