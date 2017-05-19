@@ -25,6 +25,7 @@
 * [JS - Fat Arrows: when not to use](js-when-not-to-use-fat-arrows.md)
 * [JS - Math](js-mathematik.md)
 * [JS - Object](js-object.md)
+* [JS - Promises](js-promises.md)
 * [JS - setTimeout](js-settimeout.md)
 * [JS - Try-Catch](js-try-catch.md)
 * [JS - String Methods](/js-string-methods.md)
