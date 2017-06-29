@@ -31,5 +31,19 @@ Template driven forms means less code in the component class but more code in th
 
 ### Reactive forms
 
+[Angular's reactive forms](/angular-forms/angular-reactive-forms.md) makes the way to reactive programming style easier for management of the **data flow **between **non-UI data model** \(typically retrieved from a server\) and **UI-oriented form model** that keeps the states and values of the **HTML form controls** from the view. 
+
+[Reactive forms ](/angular-forms/angular-reactive-forms.md)provide a ease of use for ractive patterns, testing and validation.
+
+[Angular reactive forms](/angular-forms/angular-reactive-forms.md) create a tree of form control objects in the component class and binds them to native form control elements in the template. The form control objects will be manipulated directly in the component class.
+
+Because the component class is able to access both data model and the form control structure directly, it can push data model values into the form controls and pull user input value back out of them. The component class observes changes in the form control state and reacts to them. 
+
+The advantage of working with form control objects directly is that their values and validity are updating synchronously and therefore are always under control. There are no timing issues which could encounter with template-driven forms \(they are async\). And, reactive forms are easier to unit test. 
+
+
+
+
+
 
 
