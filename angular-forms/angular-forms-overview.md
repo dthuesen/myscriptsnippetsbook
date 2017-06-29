@@ -27,7 +27,7 @@ With [template driven forms](#template-driven-forms) **HTML form controls** \(li
 
 It is not necessary to create Angualr form control object. They will be created by Angular automatically in the background with the use of the information of the data bindings. Agular handles the push and pull of data values with ngModel. Angualr updates the data model with user input as soon as it happens. That's the reason why **ngModel is not part of the ReactiveFormsModule**.
 
-Template driven forms means less code in the component class but more code in the template. **Template driven forms are asyncronous.**
+[Template driven forms](/angular-forms/angular-template-driven-forms.md) means less code in the component class but more code in the template. [**Template driven forms**](/angular-forms/angular-template-driven-forms.md)** are asyncronous.**
 
 ### Reactive forms
 
@@ -39,5 +39,5 @@ Template driven forms means less code in the component class but more code in th
 
 Because the component class is able to access both data model and the form control structure directly, it can push data model values into the form controls and pull user input value back out of them. The component class observes changes in the form control state and reacts to them.
 
-The advantage of working with form control objects directly is that their values and validity are updating synchronously and therefore are always under control. There are no timing issues which could encounter with template-driven forms \(they are async\). And, reactive forms are easier to unit test.
+The advantage of working with form control objects directly is that their values and validity are updating synchronously and therefore are always under control. There are no timing issues which could encounter with template-driven forms \(they are async\). And, [reactive forms](/angular-forms/angular-reactive-forms.md) are easier to [unit test](/angular-testing/tdd-test-setup.md).
 
