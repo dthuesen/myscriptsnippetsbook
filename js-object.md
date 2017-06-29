@@ -4,7 +4,13 @@
 * [create\(\)](#create)
 * [keys\(\)](#keys)
 * [hasOwnProperty\(\)](#hasownproperty)
-* #### assign\(\)
+* [Loop over an object](#loop-over-an-object)
+* [.is\(\)](#is)
+* [.setPrototypeOf\(\)](#setprototypeof)
+
+---
+
+#### .assign\(\)
 
 **Syntax:** `Object.assign(target, ...sources)`
 
@@ -202,6 +208,120 @@ foo.hasOwnProperty('bar'); // always returns false
 // It's also possible to use the hasOwnProperty property
 // from the Object prototype for this purpose
 Object.prototype.hasOwnProperty.call(foo, 'bar'); // true
+```
+
+#### Loop over an object
+
+**for in loop - iteration over props** \(or keys\)
+
+```
+let obj = {
+  name: 'James',
+  lastname: 'Bond',
+  age: 108,
+  city: 'London',
+  street: 'bondstreet'
+}
+
+for (let key in obj) {
+  console.log(obj);
+}
+
+// prints out:
+"name"
+"lastname"
+"age"
+"city"
+"street"
+```
+
+**for in loop - iteration over values**
+
+```
+let obj = {
+  name: 'James',
+  lastname: 'Bond',
+  age: 108,
+  city: 'London',
+  street: 'bondstreet'
+}
+
+for (let key in obj) {
+  console.log(obj[key]);
+}
+
+// prints out:
+
+"James"
+"Bond"
+108
+"London"
+"bondstreet"
+```
+
+#### .is\(\)
+
+Comparing two objects, like == and === but better.
+
+Syntax: Object.is\(objectA, objectB\)
+
+Some Examples:
+
+    console.log(`
+        ${0 === 0}                    // true
+        ${0 === "A"}                  // false
+        ${0 === undefined}            // false
+        ${0 === null}                 // false
+        ${0 === true}                 // false
+        ${0 === false}                // false
+        ${0 === NaN}                  // false
+        ${0 === ''}                   // false
+        ${"A" === NaN}                // false
+        ${undefined === ''}           // false
+        ${NaN === NaN}                // false
+        ${undefined === null}         // false
+        ${null === ''}                // false
+        ${''=== ''}                   // true
+        ${null === undefined}         // false
+
+        ${Object.is(0, 0)}            // true
+        ${Object.is(0, "A")}          // false
+        ${Object.is(0, undefined)}    // false
+        ${Object.is(0, null)}         // false
+        ${Object.is(0, true)}         // false
+        ${Object.is(0, false)}        // false
+        ${Object.is(0, NaN)}          // false
+        ${Object.is(0, '')}           // false
+        ${Object.is("A", NaN)}        // false
+        ${Object.is(undefined, '')}   // false
+        ${Object.is(NaN, NaN)}        // true    <---
+        ${Object.is(undefined, null)} // false
+        ${Object.is(null, '')}        // false
+        ${Object.is('', '')}          // true
+        ${Object.is(null, undefined)} // false
+    `);
+
+More about that topic and why better to use Obejct.is\(\) here: [Equality comparisons and sameness](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness)
+
+#### .setPrototypeOf\(\)
+
+For setting an Object as a  prototype of another Object use `Object.setPrototypeOf(childObject, parentObject)`
+
+```
+let a = {
+  x: 1
+}
+
+let b = {
+  y: 2
+}
+
+Object.setPrototypeOf(a, b);
+console.log(a.y);
+
+// prints out:
+
+$ 2
 ```
 
 

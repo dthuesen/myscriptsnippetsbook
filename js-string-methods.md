@@ -1,4 +1,4 @@
-# JavaScript - methods
+# JavaScript - String methods
 
 * [concat\(\)](#concat)
 * [endsWith\(\) / startsWith\(\)](#endswith--startswith)
@@ -14,6 +14,8 @@
 * [substring\(\)](#substring)
 * [trim\(\)](#trim)
 * [value\(\)](#value)
+
+---
 
 #### **concat\(\)** {#concat}
 
@@ -176,7 +178,7 @@ The search\(\) method executes a search for a match between a regular expression
 
 Syntax: `str.search(regexp)`
 
-The index of the first match between the regular expression and the given string; If not found, -1. 
+The index of the first match between the regular expression and the given string; If not found, -1.
 
 ```
 let re = /Hamburg/i
@@ -241,10 +243,9 @@ splitString(monthString, comma);
 
 #### substr\(\)
 
-Syntax: `str.substr(`**`start`**` , `**`length`**`)var str = 'abcdefghij';`
+Syntax: `str.substr(start,length)var str = 'abcdefghij';`
 
 ```
-
 console.log('(1, 2): '   + str.substr(1, 2));   // '(1, 2): bc'
 console.log('(-3, 2): '  + str.substr(-3, 2));  // '(-3, 2): hi'
 console.log('(-3): '     + str.substr(-3));     // '(-3): hij'
@@ -255,7 +256,7 @@ console.log('(20, 2): '  + str.substr(20, 2));  // '(20, 2): '
 
 #### substring\(\)
 
-Syntax: `str.substring(`**`indexStart`**`[, `**`indexEnd`**`])`
+Syntax: `str.substring(indexStart[,indexEnd])`
 
 ```
 var anyString = 'Mozilla';
