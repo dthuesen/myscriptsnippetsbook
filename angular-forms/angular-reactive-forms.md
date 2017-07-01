@@ -1,6 +1,6 @@
 # Angular Reactive Forms
 
-First add a FormGroup in the template:
+First add the `formGroup` directive in the template:
 
 ```
 <form [formGroup]="postForm" (ngSubmit)="addPost(postForm.value)">
@@ -40,15 +40,15 @@ export class PostFormComponent {
 }
 ```
 
-Them add some FormControls to the FormGroup:
+Them add some FormControls as `formControlName` directives to the FormGroup:
 
 ```
 <form [formGroup]="postForm" (ngSubmit)="addPost(postForm.value)">
     <label>Name
-        <input type="text" formControlName="name">            // <--- FormControl
+        <input type="text" formControlName="name">            // <--- FormControl directive
     </label>
     <label>Description
-        <textarea formControlName="description"></textarea>   // <--- FormControl
+        <textarea formControlName="description"></textarea>   // <--- FormControl directive
     </label>
 
 </form>
@@ -98,6 +98,4 @@ The above example of the validation of the FormControl has more possible validat
 ```
 
 These validators then will be put in an array in the `Validators.compose()` method call.
-
-
 
