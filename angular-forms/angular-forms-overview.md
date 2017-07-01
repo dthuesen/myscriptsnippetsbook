@@ -14,7 +14,7 @@ This difference matters. Writing about this later.
 
 ##### FormControl
 
-There are input elements in a form and the elements have 
+There are input elements in a form and the elements have
 
 * Value
 * Validation Status
@@ -40,6 +40,12 @@ control.status                       // DISABLED
 ```
 
 ##### FormGroup
+
+A FormGroup can contain several FormControls e.g.
+
+![](/assets/formgoup_wit_formcontrols.png)
+
+
 
 ##### FormArray
 
