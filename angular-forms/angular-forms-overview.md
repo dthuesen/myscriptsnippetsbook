@@ -65,7 +65,29 @@ form.setValue({
 form.status                   // VALID
 ```
 
+
+
 ##### FormArray
+
+FormArrays are also Groups of FormControls but they are conceptionalized as array and hence registered by index \(starting with zero like every array\).
+
+![](/assets/formarray_with_formcontrols.png)
+
+Code expample:
+
+```
+const arr = new FormArray([
+    new FormControl('SF'),
+    new FormControl('NY')
+]);
+
+arr.value                         // ['SF', 'NY']
+arr.status                        // VALID
+
+arr.setvalue(['LA', 'LDN'])       // ['LA', 'LDN']
+
+arr.push(new FormControl('MTV');  // ['LA', 'LDN', 'MTV']
+```
 
 ### Async vs. Sync
 
