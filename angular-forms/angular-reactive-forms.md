@@ -54,7 +54,7 @@ Them add some FormControls as [`formControlName`](https://angular.io/api/forms/F
 </form>
 ```
 
-These FromGroupNames have equivalent properties in the component class, like so:
+These [FromGroupNames](https://angular.io/api/forms/FormGroupName) directives have equivalent properties in the component class, like so:
 
 ```
 import { Component } from '@angular/core';
@@ -97,5 +97,5 @@ The above example of the validation of the FormControl has more possible validat
                                           Validators.maxLength(500)])],
 ```
 
-These validators then will be put in an array in the `Validators.compose()` method call.
+These validators then will be put in an array in the `Validators.compose()` method call, like above.
 
