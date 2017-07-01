@@ -65,8 +65,6 @@ form.setValue({
 form.status                   // VALID
 ```
 
-
-
 ##### FormArray
 
 FormArrays are also Groups of FormControls but they are conceptionalized as array and hence registered by index \(starting with zero like every array\).
@@ -88,6 +86,22 @@ arr.setvalue(['LA', 'LDN'])       // ['LA', 'LDN']
 
 arr.push(new FormControl('MTV');  // ['LA', 'LDN', 'MTV']
 ```
+
+
+
+### Distinction between FormsModule and ReactiveFormsModule
+
+| FormsModule | RactiveFormsModule |
+| :--- | :--- |
+| ngModel \(directive\) | formControlName |
+| ngModelGroup \(directive\) | formGroupName |
+|  | formArrayName |
+|  | formControl |
+|  | formGroup |
+|  |  |
+| Implicit creation of FormControl\(\) by directives | Explicit creation of FormControl\(\) |
+| Source of truth: templateSource of truth: template | Source of truth: component class |
+| Async | Sync |
 
 ### Async vs. Sync
 
