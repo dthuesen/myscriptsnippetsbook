@@ -1,5 +1,18 @@
 # Angular Forms - Overview
 
+* ##### [First distinction](#first-distinction)
+* ##### [Building Block of forms in Angular](#building-block-of-forms-in-angular)
+
+  * ##### [FormControl](#formcontrol)
+  * ##### [FormGroup](#formgroup)
+  * ##### [FormArray](#formarray)
+* ##### [Distinction between FormsModule and ReactiveFormsModule](#distinction-between-formsmodule-and-reactiveformsmodule)
+* ##### [Async vs. Sync](#async-vs-sync)
+* ##### [Template-driven forms](#template-driven-forms)
+* ##### [Reactive forms](#reactive-forms)
+
+### First distinction
+
 Angular has two technical ways to handle forms: [template driven forms](/angular-forms/angular-template-driven-forms.md) with `FormsModule` and [reactive forms](/angular-forms/angular-reactive-forms.md) with `ReactiveFormsModule`**. **Both are included in the `@angular/forms`library. They share a common set of **form control** classes.
 
 They differ fundamentally by their programmatic approach. Each of them even has its own module: `FormsModule` and `ReactiveFormsModule`.
@@ -86,8 +99,6 @@ arr.setvalue(['LA', 'LDN'])       // ['LA', 'LDN']
 
 arr.push(new FormControl('MTV');  // ['LA', 'LDN', 'MTV']
 ```
-
-
 
 ### Distinction between FormsModule and ReactiveFormsModule
 
