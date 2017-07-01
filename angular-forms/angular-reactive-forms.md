@@ -1,6 +1,6 @@
 # Angular Reactive Forms
 
-First add the `formGroup` directive in the template:
+First add the [`formGroup`](https://angular.io/api/forms/FormGroupDirective) directive in the template:
 
 ```
 <form [formGroup]="postForm" (ngSubmit)="addPost(postForm.value)">
@@ -40,7 +40,7 @@ export class PostFormComponent {
 }
 ```
 
-Them add some FormControls as `formControlName` directives to the FormGroup:
+Them add some FormControls as [`formControlName`](https://angular.io/api/forms/FormControlName) directives to the FormGroup:
 
 ```
 <form [formGroup]="postForm" (ngSubmit)="addPost(postForm.value)">
