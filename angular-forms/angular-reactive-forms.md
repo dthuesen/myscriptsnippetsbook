@@ -48,7 +48,7 @@ Them add some FormControls to the FormGroup:
         <input type="text" formControlName="name">
     </label>
     <label>Description
-        <textarea type="text" formControlName="description"></textarea>
+        <textarea formControlName="description"></textarea>
     </label>
 
 </form>
