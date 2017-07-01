@@ -8,7 +8,40 @@ They differ fundamentally by their programmatic approach. Each of them even has 
 
 * **Reactive forms are syncronous**
 
-This difference matters.
+This difference matters. Writing about this later.
+
+### Building Block of forms in Angular
+
+##### FormControl
+
+There are input elements in a form and the elements have 
+
+* Value
+* Validation Status
+* User Interactions \(changed the value, touched the element, etc.\)
+* Events
+
+Code example:
+
+```
+const control = new FormControl(),   // create new instance
+control.value                        // null
+control.status                       // VALID
+control.valid                        // true
+control.pristine                     // true
+control.untouched                    // true
+
+control.setValue('Tom');
+control.value                        // 'Tom'
+control.reset(); 
+control.value                        // null                    
+control.disable();
+control.status                       // DISABLED
+```
+
+##### FormGroup
+
+##### FormArray
 
 ### Async vs. Sync
 
