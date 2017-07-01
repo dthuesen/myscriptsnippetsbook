@@ -45,7 +45,25 @@ A FormGroup can contain several FormControls e.g.
 
 ![](/assets/formgoup_wit_formcontrols.png)
 
+A form in itself is a FormGroup and FormGroup is a class.
 
+Code example:
+
+```
+const form = new FormGroup({
+    street: new FormControl('', Validators.required),
+    city: new FormControl('')
+});
+
+form.value                    // {street: '', city: ''}
+form.status                   // INVALID
+
+form.setValue({
+    street: '123 Pine',
+    city: 'San Francisco'
+})
+form.status                   // VALID
+```
 
 ##### FormArray
 
