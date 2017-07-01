@@ -45,10 +45,10 @@ Them add some FormControls to the FormGroup:
 ```
 <form [formGroup]="postForm" (ngSubmit)="addPost(postForm.value)">
     <label>Name
-        <input type="text" formControlName="name">
+        <input type="text" formControlName="name">            // <--- FormControl
     </label>
     <label>Description
-        <textarea formControlName="description"></textarea>
+        <textarea formControlName="description"></textarea>   // <--- FormControl
     </label>
 
 </form>
