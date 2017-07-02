@@ -1,5 +1,25 @@
 # Angular Reactive Forms
 
+### Creational structure of template-driven Forms:
+
+Reactive forms ship the responsibility for creating the form model to the component class.
+
+**Component Class**
+
+* Form model
+* Validation rules
+* Validation error messages
+* Properties for managing data \(data model\)
+* Methods for form operations, such as submit
+
+**Template**
+
+* Form element
+* Input element\(s\)
+* Binding to form model
+
+### Example of implementing a reactive form:
+
 First add the [`formGroup`](https://angular.io/api/forms/FormGroupDirective) directive in the template:
 
 ```
