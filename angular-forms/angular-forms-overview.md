@@ -7,6 +7,7 @@
   * ##### [FormGroup](#formgroup)
   * ##### [FormArray](#formarray)
 * ##### [Distinction between FormsModule and ReactiveFormsModule](#distinction-between-formsmodule-and-reactiveformsmodule)
+* ##### [Input Elements / Form State](#input-elements-state)
 * ##### [Async vs. Sync](#async-vs-sync)
 * ##### [Template-driven forms](#template-driven-forms)
 * ##### [Reactive forms](#reactive-forms)
@@ -113,6 +114,10 @@ arr.push(new FormControl('MTV');  // ['LA', 'LDN', 'MTV']
 | Implicit creation of FormControl\(\) by directives | Explicit creation of FormControl\(\) |
 | Source of truth: templateSource of truth: template | Source of truth: component class |
 | Async | Sync |
+
+### Input Elements / Form State
+
+
 
 ### Async vs. Sync
 
