@@ -26,6 +26,10 @@ This difference matters. Writing about this later.
 
 ### Building Block of forms in Angular
 
+The building blocks of Angular define the form model and track all of the state and value of each input element and the form itself. Both main building blocks, **FormControl** and **FormGroup**, are used by both template-drive and reactive forms to track state and values. **FormControl** tracks the value and state of an individual input element and **FormGroup** tracks tha value and state of a group of FormControls. A form is managed as a FormGroup. FormGroups can be nested within other FormGroups.
+
+A **Form Model** is a data structure that represents the HTML form. Form model retains the form state \(such as dirty or valid\), the form value, the child controls \(like FormControls and nested FormGroups\). The form model is the same for both template-driven and reactive forms but created differently.roller
+
 ##### FormControl
 
 There are input elements in a form and the elements have
@@ -117,7 +121,7 @@ arr.push(new FormControl('MTV');  // ['LA', 'LDN', 'MTV']
 
 ### Input Elements / Form State
 
-
+![](/assets/untitled_page.png)
 
 ### Async vs. Sync
 
