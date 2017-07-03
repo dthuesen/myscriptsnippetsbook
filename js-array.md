@@ -20,7 +20,7 @@
 
 #### .**length**
 
-```
+```js
 let numbers = [1, 2, 3, 4, 5];
 numbers.length                            // 5
 numbers.length = 3;
@@ -30,7 +30,7 @@ numbers.length                            // 3
 
 #### **.concat\(\)**
 
-```
+```js
 var arr1 = ['a', 'b', 'c'];
 var arr2 = ['d', 'e', 'f'];
 
@@ -43,7 +43,7 @@ var arr3 = arr1.concat(arr2);
 
 \(creates a new array\)
 
-```
+```js
 var words = ["spray", "limit", "elite", "exuberant", "destruction", "present"];
 
 var longWords = words.filter(function(word){
@@ -55,7 +55,7 @@ var longWords = words.filter(function(word){
 
 #### **.forEach\(\)**
 
-```
+```js
 var a = ['a', 'b', 'c'];
 
 a.forEach(function(element) {
@@ -69,7 +69,7 @@ a.forEach(function(element) {
 
 #### **.includes\(\)**
 
-```
+```js
 var a = [1, 2, 3];
 a.includes(2); // true 
 a.includes(4); // false
@@ -77,7 +77,7 @@ a.includes(4); // false
 
 #### **.join\(\)**
 
-```
+```js
 var a = ['Wind', 'Rain', 'Fire'];
 a.join();    // 'Wind,Rain,Fire'
 a.join('-'); // 'Wind-Rain-Fire'
@@ -85,7 +85,7 @@ a.join('-'); // 'Wind-Rain-Fire'
 
 #### **.pop\(\)**
 
-```
+```js
 var a = [1, 2, 3];
 a.pop();
 
@@ -96,7 +96,7 @@ console.log(a); // [1, 2]
 
 \(creates a new array with the results - more information:  [https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Array/map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map "Array on MDN")\)
 
-```
+```js
 var numbers = [1, 5, 10, 15];
 var roots = numbers.map(function(x) {
    return x * 2;
@@ -123,7 +123,7 @@ thisArg              -> Optional. Value to use as this when executing callback.
 
 \(more information:** **[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global\_Objects/Array/Reduce](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)\)
 
-```
+```js
 var sum = [0, 1, 2, 3].reduce(function(acc, val) {
   return acc + val;
 }, 0);
@@ -150,7 +150,7 @@ Side Note Explanation of recursion:
 
 **Converting Array of Objects with .reduce\(\)**
 
-```
+```js
 const peopleArray = [
     { id: 123, name: "dave", age: 23 },
     { id: 456, name: "chris", age: 21 },
@@ -170,8 +170,6 @@ for (let person of peopleArray) {
         break;
     }
 }
-
-
 ```
 
 #### .some\(\)
@@ -180,7 +178,7 @@ Evaluates whether some element passes a test provided by a callback function.
 
 **Syntax:** `arr.some(callback[, thisArg])`
 
-```
+```js
 function isBiggerThan10(element, index, array) {
   return element > 10;
 }
@@ -197,7 +195,7 @@ or with arrow functions:
 
 **Checking whether a value exists in an array**
 
-```
+```js
 var fruits = ['apple', 'banana', 'mango', 'guava'];
 
 function checkAvailability(arr, val) {
@@ -224,7 +222,7 @@ checkAvailability(fruits, 'banana'); // true
 
 **Converting any value to Boolean**
 
-```
+```js
 var TRUTHY_VALUES = [true, 'true', 1];
 
 function getBoolean(a) {
@@ -253,7 +251,7 @@ Returns the value of the first element inan array that fits the testing function
 
 **Syntax:** `arr.find(callback[, thisArg])`
 
-```
+```js
 function isBigEnough(element) {
   return element >= 15;
 }
@@ -263,7 +261,7 @@ function isBigEnough(element) {
 
 **Find an object in an array by one of its properties:**
 
-```
+```js
 var inventory = [
     {name: 'apples', quantity: 2},
     {name: 'bananas', quantity: 0},
@@ -280,7 +278,7 @@ console.log(inventory.find(findCherries));
 
 **Find a prime number in an array:**
 
-```
+```js
 function isPrime(element, index, array) {
   var start = 2;
   while (start <= Math.sqrt(element)) {
@@ -299,7 +297,7 @@ console.log([4, 5, 8, 12].find(isPrime)); // 5
 
 **for of loop - iterate over Array values**
 
-```
+```js
 let stars = ["James Bond", "Mrs. Moneypenny", "Q", "M", "Octopussy", "Dr. No"]
 
 for (let star of stars) {
@@ -320,7 +318,7 @@ But be aware of the `for in loop` which has more value for object iterations:
 
 #### **for in loop - iterate over Array index**
 
-```
+```js
 let stars = ["James Bond", "Mrs. Moneypenny", "Q", "M", "Octopussy", "Dr. No"];
 
 for (let star in stars) {
@@ -341,7 +339,7 @@ for (let star in stars) {
 
 Creating an Array from a String:
 
-```
+```js
 let word = "Wolf";
 
 let array = Array.from(word);
@@ -355,7 +353,7 @@ console.log(array);
 
 #### Destructuring
 
-```
+```js
 let stars = ["James Bond", "Mrs. Moneypenny", "Q", "M", "Octopussy", "Dr. No"];
 
 // assigning three of the values to three variables
@@ -382,7 +380,7 @@ console.log(nameSeven);
 
 **Immediately destructuring** is a more shorter form of the example above:
 
-```
+```js
 let [a, b] = ["James Bond", "Dr. No", "Mrs Moneypenny"];
 
 console.log(a);
@@ -395,18 +393,20 @@ console.log(b);
 
 **Destructuring in a for...of statement**
 
-    for (let [a, b, ] of [[10, 20]]) {
-        console.log(`${a} and ${b}`)
-    }
+```js
+for (let [a, b, ] of [[10, 20]]) {
+    console.log(`${a} and ${b}`)
+}
 
-    // prints out:
-    10 and 20
+// prints out:
+10 and 20
+```
 
 _!!! Notice the double square brackets for the second array. That's because the "of" loops over an array. So then "x of y" would no destructure. But it works with an array in an array like in this example. _
 
 #### Destructuring with the rest parameter
 
-```
+```js
 let stars = ["James Bond", "Mrs. Moneypenny", "Q", "M", "Octopussy", "Dr. No"];
 
 let [name1, ...name2] = stars;
@@ -425,7 +425,7 @@ console.log(name2);
 
 #### Destructuring with default parameter
 
-```
+```js
 let array = [1, 2, "three", "x", 5];
 
 let [a = 'default', b, c, d, e, f = 'default'] = array;
@@ -448,7 +448,7 @@ console.log(f);
 
 #### Destructuring for swapping variables
 
-```
+```js
 let a = 15;
 let b = "fifteen";
 
@@ -464,7 +464,7 @@ console.log("b: " + b);
 
 #### Destructuring with leaving out one or some values
 
-```
+```js
 let array = [1, 2, "three", "x", 5];
 
 let [a, , c] = array;
