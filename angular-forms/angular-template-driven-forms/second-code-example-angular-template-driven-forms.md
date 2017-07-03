@@ -105,7 +105,7 @@
                         </label>
                     </div>
                 </div>
-                
+
                 <div *ngIf="customer.sendCatalog">
                     <div class="form-group" >
                         <label class="col-md-2 control-label">Address Type</label>
@@ -211,6 +211,28 @@
 <br>Touched: {{ signupForm.touched }}
 <br>Valid: {{ signupForm.valid }}
 <br>Value: {{ signupForm.value | json }}
+```
+
+### The component class:
+
+```js
+import { Component } from '@angular/core';
+import { NgForm } from '@angular/forms';
+
+import { Customer } from './customer';
+
+@Component({
+    selector: 'my-signup',
+    templateUrl: './app/customers/customer.component.html'
+})
+export class CustomerComponent  {
+    customer: Customer= new Customer();
+
+    save(customerForm: NgForm) {
+        console.log(customerForm.form);
+        console.log('Saved: ' + JSON.stringify(customerForm.value));
+    }
+ }
 ```
 
 
