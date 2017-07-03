@@ -2,6 +2,8 @@
 
 ### Creational structure of template-driven Forms:
 
+To use template-driven forms first the **FormsModule** has to be imported into the component.
+
 Template-driven form keep all the data in the template on synchronisation with the properties in the component class.
 
 **Template**

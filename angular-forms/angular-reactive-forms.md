@@ -2,6 +2,8 @@
 
 ### Creational structure of template-driven Forms:
 
+To use reactive forms first the ReactiveFormsModule has to be imported into the component.
+
 Reactive forms ship the responsibility for creating the form model to the component class.
 
 **Component Class**
