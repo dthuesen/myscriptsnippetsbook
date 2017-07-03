@@ -22,20 +22,21 @@ Template-driven form keep all the data in the template on synchronisation with t
 
 * First import **FormsModule**
 * Then the following directives are available:
+
   * **ngForm**                 --&gt; access to the form model
-  * **ngModel**               --&gt; for two way binding and access to the input element 
+  * **ngModel**               --&gt; for two way binding and access to the input element   
                                        state bound in the generated form model
 
   * **ngModelGroup**    --&gt; for grouping input elements in the form
 
-When a form element ...
+When a form element is added to a template...
 
 ```
 <form (ngSubmit)="save()">
 </form>
 ```
 
-... is added to the template Angular automatically assigns the ngForm directive to that form. Angular creates the form model starting with the **FormGroup** instance and binds it to the form to track the form value and state. The ngForm directive does not have to be applied by one self.
+...  Angular automatically assigns the **ngForm** directive to that form. Angular creates the form model starting with the **FormGroup** instance and binds it to the form to track the form value and state. The ngForm directive does not have to be applied by one self.
 
 To export the **form model** with its values and state the ngForm directive has to be exportet to a template \(local\) variable like this:
 
@@ -64,7 +65,7 @@ The **ngModel** directive will be used on each input element for two way binding
 ```
 <form (ngSubmit)="save()"
     #signupForm="ngForm">      // <--- exporting the form model into a local variable
-    
+
     <input id="firstNameId" type="text"
          [(ngModel)]="customer.firstName"
          name="firstName"                 // the name will be used as key in the form model
@@ -78,10 +79,4 @@ The **ngModel** directive will be used on each input element for two way binding
 ```
 
 Above Angular automatically creates a **FormControl** instance and adds it to the **form model** using the **inputs** **element name as the key**. Hence the **name attribute is needed** for the FormControl instance key. It tracks its **value** and **state**.
-
-
-
-
-
-
 
