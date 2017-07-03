@@ -22,6 +22,8 @@ Reactive forms ship the responsibility for creating the form model to the compon
 
 ### Directives
 
+With the reactive forms approach Angular does not create a form model automatically. It has to be created in the component class. The following directives will then be used to bind the input elements in the template to the defined model in the class.
+
 * First import **ReactiveFormsModule**
 * Then the following directives are available:
 
