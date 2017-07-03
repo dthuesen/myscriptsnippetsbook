@@ -41,7 +41,7 @@ There are input elements in a form and the elements have
 
 Code example:
 
-```
+```js
 const control = new FormControl(),   // create new instance
 control.value                        // null
 control.status                       // VALID
@@ -67,7 +67,7 @@ A form in itself is a FormGroup and FormGroup is a class.
 
 Code example:
 
-```
+```js
 const form = new FormGroup({
     street: new FormControl('', Validators.required),
     city: new FormControl('')
@@ -91,7 +91,7 @@ FormArrays are also Groups of FormControls but they are conceptionalized as arra
 
 Code expample:
 
-```
+```js
 const arr = new FormArray([
     new FormControl('SF'),
     new FormControl('NY')
