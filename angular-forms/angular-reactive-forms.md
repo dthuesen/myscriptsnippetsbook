@@ -20,6 +20,17 @@ Reactive forms ship the responsibility for creating the form model to the compon
 * **Input element**\(s\)
 * **Binding to form model** defined in the component class
 
+### Directives
+
+* First import **ReactiveFormsModule**
+* Then the following directives are available:
+
+  * **formGroup**
+  * **formControl**
+  * **formControlName**
+  * **formGroupName**
+  * **formArrayName**
+
 ### Example of implementing a reactive form:
 
 First add the [`formGroup`](https://angular.io/api/forms/FormGroupDirective) directive in the template:
