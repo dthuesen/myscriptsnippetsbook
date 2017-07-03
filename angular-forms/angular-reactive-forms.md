@@ -6,17 +6,17 @@ Reactive forms ship the responsibility for creating the form model to the compon
 
 **Component Class**
 
-* Form model
-* Validation rules
-* Validation error messages
-* Properties for managing data \(data model\)
-* Methods for form operations, such as submit
+* **Form model** &lt;-- by creating the instances of the FormGroup and FormControl building blocks in the component class
+* **Validation rules **
+* **Validation error messages**
+* **Properties for managing data** \(data model\) &lt;-- no data binding in the HTML
+* **Methods for form operations**, such as submit
 
 **Template**
 
-* Form element
-* Input element\(s\)
-* Binding to form model
+* **Form element**
+* **Input element**\(s\)
+* **Binding to form model** defined in the component class
 
 ### Example of implementing a reactive form:
 
