@@ -42,7 +42,7 @@ To export the **form model** with its values and state the ngForm directive has 
 
 ```
 <form (ngSubmit)="save()"
-    #signupForm="ngForm">      // <--- exporting the form model into a local variable
+    #signupForm="ngForm">      // <--- exporting the form model into a reference variable
 </form>
 ```
 
