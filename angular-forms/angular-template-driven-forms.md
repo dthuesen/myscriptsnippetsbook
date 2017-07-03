@@ -60,7 +60,7 @@ Anytime the form model needs to be accessed a reference of the **template refenr
 </form>
 ```
 
-The **ngModel** directive will be used on each input element for two way binding to keep the component class property insync with the user input value, like so:
+The **ngModel** directive will be used on each input element for two way binding to keep the component class property in-sync with the user input value, like so:
 
 ```
 <form (ngSubmit)="save()"
