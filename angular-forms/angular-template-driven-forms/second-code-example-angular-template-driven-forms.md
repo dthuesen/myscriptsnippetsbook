@@ -166,7 +166,7 @@ An example of a large signup form which expands after the first field are filled
                     </div>
 ```
 
-```
+```js
                     <div class="form-group">
                         <label class="col-md-2 control-label" 
                             for="cityId">City, State, Zip Code</label>
