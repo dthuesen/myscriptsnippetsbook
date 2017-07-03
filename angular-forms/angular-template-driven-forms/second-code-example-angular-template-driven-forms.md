@@ -20,7 +20,9 @@ An example of a large signup form which expands after the first field are filled
                     [ngClass]="{'has-error': (firstNameVar.touched || firstNameVar.dirty) && !firstNameVar.valid }">
                     <label class="col-md-2 control-label" 
                            for="firstNameId">First Name</label>
+```
 
+```
                     <div class="col-md-8">
                         <input class="form-control" 
                                id="firstNameId" 
