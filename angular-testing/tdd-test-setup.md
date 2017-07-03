@@ -14,7 +14,7 @@ First, it is good to keep in mind, that every component, module, service or dire
 
 #### 2. Basic structure
 
-```
+```js
 import { async, fakeAsync, tick, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 
@@ -97,7 +97,7 @@ d\) Test an `attribute` of a `tag` in this case: the name attribute like here: `
 
 e\) + f\) When there are more than one `button` in this component, it is easier to test if they have id's for querying them.
 
-```
+```js
 describe('/ The ListComponent view', () => {
 
   // a)  
@@ -147,22 +147,24 @@ a\) Test for `property` and its assigned value
 
 b\) Doubled test for a `property`  -  one for truthiness is present \(I don't think this test is perfect\) and one for **not to be** `undefined` \(has more value for the result\)
 
-    describe('/ ListComponent - properties', () => {
+```js
+describe('/ ListComponent - properties', () => {
 
-      // a)
-      it(`should have a property "title": 'The list of games'`, () => {
-        const app = fixture.debugElement.componentInstance;
-        expect(app.title).toEqual('The list of games');
-      });
+  // a)
+  it(`should have a property "title": 'The list of games'`, () => {
+    const app = fixture.debugElement.componentInstance;
+    expect(app.title).toEqual('The list of games');
+  });
 
-      // b)
-      it('should have a property "playersScore"', () => {
-        const app = fixture.debugElement.componentInstance;
-        expect(app.playersScore).toBeTruthy;
-        expect(app.playersScore).not.toBe(undefined);
-      });
+  // b)
+  it('should have a property "playersScore"', () => {
+    const app = fixture.debugElement.componentInstance;
+    expect(app.playersScore).toBeTruthy;
+    expect(app.playersScore).not.toBe(undefined);
+  });
 
-    });
+});
+```
 
 #### 5. Testing the components methods
 
@@ -184,7 +186,7 @@ h\) Another test with expectation to a set property after a method has been call
 
 i\) Test whether a `property` is a **function or not **
 
-```
+```js
 describe('/ 1. Game - methods general', () => {
 
   // a)
@@ -284,79 +286,79 @@ describe('/ 1. Game - methods general', () => {
 
 a\) Getting the compilation of the native elements \(the tags of the view\):
 
-```
+```js
 const compiled = fixture.debugElement.nativeElement;
 ```
 
 ... and puts them directly into the compiled variable - completing the line above like this:
 
-```
+```js
 const compiled = fixture.debugElement.nativeElement.querySelector('#buttons');
 ```
 
 ... or then extends the code with on extra line to query a tag:
 
-```
+```js
 buttonsDiv = compiled.querySelector('#buttons');
 ```
 
 b\) Getting an element by css selector - tag:
 
-```
+```js
 const compiled = fixture.debugElement.query(By.css('input'));
 ```
 
 c\) Getting an element by css selector - id:
 
-```
+```js
 const compiled = fixture.debugElement.query(By.css('#abort'));
 ```
 
 d\) Getting an instance of the app:
 
-```
+```js
 const app = fixture.debugElement.componentInstance;
 ```
 
 e\) Getting the component:
 
-```
+```js
 let component: GameComponent;
 ```
 
 f\) Getting the fixture:
 
-```
+```js
 let fixture: ComponentFixture<GameComponent>;
 ```
 
 g\) triggering the change detection of Angular:
 
-```
+```js
 fixture.detectChanges();
 ```
 
 f\) Installing jasmine clock \(e.g. in `beforeEach` method\):
 
-```
+```js
 jasmine.clock().install();
 ```
 
 h\) Uninstalling the jasmine clock \(e.g. in `afterEach` method\)
 
-```
+```js
 jasmine.clock().uninstall();
 ```
 
 i\) Setting the jasmine clock \(e.g. in the specific spec before a function call\)
 
-```
+```js
 jasmine.clock().tick(795);
 ```
 
 j\) getting a specific attribute of a tested dom element \(e.g. the name attribute `<input name="name">`\)
 
-```
+```js
 expect(compiled.attributes['name']).toBe('name');
 ```
 
