@@ -33,7 +33,7 @@ Template-driven form keep all the data in the template on synchronisation with t
 
 When a form element is added to a template...
 
-```HTML
+```js
 <form (ngSubmit)="save()">
 </form>
 ```
@@ -42,7 +42,7 @@ When a form element is added to a template...
 
 To export the **form model** with its values and state the ngForm directive has to be exportet to a **template reference variable** \(local variable\) like this:
 
-```
+```js
 <form (ngSubmit)="save()"
     #signupForm="ngForm">      // <--- exporting the form model into a reference variable
 </form>
@@ -52,7 +52,7 @@ This local variable references then the forms root FormGroup instance.
 
 Anytime the form model needs to be accessed a reference of the **template refenrece variable** will be used, like her:
 
-```
+```js
 <form (ngSubmit)="save()"
     #signupForm="ngForm">      // <--- exporting the form model into a reference variable
     <button type="submit"
@@ -64,7 +64,7 @@ Anytime the form model needs to be accessed a reference of the **template refenr
 
 The **ngModel** directive will be used on each input element for two way binding to keep the component class property in-sync with the user input value, like so:
 
-```
+```js
 <form (ngSubmit)="save()"
     #signupForm="ngForm">      // <--- exporting the form model into a reference variable
 
