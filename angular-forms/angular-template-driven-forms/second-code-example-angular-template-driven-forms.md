@@ -1,5 +1,7 @@
 # Second Code Example - Angular Template-Driven Forms
 
+An example of a large signup form which expands after the first field are filled out valid.
+
 ### Template:
 
 ```js
@@ -39,9 +41,12 @@
                         </span>
                     </div>
                 </div>
+```
 
-                <div class="form-group"
-                    [ngClass]="{'has-error': (lastNameVar.touched || lastNameVar.dirty) && !lastNameVar.valid }">
+```js
+            <div class="form-group"
+                    [ngClass]="{'has-error': (lastNameVar.touched || 
+                                              lastNameVar.dirty) && !lastNameVar.valid }">
                     <label class="col-md-2 control-label" 
                         for="lastNameId">Last Name</label>
 
@@ -55,14 +60,17 @@
                                [(ngModel)]="customer.lastName"
                                name="lastName"
                                #lastNameVar="ngModel" />
-                        <span class="help-block" *ngIf="(lastNameVar.touched || lastNameVar.dirty) && lastNameVar.errors">
+                        <span class="help-block" 
+                              *ngIf="(lastNameVar.touched || lastNameVar.dirty) && lastNameVar.errors">
                             <span *ngIf="lastNameVar.errors.required">
                                 Please enter your last name.
                             </span>
                         </span>
                     </div>
                 </div>
+```
 
+```js
                 <div class="form-group"
                     [ngClass]="{'has-error': (emailVar.touched || emailVar.dirty) && !emailVar.valid }">
                     <label class="col-md-2 control-label" 
@@ -78,7 +86,8 @@
                                [(ngModel)]="customer.email"
                                name="email"
                                #emailVar="ngModel" />
-                        <span class="help-block" *ngIf="(emailVar.touched || emailVar.dirty) && emailVar.errors">
+                        <span class="help-block" 
+                              *ngIf="(emailVar.touched || emailVar.dirty) && emailVar.errors">
                             <span *ngIf="emailVar.errors.required">
                                 Please enter your email address.
                             </span>
@@ -105,8 +114,10 @@
                         </label>
                     </div>
                 </div>
+```
 
-                <div *ngIf="customer.sendCatalog">
+```js
+             <div *ngIf="customer.sendCatalog">
                     <div class="form-group" >
                         <label class="col-md-2 control-label">Address Type</label>
                         <div class="col-md-8">
@@ -153,7 +164,9 @@
                                    name="street2">
                         </div>
                     </div>
+```
 
+```
                     <div class="form-group">
                         <label class="col-md-2 control-label" 
                             for="cityId">City, State, Zip Code</label>
