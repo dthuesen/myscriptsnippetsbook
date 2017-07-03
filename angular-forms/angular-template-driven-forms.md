@@ -33,7 +33,7 @@ Template-driven form keep all the data in the template on synchronisation with t
 
 When a form element is added to a template...
 
-```
+```HTML
 <form (ngSubmit)="save()">
 </form>
 ```
