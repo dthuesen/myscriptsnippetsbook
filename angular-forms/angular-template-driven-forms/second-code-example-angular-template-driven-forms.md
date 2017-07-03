@@ -22,7 +22,7 @@ An example of a large signup form which expands after the first field are filled
                            for="firstNameId">First Name</label>
 ```
 
-```
+```js
                     <div class="col-md-8">
                         <input class="form-control" 
                                id="firstNameId" 
