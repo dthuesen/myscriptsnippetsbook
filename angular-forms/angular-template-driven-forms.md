@@ -67,7 +67,7 @@ The **ngModel** directive will be used on each input element for two way binding
     #signupForm="ngForm">      // <--- exporting the form model into a reference variable
 
     <input id="firstNameId" type="text"
-         [(ngModel)]="customer.firstName"
+         [(ngModel)]="customer.firstName"  <-- keeping the component class property insync with ngModel
          name="firstName"                 // the name will be used as key in the form model
          #firstNameVar="ngModel" />       // accessing the value & state via export 
                                              into a local variable (assigning it to ngModel)     
