@@ -2,7 +2,7 @@
 
 An example of a large signup form which expands after the first field are filled out valid.
 
-### Template:
+### The Template:
 
 ```js
     <div class="panel panel-primary">
