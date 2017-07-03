@@ -1,8 +1,10 @@
 # Angular Reactive Forms Code Example
 
-## HTML form
+## The HTML form
 
-_customer.component.html_
+The starting point is an example with a basic form:
+
+_**customer.component.html**_
 
 ```js
 <form>
@@ -19,5 +21,5 @@ _customer.component.html_
 </form>
 ```
 
-
+Transformed into a **reactive form** in the template it would look like this:
 
