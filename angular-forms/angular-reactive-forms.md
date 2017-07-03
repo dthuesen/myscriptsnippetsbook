@@ -37,7 +37,7 @@ With the reactive forms approach Angular does not create a form model automatica
 
 First add the [`formGroup`](https://angular.io/api/forms/FormGroupDirective) directive in the template:
 
-```
+```js
 <form [formGroup]="postForm" (ngSubmit)="addPost(postForm.value)">
 </form>
 ```
@@ -46,7 +46,7 @@ In reactive forms the FormGroup is bound to a property in the component class \(
 
 In the component class add the property posts and the method addPost:
 
-```
+```js
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
@@ -77,7 +77,7 @@ export class PostFormComponent {
 
 Them add some FormControls as [`formControlName`](https://angular.io/api/forms/FormControlName) directives to the FormGroup:
 
-```
+```js
 <form [formGroup]="postForm" (ngSubmit)="addPost(postForm.value)">
     <label>Name
         <input type="text" formControlName="name">            // <--- FormControl directive
@@ -91,7 +91,7 @@ Them add some FormControls as [`formControlName`](https://angular.io/api/forms/F
 
 These [FromGroupNames](https://angular.io/api/forms/FormGroupName) directives have equivalent properties in the component class, like so:
 
-```
+```js
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
@@ -126,7 +126,7 @@ export class PostFormComponent {
 
 The above example of the validation of the FormControl has more possible validator methods possible, like here:
 
-```
+```js
 'description': [null, Validators.compose([Validators.required, 
                                           Validators.minLength(30), 
                                           Validators.maxLength(500)])],
