@@ -17,7 +17,7 @@
 * [Angular Forms Overview](angular-forms/angular-forms-overview.md)
 * [Angular Template-Driven Forms](angular-forms/angular-template-driven-forms.md)
   * [Angular Template-Driven Forms Code Example](angular-forms/angular-template-driven-forms/angular-template-driven-forms-code-example.md)
-  * 2. Code Example - Angular Template-Driven Forms
+  * [Second Code Example - Angular Template-Driven Forms](angular-forms/angular-template-driven-forms/second-code-example-angular-template-driven-forms.md)
 * [Angular Reactive Forms](angular-forms/angular-reactive-forms.md)
   * [Angular Reactive Forms Code Example](angular-forms/angular-reactive-forms/angular-reactive-forms-code-example.md)
 
