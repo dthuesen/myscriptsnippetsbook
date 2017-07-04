@@ -6,6 +6,8 @@ An example of a large signup form which expands after the first field are filled
 * [**The component class**](#the-component-class)
 * [**The data model class:**](#and-the-data-model-class)
 
+Tipp about the usage of **NgForm** and **NgModel** directives: [https://angular.io/api/forms/NgForm](https://angular.io/api/forms/NgForm)
+
 ### The Template:
 
 ```js
@@ -16,8 +18,8 @@ An example of a large signup form which expands after the first field are filled
 
     <div>
         <form novalidate
-              (ngSubmit)="save(signupForm)"
-              #signupForm="ngForm">
+              (ngSubmit)="save(signupForm)"  // <-- 2.) using the exported data
+              #signupForm="ngForm">          // <-- 1.) exporting the ngForm directive to access its data
             <fieldset>
                 <div [ngClass]="{'has-error': (firstNameVar.touched || 
                                  firstNameVar.dirty) && !firstNameVar.valid }">
@@ -233,7 +235,7 @@ export class CustomerComponent  {
  }
 ```
 
-### And the data model class:
+### And the data model class \(in this case not an interface\):
 
 ```js
 export class Customer {
@@ -251,5 +253,5 @@ export class Customer {
 }
 ```
 
-
+Taking a class instead of an interface is because on can create a new instance of it.
 
