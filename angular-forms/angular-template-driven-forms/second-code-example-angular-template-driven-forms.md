@@ -86,7 +86,8 @@ An example of a large signup form which expands after the first field are filled
                                 Please enter a valid email address.
                             </span>
 
-                            <!-- This one does not work -->
+                            <!-- This one does not work (because Angular Forms does not yet support -->
+                            <!-- the validators for HTML input types such as email, phone and date) -->
                             <span *ngIf="emailVar.errors.email">
                                 Please enter a valid email address.
                             </span>
