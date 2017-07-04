@@ -41,10 +41,51 @@ import { FormGroup } from '@angular/forms';
 export class CustomerComponent impements OnInit {
     customerForm: FormGroup;             
     customer: Customer = new Customer();         
+
+    ngOnInit(): void {
+        this.customerForm = new FormGroup({ });  // <-- creates the root FormGroup for the form model
+    }
+}
+```
+
+5\) Import FormControl to the component
+
+```
+...
+import { FormGroup, FormControl } from '@angular/forms';  // <-- 
+
+... 
+export class CustomerComponent impements OnInit {
+    customerForm: FormGroup;             
+    customer: Customer = new Customer(); 
+    
+    ngOnInit(): void {
+        this.customerForm = new FormGroup({ });  
+    }        
 }
 
-ngOnInit(): void {
-    this.customerForm = new FormGroup({ });  // <-- creates the root FormGroup for the form model
+
+```
+
+6\) Add the first FormControl to the FormGroup 
+
+```
+...
+import { FormGroup, FormControl } from '@angular/forms';  // <-- 
+
+... 
+export class CustomerComponent impements OnInit {
+    customerForm: FormGroup;             
+    customer: Customer = new Customer(); 
+            
+    ngOnInit(): void {
+        this.customerForm = new FormGroup({
+            firstName: new FormControl(),
+            lastName: new FormControl(),
+            email: new FormControl(),
+            sendCatalog: new FormControl(true)
+        });
+    }
 }
 ```
 
