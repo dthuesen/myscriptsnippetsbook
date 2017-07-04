@@ -5,27 +5,24 @@ An example of a large signup form which expands after the first field are filled
 ### The Template:
 
 ```js
-    <div class="panel panel-primary">
-    <div class="panel-heading">
+    <div>
+    <div>
         Sign Up!
     </div>
 
-    <div class="panel-body">
-        <form class="form-horizontal"
-              novalidate
+    <div>
+        <form novalidate
               (ngSubmit)="save(signupForm)"
               #signupForm="ngForm">
             <fieldset>
-                <div class="form-group"
-                    [ngClass]="{'has-error': (firstNameVar.touched || firstNameVar.dirty) && !firstNameVar.valid }">
-                    <label class="col-md-2 control-label" 
-                           for="firstNameId">First Name</label>
+                <div [ngClass]="{'has-error': (firstNameVar.touched || 
+                                 firstNameVar.dirty) && !firstNameVar.valid }">
+                    <label for="firstNameId">First Name</label>
 ```
 
 ```js
-                    <div class="col-md-8">
-                        <input class="form-control" 
-                               id="firstNameId" 
+                    <div>
+                        <input id="firstNameId" 
                                type="text" 
                                placeholder="First Name (required)" 
                                required 
@@ -33,7 +30,7 @@ An example of a large signup form which expands after the first field are filled
                                [(ngModel)]=customer.firstName
                                name="firstName"
                                #firstNameVar="ngModel" />
-                        <span class="help-block" *ngIf="(firstNameVar.touched || firstNameVar.dirty) && firstNameVar.errors">
+                        <span *ngIf="(firstNameVar.touched || firstNameVar.dirty) && firstNameVar.errors">
                             <span *ngIf="firstNameVar.errors.required">
                                 Please enter your first name.
                             </span>
@@ -46,15 +43,12 @@ An example of a large signup form which expands after the first field are filled
 ```
 
 ```js
-            <div class="form-group"
-                    [ngClass]="{'has-error': (lastNameVar.touched || 
-                                              lastNameVar.dirty) && !lastNameVar.valid }">
-                    <label class="col-md-2 control-label" 
-                        for="lastNameId">Last Name</label>
+            <div [ngClass]="{'has-error': (lastNameVar.touched || 
+                 lastNameVar.dirty) && !lastNameVar.valid }">
+                    <label for="lastNameId">Last Name</label>
 
-                    <div class="col-md-8">
-                        <input class="form-control" 
-                               id="lastNameId" 
+                    <div>
+                        <input id="lastNameId" 
                                type="text" 
                                placeholder="Last Name (required)" 
                                required 
@@ -62,8 +56,7 @@ An example of a large signup form which expands after the first field are filled
                                [(ngModel)]="customer.lastName"
                                name="lastName"
                                #lastNameVar="ngModel" />
-                        <span class="help-block" 
-                              *ngIf="(lastNameVar.touched || lastNameVar.dirty) && lastNameVar.errors">
+                        <span *ngIf="(lastNameVar.touched || lastNameVar.dirty) && lastNameVar.errors">
                             <span *ngIf="lastNameVar.errors.required">
                                 Please enter your last name.
                             </span>
@@ -73,14 +66,11 @@ An example of a large signup form which expands after the first field are filled
 ```
 
 ```js
-                <div class="form-group"
-                    [ngClass]="{'has-error': (emailVar.touched || emailVar.dirty) && !emailVar.valid }">
-                    <label class="col-md-2 control-label" 
-                        for="emailId">Email</label>
+                <div [ngClass]="{'has-error': (emailVar.touched || emailVar.dirty) && !emailVar.valid }">
+                    <label for="emailId">Email</label>
 
-                    <div class="col-md-8">
-                        <input class="form-control" 
-                               id="emailId" 
+                    <div>
+                        <input id="emailId" 
                                type="email" 
                                placeholder="Email (required)" 
                                required
@@ -88,8 +78,7 @@ An example of a large signup form which expands after the first field are filled
                                [(ngModel)]="customer.email"
                                name="email"
                                #emailVar="ngModel" />
-                        <span class="help-block" 
-                              *ngIf="(emailVar.touched || emailVar.dirty) && emailVar.errors">
+                        <span *ngIf="(emailVar.touched || emailVar.dirty) && emailVar.errors">
                             <span *ngIf="emailVar.errors.required">
                                 Please enter your email address.
                             </span>
@@ -105,48 +94,44 @@ An example of a large signup form which expands after the first field are filled
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <div class="col-md-offset-1 col-md-8 checkbox" >
-                        <label>
-                            <input id="sendCatalogId"
-                                   type="checkbox"
-                                   [(ngModel)]="customer.sendCatalog"
-                                   name="sendCatalog" >
-                            Send me your catalog
-                        </label>
-                    </div>
+                <div>
+                    <label>
+                        <input id="sendCatalogId"
+                               type="checkbox"
+                               [(ngModel)]="customer.sendCatalog"
+                               name="sendCatalog" >
+                        Send me your catalog
+                    </label>
                 </div>
 ```
 
 ```js
              <div *ngIf="customer.sendCatalog">
-                    <div class="form-group" >
-                        <label class="col-md-2 control-label">Address Type</label>
-                        <div class="col-md-8">
-                                <label class="radio-inline">
-                                    <input type="radio" id="addressType1Id" value="home"
-                                           [(ngModel)]="customer.addressType"
-                                           name="addressType">Home
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" id="addressType1Id" value="work"
-                                           [(ngModel)]="customer.addressType"
-                                           name="addressType">Work
-                                </label>
-                                <label class="radio-inline">
-                                    <input type="radio" id="addressType1Id" value="other"
-                                           [(ngModel)]="customer.addressType"
-                                           name="addressType">Other
-                                </label>
+                    <div>
+                        <label>Address Type</label>
+                        <div>
+                            <label>
+                                <input type="radio" id="addressType1Id" value="home"
+                                       [(ngModel)]="customer.addressType"
+                                       name="addressType">Home
+                            </label>
+                            <label>
+                                <input type="radio" id="addressType1Id" value="work"
+                                       [(ngModel)]="customer.addressType"
+                                       name="addressType">Work
+                            </label>
+                            <label>
+                                <input type="radio" id="addressType1Id" value="other"
+                                       [(ngModel)]="customer.addressType"
+                                       name="addressType">Other
+                            </label>
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-md-2 control-label" 
-                            for="street1Id">Street Address 1</label>
-                        <div class="col-md-8">
+                    <div>
+                        <label for="street1Id">Street Address 1</label>
+                        <div>
                             <input type="text" 
-                                   class="form-control" 
                                    id="street1Id" 
                                    placeholder="Street address"
                                    [(ngModel)]="customer.street1"
@@ -154,12 +139,10 @@ An example of a large signup form which expands after the first field are filled
                         </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="col-md-2 control-label" 
-                            for="street2Id">Street Address 2</label>
-                        <div class="col-md-8">
-                            <input type="text" 
-                                   class="form-control" 
+                    <div>
+                        <label for="street2Id">Street Address 2</label>
+                        <div>
+                            <input type="text"  
                                    id="street2Id"
                                    placeholder="Street address (second line)"
                                    [(ngModel)]="customer.street2"
@@ -169,20 +152,17 @@ An example of a large signup form which expands after the first field are filled
 ```
 
 ```js
-                    <div class="form-group">
-                        <label class="col-md-2 control-label" 
-                            for="cityId">City, State, Zip Code</label>
-                        <div class="col-md-3">
+                    <div>
+                        <label for="cityId">City, State, Zip Code</label>
+                        <div>
                             <input type="text" 
-                                   class="form-control" 
                                    id="cityId" 
                                    placeholder="City"
                                    [(ngModel)]="customer.city"
                                    name="city">
                         </div>
-                        <div class="col-md-3">
-                            <select class="form-control"
-                                    id="stateId"
+                        <div>
+                            <select id="stateId"
                                     [(ngModel)]="customer.state"
                                     name="state">
                                 <option value="" disabled selected hidden>Select a State...</option>
@@ -196,9 +176,8 @@ An example of a large signup form which expands after the first field are filled
                                 <option value="WY">Wyoming</option>
                             </select>
                         </div>
-                        <div class="col-md-2">
+                        <div>
                         <input type="number"
-                                   class="form-control" 
                                    id="zipId" 
                                    placeholder="Zip Code"
                                    [(ngModel)]="customer.zip"
@@ -207,11 +186,10 @@ An example of a large signup form which expands after the first field are filled
                     </div>
                 </div>
 
-                <div class="form-group">
-                    <div class="col-md-4 col-md-offset-2">
+                <div>
+                    <div>
                         <span>
-                            <button class="btn btn-primary"
-                                    type="submit"
+                            <button type="submit"
                                     [disabled]="!signupForm.valid">
                                 Save
                             </button>
