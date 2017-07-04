@@ -2,6 +2,10 @@
 
 An example of a large signup form which expands after the first field are filled out valid.
 
+* [**The Template**](#the-template)
+* [**The component class**](#the-component-class)
+* [**The data model class:**](#and-the-data-model-class)
+
 ### The Template:
 
 ```js
