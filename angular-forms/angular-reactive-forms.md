@@ -2,7 +2,7 @@
 
 ### Creational structure of template-driven Forms:
 
-To use reactive forms first the ReactiveFormsModule has to be imported into the component.
+To use reactive forms first the **ReactiveFormsModule** has to be imported into the component.
 
 Reactive forms ship the responsibility for creating the form model to the component class.
 
@@ -19,6 +19,14 @@ Reactive forms ship the responsibility for creating the form model to the compon
 * **Form element**
 * **Input element**\(s\)
 * **Binding to form model** defined in the component class
+
+Reactive forms develop their power in complex scenarios like when there are several requirements to improve the UX, like with these:
+
+* it is required to add dynamically input elements \(e.g. for more than one address if needed/wanted\)
+* for 'watching' what the user types \(e.g. for suggestions\)
+* waiting for validation until user stops typing \(for less boring input experience\)
+* different validation rules for different situations 
+* immutable data structures
 
 ### Directives
 
