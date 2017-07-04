@@ -1,12 +1,12 @@
 # Angular - Create A Reactive Form
 
-1. Import FormGroup into the component
+1\) Import FormGroup into the component
 
 ```
 import { FormGroup } from '@angular/forms';
 ```
 
-2. Declare the root form
+2\) Declare the root form
 
 ```
 ...
@@ -18,7 +18,7 @@ export class CustomerComponent impements OnInit {
 }
 ```
 
-3. Define the data model
+3\) Define the data model
 
 ```
 ...
@@ -31,7 +31,7 @@ export class CustomerComponent impements OnInit {
 }
 ```
 
-4. Assign the custometForm property to an new instance of the FormGroup. Do this in the ngOnInit\(\) live cycle hook to ensure the component and template are initalized before building the form model.
+4\) Assign the custometForm property to an new instance of the FormGroup. Do this in the ngOnInit\(\) live cycle hook to ensure the component and template are initalized before building the form model.
 
 ```
 ...
