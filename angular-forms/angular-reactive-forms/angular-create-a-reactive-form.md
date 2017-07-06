@@ -13,7 +13,7 @@ import { FormGroup } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
 
 ... 
-export class CustomerComponent impements OnInit {
+export class CustomerComponent implements OnInit {
     customerForm: FormGroup;                      // <-- this property holds the reference to the form model
 }
 ```
@@ -25,7 +25,7 @@ export class CustomerComponent impements OnInit {
 import { FormGroup } from '@angular/forms';
 
 ... 
-export class CustomerComponent impements OnInit {
+export class CustomerComponent implements OnInit {
     customerForm: FormGroup;             
     customer: Customer = new Customer();         // <-- this property defines the data model
 }
@@ -38,7 +38,7 @@ export class CustomerComponent impements OnInit {
 import { FormGroup } from '@angular/forms';
 
 ... 
-export class CustomerComponent impements OnInit {
+export class CustomerComponent implements OnInit {
     customerForm: FormGroup;             
     customer: Customer = new Customer();         
 
@@ -55,7 +55,7 @@ export class CustomerComponent impements OnInit {
 import { FormGroup, FormControl } from '@angular/forms';  // <-- 
 
 ... 
-export class CustomerComponent impements OnInit {
+export class CustomerComponent implements OnInit {
     customerForm: FormGroup;             
     customer: Customer = new Customer(); 
 
@@ -72,7 +72,7 @@ export class CustomerComponent impements OnInit {
 import { FormGroup, FormControl } from '@angular/forms';  
 
 ... 
-export class CustomerComponent impements OnInit {
+export class CustomerComponent implements OnInit {
     customerForm: FormGroup;             
     customer: Customer = new Customer(); 
 
