@@ -155,17 +155,7 @@ The Reactive Forms Directives are:
 </form>
 ```
 
-9c-1\) To access the Form Model Poperties one option is to navigate through the form model hierarchy like this
-
-```
-customerForm.controls.firstName.valid
-```
-
-9c-2\) Or alternatively with the get\(\) method of the FormGroup 
-
-```
-customerForm.get('firstName').valid
-```
+9c\) The whole form could look like this
 
 ```js
 <form (ngSubmit)="save()" 
@@ -211,6 +201,18 @@ customerForm.get('firstName').valid
 
 
 </form>
+```
+
+10-a\) To access the Form Model Poperties one option is to navigate through the form model hierarchy like this
+
+```
+customerForm.controls.firstName.valid
+```
+
+10-b\) Or alternatively with the get\(\) method of the FormGroup - this is often shorter, especially with nested FormGroups
+
+```
+customerForm.get('firstName').valid
 ```
 
 
