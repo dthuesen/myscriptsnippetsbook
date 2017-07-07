@@ -50,7 +50,7 @@ export class CustomerComponent implements OnInit {
 
 5\) **Import** **FormControl** to the component
 
-```
+```js
 ...
 import { FormGroup, FormControl } from '@angular/forms';  // <-- 
 
@@ -67,7 +67,7 @@ export class CustomerComponent implements OnInit {
 
 6\) **Add the first FormControls \(in an object with key and value pairs\) to the FormGroup**
 
-```
+```js
 ...
 import { FormGroup, FormControl } from '@angular/forms';  
 
@@ -85,6 +85,35 @@ export class CustomerComponent implements OnInit {
         });
     }
 }
+```
+
+7\) To be able to use the form in the entire part of the app module the ReactiveFormsModule has to be imported into the app module...
+
+```js
+/* app.module.ts */
+
+...
+import { ReactiveFormsModule } from '@angular/forms';
+...
+```
+
+8\) ... and imported into in the imports array
+
+```js
+@NgModule({
+  declarations: [
+    AppComponent,
+    CustomersComponent,
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule        // <-- here
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
 ```
 
 
