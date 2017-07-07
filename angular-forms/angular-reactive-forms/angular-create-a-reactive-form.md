@@ -110,7 +110,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // only React
   imports: [
     BrowserModule,
     FormsModule,               // <-- the FormsModule was for template-driven forms
-    ReactiveFormsModule        // <-- here
+    ReactiveFormsModule        // <-- this here!!!
   ],
   providers: [],
   bootstrap: [AppComponent]
