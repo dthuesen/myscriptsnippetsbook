@@ -119,12 +119,13 @@ export class AppModule { }
 ```
 
 9\) Now in the template the Reactive Forms Directives can be used to bind the form to the form model.  
-The Reactive Forms Directives are:  
-- formGroup  
-- formControl  
-- formControlName  
-- formGroupName  
-- formArrayName
+The Reactive Forms Directives are:
+
+* formGroup  
+* formControl  
+* formControlName  
+* formGroupName  
+* formArrayName
 
 ```js
 <form (ngSubmit)="save()" 
@@ -138,14 +139,14 @@ The Reactive Forms Directives are:
            id="firstNameId" 
            placeholder="First Name (required)" 
            required>
-    
+
     <label for="lastNameId">Last Name</label>
     <input type="text" 
            formControlName="lastName" 
            id="lastNameId" 
            placeholder="Last Name (required)" 
            required>
-    
+
     <label for="emailId">Last Name</label>
     <input type="email" 
            formControlName="email" 
@@ -153,14 +154,14 @@ The Reactive Forms Directives are:
            placeholder="Email (required)"
            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+"
            required>
-           
+
     <label>
        <input id="sendCatalogId"
               type="checkbox"
               formControlName="sendCatalog" >
        Send me your catalog
    </label>
-   
+
    <span>
        <button type="submit"
                [disabled]="!customerForm.valid">
@@ -168,7 +169,7 @@ The Reactive Forms Directives are:
        </button>
    </span>
 
-           
+
 </form>
 ```
 
