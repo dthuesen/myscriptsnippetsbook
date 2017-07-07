@@ -118,5 +118,59 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // only React
 export class AppModule { }
 ```
 
+9\) Now in the template the Reactive Forms Directives can be used to bind the form to the form model.  
+The Reactive Forms Directives are:  
+- formGroup  
+- formControl  
+- formControlName  
+- formGroupName  
+- formArrayName
+
+```js
+<form (ngSubmit)="save()" 
+      [formGroup]="customerForm"
+      novalidate 
+      autocomplete="off">
+
+    <label for="firstNameId">First Name</label>
+    <input type="text" 
+           formControlName="firstName" 
+           id="firstNameId" 
+           placeholder="First Name (required)" 
+           required>
+    
+    <label for="lastNameId">Last Name</label>
+    <input type="text" 
+           formControlName="lastName" 
+           id="lastNameId" 
+           placeholder="Last Name (required)" 
+           required>
+    
+    <label for="emailId">Last Name</label>
+    <input type="email" 
+           formControlName="email" 
+           id="emailId" 
+           placeholder="Email (required)"
+           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+"
+           required>
+           
+    <label>
+       <input id="sendCatalogId"
+              type="checkbox"
+              formControlName="sendCatalog" >
+       Send me your catalog
+   </label>
+   
+   <span>
+       <button type="submit"
+               [disabled]="!customerForm.valid">
+           Save
+       </button>
+   </span>
+
+           
+</form>
+```
+
 
 
