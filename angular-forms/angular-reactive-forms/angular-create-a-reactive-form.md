@@ -155,6 +155,18 @@ The Reactive Forms Directives are:
 </form>
 ```
 
+9c-1\) To access the Form Model Poperties one option is to navigate through the form model hierarchy like this
+
+```
+customerForm.controls.firstName.valid
+```
+
+9c-2\) Or alternatively with the get\(\) method of the FormGroup 
+
+```
+customerForm.get('firstName').valid
+```
+
 ```js
 <form (ngSubmit)="save()" 
       [formGroup]="customerForm"
