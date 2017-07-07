@@ -127,6 +127,34 @@ The Reactive Forms Directives are:
 * formGroupName  
 * formArrayName
 
+9a\) Bind the form element in the template via the formGroup directive to the root FormGroup of the form model in the component class
+
+```js
+<form (ngSubmit)="save()" [formGroup]="customerForm"> // customerForm is the form model property from the
+      ...                                             // component class
+</form>
+```
+
+9b\) Use the formControlName directive to bind each input element to its associated formControl. The will be bound to the name of the formControl instance as defined in the form model
+
+```js
+<form (ngSubmit)="save()" [formGroup]="customerForm"> 
+      <fieldset>
+            <div ...>
+                  <label for="firstNameId">First Name</label>
+                  <input type="text" 
+                         formControlName="firstName"
+                         id="firstNameId" 
+                         placeholder="First Name (required)">
+                   <span ...>
+                        ...
+                   </span>
+            </div>
+              ...
+      </fieldset>                                            
+</form>
+```
+
 ```js
 <form (ngSubmit)="save()" 
       [formGroup]="customerForm"
