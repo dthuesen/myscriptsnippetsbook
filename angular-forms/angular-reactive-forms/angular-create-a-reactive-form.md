@@ -93,7 +93,9 @@ export class CustomerComponent implements OnInit {
 /* app.module.ts */
 
 ...
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // only ReactiveFormsModule!!!!!
+                                                                   // FormsModule was for 
+                                                                   // template-driven forms
 ...
 ```
 
