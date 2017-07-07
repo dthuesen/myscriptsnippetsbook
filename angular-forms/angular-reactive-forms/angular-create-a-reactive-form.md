@@ -97,7 +97,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 ...
 ```
 
-8\) ... and imported into in the imports array
+8\) ... and added to the imports array
 
 ```js
 @NgModule({
