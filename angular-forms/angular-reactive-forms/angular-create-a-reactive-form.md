@@ -107,7 +107,7 @@ import { ReactiveFormsModule } from '@angular/forms';
   ],
   imports: [
     BrowserModule,
-    FormsModule,
+    FormsModule,               // <-- the FormsModule was for template-driven forms
     ReactiveFormsModule        // <-- here
   ],
   providers: [],
