@@ -2,13 +2,13 @@
 
 1\) **Import FormGroup into the component**
 
-```
+```js
 import { FormGroup } from '@angular/forms';
 ```
 
 2\) **Declare the root form**
 
-```
+```js
 ...
 import { FormGroup } from '@angular/forms';
 
@@ -20,7 +20,7 @@ export class CustomerComponent implements OnInit {
 
 3\) **Define the data model**
 
-```
+```js
 ...
 import { FormGroup } from '@angular/forms';
 
@@ -33,7 +33,7 @@ export class CustomerComponent implements OnInit {
 
 4\) Assign the customerForm property to an **new instance of the FormGroup**. Do this in the ngOnInit\(\) live cycle hook to ensure the component and template are initalized before building the form model.
 
-```
+```js
 ...
 import { FormGroup } from '@angular/forms';
 
