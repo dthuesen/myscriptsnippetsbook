@@ -143,7 +143,7 @@ The Reactive Forms Directives are:
             <div ...>
                   <label for="firstNameId">First Name</label>
                   <input type="text" 
-                         formControlName="firstName"
+                         formControlName="firstName"    // <-- binding to the property of the form model
                          id="firstNameId" 
                          placeholder="First Name (required)">
                    <span ...>
