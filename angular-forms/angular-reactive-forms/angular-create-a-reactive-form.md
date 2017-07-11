@@ -109,7 +109,7 @@ constructor(private fb: FormBuilder) { }           // <-- 2) inject FormBuilder 
 }
 ```
 
-The `group()` method of the FormBuilder allows to define a set of controls in an **configuration object** and also nested form groups. **Each key in the configuration object is the FormGroup name** and each value defines the specified default value for the FormControl. It is associated with the root form group. At each FormControl a default value can be set \(like above with "`sendCatalog: true`"\).
+The `group()` method of the FormBuilder allows to define a set of controls in an **configuration object** and also nested form groups. **Each key in the configuration object is the FormGroup name** and each value defines the specified default value for the FormControl \(like above with "`sendCatalog: true`"\). It is associated with the root form group. Alternatively the value can be defined as an object \(like this:`firstName: {value: 'n/a', disabled: true}`\) with a boolean `disabled` property. **It is also possible to define it as an array** \(like this: `firstName: ['', ..., ...]`or this: `firstName: [{value: 'n/a', disabled: true}, ..., ...]`\) . In this case the last two elements of the array are for the **definition of the validation** rules.
 
 7\) To be able to use the form in the entire part of the app module the **ReactiveFormsModule has to be imported into the app module**...
 
