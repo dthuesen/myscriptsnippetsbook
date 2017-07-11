@@ -48,7 +48,5 @@ this.customerForm = this.fb.group({
 })
 ```
 
-The third element of the value array of the key value pairs is for any **asynchronous validators**.
-
-
+The third element of the value array of the key value pairs is for any **asynchronous validators** \(e.g. calling a server side async validation method\). To minimize the async call **no async validator is called before all synchronous validators pass their validation.**
 
