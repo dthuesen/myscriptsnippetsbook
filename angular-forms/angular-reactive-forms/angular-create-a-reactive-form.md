@@ -1,12 +1,12 @@
 # Angular - Create A Reactive Form
 
-1\) **Import FormGroup into the component**
+**1\)** **Import FormGroup into the component**
 
 ```js
 import { FormGroup } from '@angular/forms';
 ```
 
-2\) **Declare the root form**
+**2\)** **Declare the root form**
 
 ```js
 ...
@@ -18,7 +18,7 @@ export class CustomerComponent implements OnInit {
 }
 ```
 
-3\) **Define the data model**
+**3\)** **Define the data model**
 
 ```js
 ...
@@ -31,7 +31,7 @@ export class CustomerComponent implements OnInit {
 }
 ```
 
-4\) Assign the customerForm property to an **new instance of the FormGroup**. Do this in the ngOnInit\(\) live cycle hook to ensure the component and template are initalized before building the form model.
+**4\)** Assign the customerForm property to an **new instance of the FormGroup**. Do this in the ngOnInit\(\) live cycle hook to ensure the component and template are initalized before building the form model.
 
 ```js
 ...
@@ -48,7 +48,7 @@ export class CustomerComponent implements OnInit {
 }
 ```
 
-5\) **Import** **FormControl** to the component
+**5\)** **Import** **FormControl** to the component
 
 ```js
 ...
@@ -65,7 +65,7 @@ export class CustomerComponent implements OnInit {
 }
 ```
 
-6a\) **Add the first FormControls \(in an object with key and value pairs\) to the FormGroup**
+**6a\)** **Add the first FormControls \(in an object with key and value pairs\) to the FormGroup**
 
 ```js
 ...
@@ -87,7 +87,7 @@ export class CustomerComponent implements OnInit {
 }
 ```
 
-6b\) **Use FormBuilder to shorten the boilerplate** of the FormGroup code. **FormBuilder creates a form model from a configuration**, like this \(compare it to the code example above\):
+**6b\)** **Use FormBuilder to shorten the boilerplate** of the FormGroup code. **FormBuilder creates a form model from a configuration**, like this \(compare it to the code example above\):
 
 ```js
 import { FormBuilder, FormGroup } from '@angular/forms';   // <-- 1) import FormBuilder and delete FormControl
@@ -111,7 +111,7 @@ constructor(private fb: FormBuilder) { }           // <-- 2) inject FormBuilder 
 
 The `group()` method of the FormBuilder allows to define a set of controls in an **configuration object** and also nested form groups. **Each key in the configuration object is the FormGroup name** and each value defines the specified default value for the FormControl \(like above with "`sendCatalog: true`"\). It is associated with the root form group. Alternatively the value can be defined as an object \(like this:`firstName: {value: 'n/a', disabled: true}`\) with a boolean `disabled` property. **It is also possible to define it as an array** \(like this: `firstName: ['', ..., ...]`or this: `firstName: [{value: 'n/a', disabled: true}, ..., ...]`\) . In this case the last two elements of the array are for the **definition of the validation** rules.
 
-7\) To be able to use the form in the entire part of the app module the **ReactiveFormsModule has to be imported into the app module**...
+**7\)** To be able to use the form in the entire part of the app module the **ReactiveFormsModule has to be imported into the app module**...
 
 ```js
 /* app.module.ts */
@@ -123,7 +123,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // only React
 ...
 ```
 
-8\) ... **and added to the imports array**
+**8\)** ... **and added to the imports array**
 
 ```js
 @NgModule({
@@ -142,7 +142,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // only React
 export class AppModule { }
 ```
 
-9\) Now in the template the Reactive Forms Directives can be used to bind the form to the form model.  
+**9\)** Now in the template the Reactive Forms Directives can be used to bind the form to the form model.  
 The Reactive Forms Directives are:
 
 * formGroup  
@@ -151,7 +151,7 @@ The Reactive Forms Directives are:
 * formGroupName  
 * formArrayName
 
-9a\) Use the **formGroup directive** to bind the `form` element to the **FormGroup instance property** defined in the component class
+**9a\)** Use the **formGroup directive** to bind the `form` element to the **FormGroup instance property** defined in the component class
 
 ```js
 <form (ngSubmit)="save()" formGroup>
@@ -159,7 +159,7 @@ The Reactive Forms Directives are:
 </form>
 ```
 
-9b\) Use square brackets **to define property binding and bind to the customerForm property**
+**9b\)** Use square brackets **to define property binding and bind to the customerForm property**
 
 ```js
 <form (ngSubmit)="save()" [formGroup]="customerForm"> // customerForm is the form model property from the
@@ -167,7 +167,7 @@ The Reactive Forms Directives are:
 </form>
 ```
 
-9c\) Use the **formControlName directive** to bind each input element to its associated formControl. The will be bound to the name of the formControl instance as defined in the form model
+**9c\)** Use the **formControlName directive** to bind each input element to its associated formControl. The will be bound to the name of the formControl instance as defined in the form model
 
 ```js
 <form (ngSubmit)="save()" [formGroup]="customerForm"> 
@@ -187,7 +187,7 @@ The Reactive Forms Directives are:
 </form>
 ```
 
-9c\) The whole form could look like this
+**9c\)** The whole form could look like this
 
 ```js
 <form (ngSubmit)="save()" 
@@ -235,13 +235,13 @@ The Reactive Forms Directives are:
 </form>
 ```
 
-10-a\) To access the Form Model Poperties one option is to navigate through the form model hierarchy like this
+**10a\)** **To access the Form Model Poperties** one option is to **navigate through the form model hierarchy** like this
 
 ```
 customerForm.controls.firstName.valid
 ```
 
-10-b\) Or alternatively with the get\(\) method of the FormGroup - this is often shorter, especially with nested FormGroups
+**10b\)** Or **alternatively** with the **get\(\) method of the FormGroup** - this is often shorter, especially with nested FormGroups
 
 ```
 customerForm.get('firstName').valid
