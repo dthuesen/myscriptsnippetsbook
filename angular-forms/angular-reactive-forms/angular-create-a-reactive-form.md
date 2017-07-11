@@ -87,7 +87,7 @@ export class CustomerComponent implements OnInit {
 }
 ```
 
-6b\) Use FormBuilder to shorten the boilerplate of the FormGroup code. FormBuilder creates a form model from a configuration, like this \(compare it to the code example above\):
+6b\) **Use FormBuilder to shorten the boilerplate** of the FormGroup code. **FormBuilder creates a form model from a configuration**, like this \(compare it to the code example above\):
 
 ```js
 import { FormBuilder, FormGroup } from '@angular/forms';   // <-- import FormBuilder
