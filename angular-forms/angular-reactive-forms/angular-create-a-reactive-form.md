@@ -94,10 +94,10 @@ import { FormBuilder, FormGroup } from '@angular/forms';   // <-- 1) import Form
 ...
 export class CustomerComponent implements OnInit {
 ...
-constructor(private fb: FormBuilder) { }                   // <-- 2) inject FormBuilder in the constructor
+constructor(private fb: FormBuilder) { }           // <-- 2) inject FormBuilder via constructor parameter
 ...
     ngOnInit(): void {
-        this.customerForm = this.fb.group({                // <-- 3) use FormBuilder instance
+        this.customerForm = this.fb.group({        // <-- 3) use FormBuilder instance
             firstName: '',
             lastName: '',
             email: '',
