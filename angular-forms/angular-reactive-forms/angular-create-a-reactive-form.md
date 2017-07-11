@@ -90,14 +90,16 @@ export class CustomerComponent implements OnInit {
 6b\) **Use FormBuilder to shorten the boilerplate** of the FormGroup code. **FormBuilder creates a form model from a configuration**, like this \(compare it to the code example above\):
 
 ```js
-import { FormBuilder, FormGroup } from '@angular/forms';   // <-- 1) import FormBuilder
+import { FormBuilder, FormGroup } from '@angular/forms';   // <-- 1) import FormBuilder and delete FormControl
+                                                           //        from import statement it is no longer
+                                                           //        needed. That's done by FormBuilder.
 ...
 export class CustomerComponent implements OnInit {
 ...
 constructor(private fb: FormBuilder) { }           // <-- 2) inject FormBuilder via constructor parameter
 ...
     ngOnInit(): void {
-        this.customerForm = this.fb.group({        // <-- 3) use FormBuilder instance
+        this.customerForm = this.fb.group({        // <-- 3) use FormBuilder instance. 
             firstName: '',
             lastName: '',
             email: '',
@@ -107,7 +109,7 @@ constructor(private fb: FormBuilder) { }           // <-- 2) inject FormBuilder 
 }
 ```
 
-The `group()` method of the FormBuilder allows to define a set of controls in an object and also nested form groups. It is associated with the root form group. At each FormControl a default value can be set \(like above with "`sendCatalog: true`"\).
+The `group()` method of the FormBuilder allows to define a set of controls in an **configuration object** and also nested form groups. It is associated with the root form group. At each FormControl a default value can be set \(like above with "`sendCatalog: true`"\).
 
 7\) To be able to use the form in the entire part of the app module the **ReactiveFormsModule has to be imported into the app module**...
 
