@@ -143,7 +143,7 @@ The Reactive Forms Directives are:
 </form>
 ```
 
-9c\) Use the formControlName directive to bind each input element to its associated formControl. The will be bound to the name of the formControl instance as defined in the form model
+9c\) Use the **formControlName directive** to bind each input element to its associated formControl. The will be bound to the name of the formControl instance as defined in the form model
 
 ```js
 <form (ngSubmit)="save()" [formGroup]="customerForm"> 
@@ -202,7 +202,7 @@ The Reactive Forms Directives are:
 
    <span>
        <button type="submit"
-               [disabled]="!customerForm.valid">
+               [disabled]="!customerForm.valid"> // customerForm property for checking if the form is valid
            Save
        </button>
    </span>
