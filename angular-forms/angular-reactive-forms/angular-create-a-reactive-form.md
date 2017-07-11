@@ -87,7 +87,7 @@ export class CustomerComponent implements OnInit {
 }
 ```
 
-7\) To be able to use the form in the entire part of the app module the ReactiveFormsModule has to be imported into the app module...
+7\) To be able to use the form in the entire part of the app module the **ReactiveFormsModule has to be imported into the app module**...
 
 ```js
 /* app.module.ts */
@@ -99,7 +99,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'; // only React
 ...
 ```
 
-8\) ... and added to the imports array
+8\) ... **and added to the imports array**
 
 ```js
 @NgModule({
@@ -127,7 +127,15 @@ The Reactive Forms Directives are:
 * formGroupName  
 * formArrayName
 
-9a\) Bind the form element in the template via the formGroup directive to the root FormGroup of the form model in the component class
+9a\) Use the **formGroup directive** to bind the `form` element to the **FormGroup instance property** defined in the component class
+
+```js
+<form (ngSubmit)="save()" formGroup>
+      ...                                             
+</form>
+```
+
+9b\) Use square brackets **to define property binding and bind to the customerForm property**
 
 ```js
 <form (ngSubmit)="save()" [formGroup]="customerForm"> // customerForm is the form model property from the
@@ -135,7 +143,7 @@ The Reactive Forms Directives are:
 </form>
 ```
 
-9b\) Use the formControlName directive to bind each input element to its associated formControl. The will be bound to the name of the formControl instance as defined in the form model
+9c\) Use the formControlName directive to bind each input element to its associated formControl. The will be bound to the name of the formControl instance as defined in the form model
 
 ```js
 <form (ngSubmit)="save()" [formGroup]="customerForm"> 
