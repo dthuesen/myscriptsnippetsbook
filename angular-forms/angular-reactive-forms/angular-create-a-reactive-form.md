@@ -107,6 +107,8 @@ constructor(private fb: FormBuilder) { }           // <-- 2) inject FormBuilder 
 }
 ```
 
+The `group()` method of the FormBuilder allows to define a set of controls in an object and also nested form groups. It is associated with the root form group. At each FormControl a default value can be set \(like above with "`sendCatalog: true`"\).
+
 7\) To be able to use the form in the entire part of the app module the **ReactiveFormsModule has to be imported into the app module**...
 
 ```js
