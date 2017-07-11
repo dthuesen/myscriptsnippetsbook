@@ -1,4 +1,4 @@
-# Angular Reactive Forms Code Example
+# Angular - Reactive Forms Code Example
 
 ## The HTML form
 
@@ -42,6 +42,4 @@ Transformed into a **reactive form** in the template it would look like this:
 ```
 
 The form model is build in the component class, so no need for template reference variables. Reactive form do not use two way binding, so not `ngModel` or `name` attribute. And with reactive forms the validation is defined in the component class, so no validation attributes here either. The form element now binds the formGroup directive to the form model created in the class. Each form element is now bound to a form control instance in the form model \(`formControlName="firstName"`\).
-
-
 

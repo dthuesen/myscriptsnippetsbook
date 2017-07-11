@@ -1,4 +1,4 @@
-# Angular Reactive Forms - Update Values in the View
+# Angular - Reactive Forms - Update Values in the View
 
 Use `setValue` and `patchValue` for updating input elements on the form from the component class. Use `setValue` for updating **all** form controls like this:
 
