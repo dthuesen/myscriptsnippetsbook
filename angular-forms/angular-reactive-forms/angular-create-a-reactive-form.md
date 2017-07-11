@@ -90,12 +90,14 @@ export class CustomerComponent implements OnInit {
 6b\) **Use FormBuilder to shorten the boilerplate** of the FormGroup code. **FormBuilder creates a form model from a configuration**, like this \(compare it to the code example above\):
 
 ```js
-import { FormBuilder, FormGroup } from '@angular/forms';   // <-- import FormBuilder
+import { FormBuilder, FormGroup } from '@angular/forms';   // <-- 1) import FormBuilder
 ...
 export class CustomerComponent implements OnInit {
 ...
+constructor(private fb: FormBuilder) { }                   // <-- 2) inject FormBuilder in the constructor
+...
     ngOnInit(): void {
-        this.customerForm = this.fb.group({                // <-- use FormBuilder
+        this.customerForm = this.fb.group({                // <-- 3) use FormBuilder instance
             firstName: '',
             lastName: '',
             email: '',
