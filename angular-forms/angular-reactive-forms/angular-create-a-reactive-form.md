@@ -202,7 +202,7 @@ The Reactive Forms Directives are:
 
    <span>
        <button type="submit"
-               [disabled]="!customerForm.valid"> // customerForm property for checking if the form is valid
+           [disabled]="!customerForm.valid"> // use the customerForm property to check if the form is valid
            Save
        </button>
    </span>
