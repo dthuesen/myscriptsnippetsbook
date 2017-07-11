@@ -21,6 +21,7 @@
 * [Angular Reactive Forms](angular-forms/angular-reactive-forms.md)
   * [Angular Reactive Forms Code Example](angular-forms/angular-reactive-forms/angular-reactive-forms-code-example.md)
   * [Angular - Create A Reactive Form](angular-forms/angular-reactive-forms/angular-create-a-reactive-form.md)
+  * [Angular Reactive Forms - Update Values in the View](angular-forms/angular-reactive-forms/angular-reactive-forms-update-values-in-the-view.md)
 
 ## Angular-Testing
 
