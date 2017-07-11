@@ -65,7 +65,7 @@ export class CustomerComponent implements OnInit {
 }
 ```
 
-6\) **Add the first FormControls \(in an object with key and value pairs\) to the FormGroup**
+6a\) **Add the first FormControls \(in an object with key and value pairs\) to the FormGroup**
 
 ```js
 ...
@@ -82,6 +82,24 @@ export class CustomerComponent implements OnInit {
             lastName: new FormControl(),
             email: new FormControl(),
             sendCatalog: new FormControl(true)  // here a default value is passed in (optional)
+        });
+    }
+}
+```
+
+6b\) Use FormBuilder to shorten the boilerplate of the FormGroup code. FormBuilder creates a form model from a configuration, like this \(compare it to the code example above\):
+
+```js
+import { FormBuilder, FormGroup } from '@angular/forms';   // <-- import FormBuilder
+...
+export class CustomerComponent implements OnInit {
+...
+    ngOnInit(): void {
+        this.customerForm = this.fb.group({                // <-- use FormBuilder
+            firstName: '',
+            lastName: '',
+            email: '',
+            sendCatalog: true
         });
     }
 }
