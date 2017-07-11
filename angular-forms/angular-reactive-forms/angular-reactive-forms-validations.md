@@ -36,5 +36,17 @@ this.customerForm = this.fb.group({
 })
 ```
 
+For built-in validators the `Validators` class is used with one of its methods \(`.required`, `.maxLength`, `.minLength`, `.compose`, `.composeAsync`, `.email`, `.max`, `.min`, `.nullValidator`, `.pattern`, `.prototype`, `.requiredTrue`\)
+
+When using more than one validator an array is used for the second argument in the array of the value, like this:
+
+```
+this.customerForm = this.fb.group({
+    firstName: ['', 
+                [Validators.required, Validators.minLength(3)]],
+    sendCatalog: true
+})
+```
+
 
 
