@@ -16,5 +16,16 @@ function myCustomValidator(control: AbstractControl): {[key: string]: boolean} |
 }
 ```
 
+In the body of the validator function it will be checked if 'something is wrong' or null will be returned:
+
+```js
+function myCustomValidator(control: AbstractControl): {[key: string]: boolean} | null {
+    if (somethingIsWrong) {
+        return { 'myValidator': true };
+    }
+    return null;
+}
+```
+
 
 
