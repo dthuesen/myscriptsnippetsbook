@@ -54,7 +54,7 @@ setNotification(notifyVia: string): void {
 }
 ```
 
-3\) In that method build a reference to the 'phone' form control 
+3\) In that method build a reference to the 'phone' form control with the **root form group `get()` method**
 
 ```js
 setNotification(notifyVia: string): void {
