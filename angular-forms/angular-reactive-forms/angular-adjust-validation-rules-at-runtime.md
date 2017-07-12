@@ -36,13 +36,22 @@ myControl.updateValueAndValidity();
              value="email"
              formControlName="notification"
              (click)="setNotification('email')" >Email
-             
+
       <input type="radio"
              value="text"
              formControlName="notification"
              (click)="setNotification('text')" >Text
   </div>
+```
 
+These form controls have the same name so the selection sets the value to this form control \("notification"\). The event binding with the click event calls a method and passes the value of what is clicked to the called method.
+
+2\) In the component class add the method for setting the notification value:
+
+```
+setNotification(notifyVia: string): void {
+    
+}
 ```
 
 
