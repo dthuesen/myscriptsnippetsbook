@@ -77,7 +77,7 @@ setNotification(notifyVia: string): void {
 }
 ```
 
-5\) Then add the method `updateValueAndValidity()` to the body surrounding method for re-evaluating the FormControl:
+5\) Then add the method `updateValueAndValidity()` to the body surrounding method for re-evaluating the **FormControl**:
 
 ```js
 setNotification(notifyVia: string): void {
