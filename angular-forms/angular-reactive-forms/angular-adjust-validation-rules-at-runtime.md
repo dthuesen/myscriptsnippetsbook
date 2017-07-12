@@ -54,7 +54,7 @@ setNotification(notifyVia: string): void {
 }
 ```
 
-3\) In that method build a reference to the 'phone' form control with the **root form group `get()` method**
+3\) In that method build a reference to the 'phone' **FormControl** with the **root FormGroup **`get()`** method**
 
 ```js
 setNotification(notifyVia: string): void {
@@ -77,7 +77,7 @@ setNotification(notifyVia: string): void {
 }
 ```
 
-5\) Then add the method updateValueAndValidity\(\) to the body surrounding method for updating values and validity:
+5\) Then add the method `updateValueAndValidity()` to the body surrounding method for updating values and validity:
 
 ```js
 setNotification(notifyVia: string): void {
