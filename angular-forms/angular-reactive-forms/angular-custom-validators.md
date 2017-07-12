@@ -27,5 +27,11 @@ function myCustomValidator(control: AbstractControl): {[key: string]: boolean} |
 }
 ```
 
+The broken validation rule is then added to the passed in FormControl or FormGroup error collection. 
+
+### Build a custom validator
+
+
+
 
 
