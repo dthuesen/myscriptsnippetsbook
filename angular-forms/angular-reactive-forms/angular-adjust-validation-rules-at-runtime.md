@@ -22,7 +22,7 @@ myControl.clearValidators();
 
 Updating the validation rules doesn't cause the validation status of the control to be re-evaluated. So if they get changed and one want **to re-evaluate** the control evaluation based on the new evaluation rules one calls the **updateValueAndValidity\(\) method **on that form as well.
 
-```
+```js
 myControl.updateValueAndValidity();
 ```
 
@@ -30,7 +30,7 @@ myControl.updateValueAndValidity();
 
 1\) Add the desired input elements to the template. In this case the behavior of the validation depends on a selection between two radio button input elements:
 
-```
+```js
   <div>
       <input type="radio"
              value="email"
@@ -48,9 +48,46 @@ These form controls have the same name so the selection sets the value to this f
 
 2\) In the component class add the method for setting the notification value:
 
-```
+```js
 setNotification(notifyVia: string): void {
+
+}
+```
+
+3\) In that method assign the form control which should be validated to a constant \(for better handling\)
+
+```js
+setNotification(notifyVia: string): void {
+    const phoneControl = this.customerForm.get('phone');      // <--
     
+}
+```
+
+4\) Write an if-else statement for the two paths \(in this case\) if phone is selected the phone number is required and else clear the validators.
+
+```js
+setNotification(notifyVia: string): void {
+    const phoneControl = this.customerForm.get('phone');
+    
+    if (notifyVia === 'text') {                               // <--
+        phoneControl.setValidators(Validators.required);      // <--
+    } else {                                                  // <--
+        phoneControl.clearValidators();                       // <--
+    }
+}
+```
+
+5\) Than add the method updateValueAndValidity\(\) to the body surrounding method for updating values and validity:
+
+```js
+setNotification(notifyVia: string): void {
+    const phoneControl = this.customerForm.get('phone');
+    if (notifyVia === 'text') {
+        phoneControl.setValidators(Validators.required);
+    } else {
+        phoneControl.clearValidators();
+    }
+    phoneControl.updateValueAndValidity();                    // <--
 }
 ```
 
