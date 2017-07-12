@@ -15,8 +15,10 @@ myControl.setValidators([Validators.required, Validators.maxLength(30)]);
 All validators can also be removed with a call of **clearValidators\(\)**
 
 ```js
-myControl.clearValidators()
+myControl.clearValidators();
 ```
+
+clearValidators\(\) comes in handy if in some circumstances one want to add validators roules and under other conditions one want to remove them.
 
 
 
