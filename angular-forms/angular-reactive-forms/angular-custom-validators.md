@@ -8,7 +8,7 @@ function myCustomValidator(control: AbstractControl) {    // <-- the parameter o
 }
 ```
 
-The function returns an Object with a boolean value or null:
+The function returns an Object where the key is a string and the value is a boolean \(defining the broken rule\) or null if it is valid:
 
 ```js
 function myCustomValidator(control: AbstractControl): {[key: string]: boolean} | null {
