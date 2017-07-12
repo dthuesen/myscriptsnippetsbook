@@ -26,5 +26,24 @@ Updating the validation rules doesn't cause the validation status of the control
 myControl.updateValueAndValidity();
 ```
 
+### Steps for implementation:
+
+1\) Add the desired input elements to the template. In this case the behavior of the validation depends on a selection between two radio button input elements:
+
+```
+  <div>
+      <input type="radio"
+             value="email"
+             formControlName="notification"
+             (click)="setNotification('email')" >Email
+             
+      <input type="radio"
+             value="text"
+             formControlName="notification"
+             (click)="setNotification('text')" >Text
+  </div>
+
+```
+
 
 
