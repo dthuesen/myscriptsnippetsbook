@@ -59,7 +59,7 @@ setNotification(notifyVia: string): void {
 ```js
 setNotification(notifyVia: string): void {
     const phoneControl = this.customerForm.get('phone');      // <--
-    
+
 }
 ```
 
@@ -68,7 +68,7 @@ setNotification(notifyVia: string): void {
 ```js
 setNotification(notifyVia: string): void {
     const phoneControl = this.customerForm.get('phone');
-    
+
     if (notifyVia === 'text') {                               // <--
         phoneControl.setValidators(Validators.required);      // <--
     } else {                                                  // <--
@@ -77,7 +77,7 @@ setNotification(notifyVia: string): void {
 }
 ```
 
-5\) Than add the method updateValueAndValidity\(\) to the body surrounding method for updating values and validity:
+5\) Then add the method updateValueAndValidity\(\) to the body surrounding method for updating values and validity:
 
 ```js
 setNotification(notifyVia: string): void {
