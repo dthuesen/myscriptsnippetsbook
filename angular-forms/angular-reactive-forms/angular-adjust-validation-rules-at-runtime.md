@@ -63,7 +63,7 @@ setNotification(notifyVia: string): void {
 }
 ```
 
-4\) Write an if-else statement for the two paths \(in this case\) if phone is selected the phone number is required and else clear the validators with the **FormControl's** `clearValidators() `method .
+4\) Write an if-else statement for the two paths \(in this case\) if phone is selected the phone number is required and otherwise clear the validators with the **FormControl's** `clearValidators()`method .
 
 ```js
 setNotification(notifyVia: string): void {
@@ -77,7 +77,7 @@ setNotification(notifyVia: string): void {
 }
 ```
 
-5\) Then add the method `updateValueAndValidity()` to the body surrounding method for updating values and validity:
+5\) Then add the method `updateValueAndValidity()` to the body surrounding method for re-evaluating the FormControl:
 
 ```js
 setNotification(notifyVia: string): void {
