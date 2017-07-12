@@ -24,6 +24,7 @@
   * [Angular - Reactive Forms - Update Values in the View](angular-forms/angular-reactive-forms/angular-reactive-forms-update-values-in-the-view.md)
   * [Angular - Reactive Forms Validations](angular-forms/angular-reactive-forms/angular-reactive-forms-validations.md)
   * [Angular - Adjust Validation Rules at Runtime](angular-forms/angular-reactive-forms/angular-adjust-validation-rules-at-runtime.md)
+  * [Angular - Custom Validators](angular-forms/angular-reactive-forms/angular-custom-validators.md)
 
 ## Angular-Testing
 
