@@ -63,7 +63,7 @@ setNotification(notifyVia: string): void {
 }
 ```
 
-4\) Write an if-else statement for the two paths \(in this case\) if phone is selected the phone number is required and else clear the validators.
+4\) Write an if-else statement for the two paths \(in this case\) if phone is selected the phone number is required and else clear the validators with the **FormControl's** `clearValidators() `method .
 
 ```js
 setNotification(notifyVia: string): void {
