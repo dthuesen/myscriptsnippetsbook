@@ -54,7 +54,7 @@ setNotification(notifyVia: string): void {
 }
 ```
 
-3\) In that method assign the form control which should be validated to a constant \(for better handling\)
+3\) In that method build a reference to the 'phone' form control 
 
 ```js
 setNotification(notifyVia: string): void {
