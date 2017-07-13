@@ -363,21 +363,23 @@ Now group the template as well. First surround both elements with a `<div></div>
 <div formGroupName="emailGroup">      // <-- the surrounded div for the nested FormGroup
 
     // The email input
-    <div>
+    <div [ngClass]="{ 'has-error': (customerForm.get('emailGroup.email').touched ||  // <-- 'email' becomes
+                                    customerForm.get('emailGroup.email').dirty) &&   // <-- 'emailGroup.email'
+                                    !customerForm.get('emailGroup.email').valid }">  // <-- like here
       <label for="emailId">Email</label>
 
         <div>
           <input id="emailId"
-                  type="email"
-                  placeholder="Email (required)"
-                  formControlName="email" />
-            <span *ngIf="(customerForm.get('email').touched ||    // <-- 'customerForm' becomes 'emailGroup'
-                          customerForm.get('email').dirty) &&       // <-- and here
-                          customerForm.get('email').errors">          // <-- and here
-              <span *ngIf="customerForm.get('email').errors.required">  // <-- and here
+                 type="email"
+                 placeholder="Email (required)"
+                 formControlName="email" />
+            <span *ngIf="(customerForm.get('emailGroup.email').touched ||    // <-- and here 
+                          customerForm.get('emailGroup.email').dirty) &&       // <-- and here
+                          customerForm.get('emailGroup.email').errors">          // <-- and here
+              <span *ngIf="customerForm.get('emailGroup.email').errors.required">  // <-- and here
                   Please enter your email address.
               </span>
-              <span *ngIf="customerForm.get('email').errors.pattern">   // <-- and here
+              <span *ngIf="customerForm.get('emailGroup.email').errors.pattern">   // <-- and here
                   Please enter a valid email address.
               </span>
           </span>
@@ -385,9 +387,9 @@ Now group the template as well. First surround both elements with a `<div></div>
     </div>
 
     // The confirm email input
-    <div [ngClass]="{ 'has-error': (customerForm.get('confirmEmail').touched ||  // <-- and here
-                                    customerForm.get('confirmEmail').dirty) &&   // <-- and here
-                                    !customerForm.get('confirmEmail').valid }">  // <-- and here
+    <div [ngClass]="{ 'has-error': (customerForm.get('confirmEmail').touched ||  
+                                    customerForm.get('confirmEmail').dirty) &&   
+                                    !customerForm.get('confirmEmail').valid }">  
       <label for="confirmEmailId">Confirm Email</label>
 
         <div>
@@ -395,10 +397,10 @@ Now group the template as well. First surround both elements with a `<div></div>
                   type="email"
                   placeholder="Confirm Email (required)"
                   formControlName="confirmEmail" />
-            <span *ngIf="(customerForm.get('confirmEmail').touched ||           // <-- and here
-                          customerForm.get('confirmEmail').dirty) &&            // <-- and here
-                          customerForm.get('confirmEmail').errors">             // <-- and here
-            <span *ngIf="customerForm.get('confirmEmail').errors.required">     // <-- and here
+            <span *ngIf="(customerForm.get('confirmEmail').touched ||           
+                          customerForm.get('confirmEmail').dirty) &&            
+                          customerForm.get('confirmEmail').errors">             
+            <span *ngIf="customerForm.get('confirmEmail').errors.required"> 
                   Please confirm your email address.
               </span>
           </span>
