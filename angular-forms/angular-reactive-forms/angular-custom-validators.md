@@ -362,7 +362,7 @@ Now group the template as well. First surround both elements with a `<div></div>
 ```js
 <div formGroupName="emailGroup">      // <-- the surrounded div for the nested FormGroup
 
-    // The email input
+    <!-- The email input -->
     <div [ngClass]="{ 'has-error': (customerForm.get('emailGroup.email').touched || // <-- 'email' becomes
                                     customerForm.get('emailGroup.email').dirty) &&  //<-- 'emailGroup.email'
                                     !customerForm.get('emailGroup.email').valid }"> // <-- like here
@@ -386,7 +386,7 @@ Now group the template as well. First surround both elements with a `<div></div>
         </div>
     </div>
 
-    // The confirm email input
+    <!-- The confirm email input -->
     <div [ngClass]="{ 'has-error': (customerForm.get('emailGroup.confirmEmail').touched || // <-- and 
                                     customerForm.get('emailGroup.confirmEmail').dirty) && //<-- confirmEmail
                                     !customerForm.get('emailGroup.confirmEmail').valid }"> // <-- becomes
