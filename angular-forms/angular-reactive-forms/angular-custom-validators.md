@@ -27,11 +27,34 @@ function myCustomValidator(control: AbstractControl): {[key: string]: boolean} |
 }
 ```
 
-The broken validation rule is then added to the passed in FormControl or FormGroup error collection. 
+The broken validation rule is then added to the passed in FormControl or FormGroup error collection.
 
 ### Build a custom validator
 
+Assume there's a form in the template with an input element for that desired custom validator, like this:
 
+```js
+...
+
+<div [ngClass]="{'has-error': ( customerForm.get('rating').touched ||
+                                customerForm.get('rating').dirty ) &&
+                               !customerForm.get('rating').valid }">
+
+  <label for="ratingId">Rating</label>
+  <div>
+    <input id="ratingId"
+           type="number"
+           formControlName="rating" />
+    <span *ngIf="( customerForm.get('rating').touched ||
+                   customerForm.get('rating').dirty ) &&
+                   customerForm.get('rating').errors">
+      <span *ngIf="customerForm.get('rating').errors.range">
+        Please rate your experience grom 1 to 5.
+      </span>
+    </span>
+  </div>
+</div>
+```
 
 
 
