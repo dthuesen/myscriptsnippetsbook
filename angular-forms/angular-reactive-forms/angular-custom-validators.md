@@ -188,16 +188,21 @@ function ratingRange (control: AbstractControl): {[key: string]: boolean} | null
 ...
 ```
 
-And change wrap it in the factory function like this:
+And change wrap it in the factory function like this and add **ValidatorFn** to the import statement for the return type of the factory function wrapper:
 
 ```js
 ...
-import {FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms'
+import {FormBuilder, 
+        FormGroup, 
+        Validators, 
+        AbstractControl, 
+        ValidatorFn                 // <-- ValidatorFn needs to be imported for the right return type
+        } from '@angular/forms'
 ...
 
 // the factory function which takes two parameters (min and max acceptable value)
 function ratingRange(min: number, max: number): ValidatorFn {
-  
+
   // the custom validator function
   function ratingRange (control: AbstractControl): {[key: string]: boolean} | null {
     if (control.value != undefined && (isNaN(control.value) || control.value < 1 || control.value > 5)) {
@@ -205,7 +210,7 @@ function ratingRange(min: number, max: number): ValidatorFn {
     };
     return null
   }
-  
+
 }
 
 @Component({
