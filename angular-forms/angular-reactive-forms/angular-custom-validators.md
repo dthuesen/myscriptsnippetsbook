@@ -72,7 +72,7 @@ ngOnInit(): void {
   }
 ```
 
-And then **create a custom numeric range validator** by adding the validator function above the component class \(if it only will be used by this component\) or in an external file \(e.g. called 'custom.validators.ts' with export of each validator\)':
+And then **create a custom numeric range validator** by adding the validator function above the component class \(if it only will be used by this component\) or in an **external file** \(e.g. called 'custom.validators.ts' with export of each validator\)':
 
 ```
 
