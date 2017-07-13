@@ -133,5 +133,5 @@ If there should be an error message in the template, one could do it like so:
 </div>
 ```
 
-
+Keep in mind: A custom validator is a function. The hard part of writing a custom validation rule is to ensure the appropriate return value. `null` if a FormControl is valid and a key and value pair if it is invalid. Where the key is the name of the validation rule and the value is true to add it to the validation errors.
 
