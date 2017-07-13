@@ -336,5 +336,5 @@ ngOnInit(): void {
 }
 ```
 
-
+The FormControl doesn't need a patter validation because it will be compared against the email FormControl and that already has a pattern validation. 
 
