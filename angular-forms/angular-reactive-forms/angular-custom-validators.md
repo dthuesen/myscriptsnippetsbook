@@ -143,5 +143,29 @@ If there should be an error message in the template, one could do it like so:
 
 ### Custom Validator with Parameters
 
+Just adding more parameters to a custom validator is not possible because it takes only one. Thus it is a good way to write a more complex function \(which can take more parameters\) that then returns a custom validator function.
+
+```js
+function myCustomValidator(param: any): ValidatorFn {
+    return (control: AbstractControl): {[key: string]: boolean} | null => {
+        if(somethingIsWrong) {
+            return { 'myValidator': true };
+        }
+        return null;
+    }
+}
+```
+
+The above code shows the **returned validator function** is an arrow function which looks w/o types like this:
+
+```js
+(control) => {
+    if(somethingIsWrong) {
+        return { 'myValidator': true };
+    }
+    return null;
+}
+```
+
 
 
