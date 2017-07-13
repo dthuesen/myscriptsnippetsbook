@@ -276,7 +276,7 @@ this.customerForm = this.fb.group({
     lastName: ['', [Validators.required, Validators.maxLength(50)]],
     availability: this.fb.group({                                            // <-- the 
         start: ['', Validators.required],                                    // <-- nested
-        end: ['', Validators.required],                                      // <-- FormGroup
+        end: ['', Validators.required]                                       // <-- FormGroup
     })
 });
 ```
