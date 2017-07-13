@@ -167,5 +167,50 @@ The above code shows the **returned validator function** is an arrow function wh
 }
 ```
 
+#### Now create the custom validation which takes parameters
+
+First take the custom validator functin from the example above:
+
+```js
+...
+import {FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms'
+...
+
+// the custom validator function
+function ratingRange (control: AbstractControl): {[key: string]: boolean} | null {
+  if (control.value != undefined && (isNaN(control.value) || control.value < 1 || control.value > 5)) {
+    return { 'range': true };
+  };
+  return null
+}
+
+@Component({
+...
+```
+
+And change wrap it in the factory function like this:
+
+```js
+...
+import {FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms'
+...
+
+// the factory function which takes two parameters (min and max acceptable value)
+function ratingRange(min: number, max: number): ValidatorFn {
+  
+  // the custom validator function
+  function ratingRange (control: AbstractControl): {[key: string]: boolean} | null {
+    if (control.value != undefined && (isNaN(control.value) || control.value < 1 || control.value > 5)) {
+      return { 'range': true };
+    };
+    return null
+  }
+  
+}
+
+@Component({
+...
+```
+
 
 
