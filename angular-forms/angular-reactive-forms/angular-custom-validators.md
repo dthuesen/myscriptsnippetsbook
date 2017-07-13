@@ -121,12 +121,12 @@ If there should be an error message in the template, one could do it like so:
   <div>
     <input id="ratingId"
            type="number"
-           formControlName="rating" />                     // <-- formControlName directive set to 'rating'
-    <span *ngIf="( customerForm.get('rating').touched ||
-                   customerForm.get('rating').dirty ) &&
-                   customerForm.get('rating').errors">
-      <span *ngIf="customerForm.get('rating').errors.range">
-        Please rate your experience grom 1 to 5.
+           formControlName="rating" />                     
+    <span *ngIf="( customerForm.get('rating').touched ||      // <-- implementation of the validation rule
+                   customerForm.get('rating').dirty ) &&      // <-- 
+                   customerForm.get('rating').errors">    
+      <span *ngIf="customerForm.get('rating').errors.range">  // <-- here the validation rule name is used
+        Please rate your experience grom 1 to 5.              // <-- and only displays if it breakes
       </span>
     </span>
   </div>
