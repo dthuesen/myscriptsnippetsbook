@@ -45,13 +45,6 @@ Assume there's a form in the template with an **input element** for that a custo
     <input id="ratingId"
            type="number"
            formControlName="rating" />                     // <-- formControlName directive set to 'rating'
-    <span *ngIf="( customerForm.get('rating').touched ||
-                   customerForm.get('rating').dirty ) &&
-                   customerForm.get('rating').errors">
-      <span *ngIf="customerForm.get('rating').errors.range">
-        Please rate your experience grom 1 to 5.
-      </span>
-    </span>
   </div>
 </div>
 ```
@@ -116,4 +109,29 @@ ngOnInit(): void {
 ```
 
 If there should be an error message in the template, one could do it like so:
+
+```js
+...
+
+<div [ngClass]="{'has-error': ( customerForm.get('rating').touched ||
+                                customerForm.get('rating').dirty ) &&
+                               !customerForm.get('rating').valid }">
+
+  <label for="ratingId">Rating</label>
+  <div>
+    <input id="ratingId"
+           type="number"
+           formControlName="rating" />                     // <-- formControlName directive set to 'rating'
+    <span *ngIf="( customerForm.get('rating').touched ||
+                   customerForm.get('rating').dirty ) &&
+                   customerForm.get('rating').errors">
+      <span *ngIf="customerForm.get('rating').errors.range">
+        Please rate your experience grom 1 to 5.
+      </span>
+    </span>
+  </div>
+</div>
+```
+
+
 
