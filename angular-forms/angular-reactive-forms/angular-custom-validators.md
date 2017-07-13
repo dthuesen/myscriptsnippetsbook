@@ -1,5 +1,11 @@
 # Angular - Custom Validators
 
+* [**First explanation**](#first-explanation)
+* [**Build a custom validator**](#build-a-custom-validator)
+* [**Custom Validator with Parameters**](#custom-validator-with-parameters)
+
+### First explanation
+
 In it's simplest form a custom validator is a function. The validator function always takes one parameter. The parameter is of type **AbstractControl** to allow passing in either FormGroup or FormControl.
 
 ```js
@@ -133,5 +139,9 @@ If there should be an error message in the template, one could do it like so:
 </div>
 ```
 
-Keep in mind: A custom validator is a function. The hard part of writing a custom validation rule is to ensure the appropriate return value. `null` if a FormControl is valid and a key and value pair if it is invalid. Where the key is the name of the validation rule and the value is true to add it to the validation errors.
+**Keep in mind:** A custom validator is a function. The hard part of writing a custom validation rule is to ensure the appropriate return value. `null` if a FormControl is valid and a key and value pair if it is invalid. Where the key is the name of the validation rule and the value is true to add it to the validation errors.
+
+### Custom Validator with Parameters
+
+
 
