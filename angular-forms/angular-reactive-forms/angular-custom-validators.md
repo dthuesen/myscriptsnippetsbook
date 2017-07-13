@@ -295,7 +295,7 @@ The will be defined in the component class an in the template then they will be 
 
 ### Implementation of the Cross-Field Validation
 
-In this section an email and confirm email field will be added to the form. **First add the confirm email element and its FormControl to the template:**
+In this section an email and confirm email field will be added to the form. **First add the confirm email element and its FormControl \('confirmEmail'\) to the template:**
 
 ```js
 <div [ngClass]="{ 'has-error': (customerForm.get('confirmEmail').touched ||
