@@ -268,7 +268,7 @@ ngOnInit(): void {
 
 ### Cross-Field Validation
 
-Comparison **across one or more FormControls** like e.g. start and end date in a form or comparing an **email address** with an **confirm email address** field. The trick to cross-field validation is to define a nested FormGroup, like so:
+Comparison **across one or more FormControls** like e.g. start and end date in a form or comparing an **email address** with an **confirm email address** field. The trick to cross-field validation is to define a **nested FormGroup**, like so:
 
 ```js
 this.customerForm = this.fb.group({
