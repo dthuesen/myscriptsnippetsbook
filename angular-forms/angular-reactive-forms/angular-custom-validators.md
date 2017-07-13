@@ -79,7 +79,7 @@ And then **create a custom numeric range validator** by adding the validator fun
 import {FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms'
 ...
 
-// custom validator
+// the custom validator function
 function ratingRange (control: AbstractControl): {[key: string]: boolean} | null {
   if (control.value != undefined && (isNaN(control.value) || control.value < 1 || control.value > 5)) {
     return { 'range': true };
@@ -92,8 +92,4 @@ function ratingRange (control: AbstractControl): {[key: string]: boolean} | null
 ```
 
 The validator function in this case is placed above component class. It takes one parameter of type AbstractControl \(to allow either validation of a FormControl or a FormGroup\) and returns an Object with a boolean value for 'range' of true, if the checked input is not undefined AND not a number OR if it is less then 1 OR higher than 5 otherwise it returns null.
-
-
-
-
 
