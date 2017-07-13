@@ -363,9 +363,9 @@ Now group the template as well. First surround both elements with a `<div></div>
 <div formGroupName="emailGroup">      // <-- the surrounded div for the nested FormGroup
 
     // The email input
-    <div [ngClass]="{ 'has-error': (customerForm.get('emailGroup.email').touched ||  // <-- 'email' becomes
-                                    customerForm.get('emailGroup.email').dirty) &&   // <-- 'emailGroup.email'
-                                    !customerForm.get('emailGroup.email').valid }">  // <-- like here
+    <div [ngClass]="{ 'has-error': (customerForm.get('emailGroup.email').touched || // <-- 'email' becomes
+                                    customerForm.get('emailGroup.email').dirty) &&  //<-- 'emailGroup.email'
+                                    !customerForm.get('emailGroup.email').valid }"> // <-- like here
       <label for="emailId">Email</label>
 
         <div>
@@ -388,7 +388,7 @@ Now group the template as well. First surround both elements with a `<div></div>
 
     // The confirm email input
     <div [ngClass]="{ 'has-error': (customerForm.get('emailGroup.confirmEmail').touched || // <-- and 
-                                    customerForm.get('emailGroup.confirmEmail').dirty) &&  // <-- confirmEmail
+                                    customerForm.get('emailGroup.confirmEmail').dirty) && //<-- confirmEmail
                                     !customerForm.get('emailGroup.confirmEmail').valid }"> // <-- becomes
       <label for="confirmEmailId">Confirm Email</label>
 
@@ -396,7 +396,7 @@ Now group the template as well. First surround both elements with a `<div></div>
           <input id="confirmEmailId"
                   type="email"
                   placeholder="Confirm Email (required)"
-                  formControlName="emailGroup.confirmEmail" />                 // <-- emailGroup.confirmEmail
+                  formControlName="emailGroup.confirmEmail" />             // <-- emailGroup.confirmEmail
             <span *ngIf="(customerForm.get('emailGroup.confirmEmail').touched ||       // <-- like here...           
                           customerForm.get('emailGroup.confirmEmail').dirty) &&        // <-- and here...          
                           customerForm.get('emailGroup.confirmEmail').errors">         // <-- and here...          
