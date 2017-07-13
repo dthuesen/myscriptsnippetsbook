@@ -4,6 +4,7 @@
 * [**Build a custom validator**](#build-a-custom-validator)
 * [**Custom Validator with Parameters**](#custom-validator-with-parameters)
 * [**Cross-Field Validation**](#cross-field-validation)
+* [**Implementation of the Cross-Field Validation**](#implementation-of-the-cross-field-validation)
 
 ### First explanation
 
@@ -289,6 +290,32 @@ The will be defined in the component class an in the template then they will be 
     <input formControlName="start" />     // <-- the FormControl 'start'
     ...
     <input formControlName="end" />       // <-- and the FormControl 'end'
+</div>
+```
+
+### Implementation of the Cross-Field Validation
+
+In this section an email and confirm email field will be added to the form. First add the confirm email element and its FormControl to the template:
+
+```js
+<div [ngClass]="{ 'has-error': (customerForm.get('confirmEmail').touched ||
+                                customerForm.get('confirmEmail').dirty) &&
+                                !customerForm.get('confirmEmail').valid }">
+  <label for="confirmEmailId">Confirm Email</label>
+
+    <div>
+      <input id="confirmEmailId"
+              type="email"
+              placeholder="Confirm Email (required)"
+              formControlName="confirmEmail" />
+        <span *ngIf="(customerForm.get('confirmEmail').touched ||
+                      customerForm.get('confirmEmail').dirty) &&
+                      customerForm.get('confirmEmail').errors">
+          <span *ngIf="customerForm.get('confirmEmail').errors.required">
+              Please confirm your email address.
+          </span>
+      </span>
+    </div>
 </div>
 ```
 
