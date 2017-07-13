@@ -357,7 +357,7 @@ The FormControl doesn't need a patter validation because it will be compared aga
 }
 ```
 
-Now group the template as well. First surround both elements with a `<div></div>` element and indent them. Then place the `formGroupName` directive and **set it equal to the name of the nested FormGroup and change each reference to the FormControls**:
+Now group the template as well. First surround both elements with a `<div></div>` element and indent them. Then place the `formGroupName` directive and **set it equal to the name of the nested FormGroup and change each reference of the FormControls for `email` and `confirmEmail`**:
 
 ```js
 <div formGroupName="emailGroup">      // <-- the surrounded div for the nested FormGroup
