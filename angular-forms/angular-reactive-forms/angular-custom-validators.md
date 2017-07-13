@@ -283,14 +283,28 @@ this.customerForm = this.fb.group({
 
 The will be defined in the component class an in the template then they will be validated together:
 
-```
+```js
 <div formGroupName="availability">
     ...
     <input formControlName="start" />
     ...
     <input formControlName="end" />
-</div> 
+</div>
 ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
