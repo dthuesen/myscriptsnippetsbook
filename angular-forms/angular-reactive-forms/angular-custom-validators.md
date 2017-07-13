@@ -357,10 +357,10 @@ The FormControl doesn't need a patter validation because it will be compared aga
 }
 ```
 
-Now group the template as well. First surround both elements with a `<div></div>` element and indent them. Then place the `formGroupName` directive and set it equal to the name of the nested **FormGroup**:
+Now group the template as well. First surround both elements with a `<div></div>` element and indent them. Then place the `formGroupName` directive and **set it equal to the name of the nested FormGroup and change each reference to the FormControls**:
 
-```
-<div formGroupName="emailGroup">
+```js
+<div formGroupName="emailGroup">      // <-- the surrounded div for the nested FormGroup
 
     // The email input
     <div>
@@ -371,13 +371,13 @@ Now group the template as well. First surround both elements with a `<div></div>
                   type="email"
                   placeholder="Email (required)"
                   formControlName="email" />
-            <span *ngIf="(customerForm.get('email').touched || 
-                          customerForm.get('email').dirty) && 
-                          customerForm.get('email').errors">
-              <span *ngIf="customerForm.get('email').errors.required">
+            <span *ngIf="(customerForm.get('email').touched ||    // <-- 'customerForm' becomes 'emailGroup'
+                          customerForm.get('email').dirty) &&       // <-- and here
+                          customerForm.get('email').errors">          // <-- and here
+              <span *ngIf="customerForm.get('email').errors.required">  // <-- and here
                   Please enter your email address.
               </span>
-              <span *ngIf="customerForm.get('email').errors.pattern">
+              <span *ngIf="customerForm.get('email').errors.pattern">   // <-- and here
                   Please enter a valid email address.
               </span>
           </span>
@@ -385,9 +385,9 @@ Now group the template as well. First surround both elements with a `<div></div>
     </div>
 
     // The confirm email input
-    <div [ngClass]="{ 'has-error': (customerForm.get('confirmEmail').touched ||
-                                    customerForm.get('confirmEmail').dirty) &&
-                                    !customerForm.get('confirmEmail').valid }">
+    <div [ngClass]="{ 'has-error': (customerForm.get('confirmEmail').touched ||  // <-- and here
+                                    customerForm.get('confirmEmail').dirty) &&   // <-- and here
+                                    !customerForm.get('confirmEmail').valid }">  // <-- and here
       <label for="confirmEmailId">Confirm Email</label>
 
         <div>
@@ -395,16 +395,16 @@ Now group the template as well. First surround both elements with a `<div></div>
                   type="email"
                   placeholder="Confirm Email (required)"
                   formControlName="confirmEmail" />
-            <span *ngIf="(customerForm.get('confirmEmail').touched ||
-                          customerForm.get('confirmEmail').dirty) &&
-                          customerForm.get('confirmEmail').errors">
-              <span *ngIf="customerForm.get('confirmEmail').errors.required">
+            <span *ngIf="(customerForm.get('confirmEmail').touched ||           // <-- and here
+                          customerForm.get('confirmEmail').dirty) &&            // <-- and here
+                          customerForm.get('confirmEmail').errors">             // <-- and here
+            <span *ngIf="customerForm.get('confirmEmail').errors.required">     // <-- and here
                   Please confirm your email address.
               </span>
           </span>
         </div>
     </div>
-    
+
 </div>
 ```
 
