@@ -321,7 +321,7 @@ In this section an email and confirm email field will be added to the form. **Fi
 
 **Now add the FormControl for this input element to the form model:**
 
-```
+```js
 ngOnInit(): void {
     this.customerForm = this.fb.group({
         firstName: ['', [Validators.required, Validators.minLength(3)]],
@@ -337,4 +337,72 @@ ngOnInit(): void {
 ```
 
 The FormControl doesn't need a patter validation because it will be compared against the email FormControl and that already has a pattern validation. 
+
+**For making the cross-field validation create a nested FormGroup in the form model and name it 'emailGroup':**
+
+```js
+ ngOnInit(): void {
+    this.customerForm = this.fb.group({
+        firstName: ['', [Validators.required, Validators.minLength(3)]],
+        lastName: ['', [Validators.required, Validators.maxLength(50)]],
+        emailGroup: this.fb.group({                                      // <-- the nested FormGroup
+            email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]+')]],
+            confirmEmail: ['', [Validators.required]],   // <-- here - no pattern is needed for comparison
+        }),     
+        phone: '',
+        notification: 'email',
+        rating: ['', ratingRange(1, 5)],
+        sendCatalog: true
+    });
+}
+```
+
+Now group the template as well:
+
+```
+    // The email input
+    <div>
+      <label for="emailId">Email</label>
+    
+        <div>
+          <input id="emailId"
+                  type="email"
+                  placeholder="Email (required)"
+                  formControlName="email" />
+            <span *ngIf="(customerForm.get('email').touched || 
+                          customerForm.get('email').dirty) && 
+                          customerForm.get('email').errors">
+              <span *ngIf="customerForm.get('email').errors.required">
+                  Please enter your email address.
+              </span>
+              <span *ngIf="customerForm.get('email').errors.pattern">
+                  Please enter a valid email address.
+              </span>
+          </span>
+        </div>
+    </div>
+    
+    // The confirm email input
+    <div [ngClass]="{ 'has-error': (customerForm.get('confirmEmail').touched ||
+                                    customerForm.get('confirmEmail').dirty) &&
+                                    !customerForm.get('confirmEmail').valid }">
+      <label for="confirmEmailId">Confirm Email</label>
+    
+        <div>
+          <input id="confirmEmailId"
+                  type="email"
+                  placeholder="Confirm Email (required)"
+                  formControlName="confirmEmail" />
+            <span *ngIf="(customerForm.get('confirmEmail').touched ||
+                          customerForm.get('confirmEmail').dirty) &&
+                          customerForm.get('confirmEmail').errors">
+              <span *ngIf="customerForm.get('confirmEmail').errors.required">
+                  Please confirm your email address.
+              </span>
+          </span>
+        </div>
+    </div>
+```
+
+
 
