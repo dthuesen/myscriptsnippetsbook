@@ -44,7 +44,7 @@ Assume there's a form in the template with an input element for that desired cus
   <div>
     <input id="ratingId"
            type="number"
-           formControlName="rating" />
+           formControlName="rating" />                     // <-- formControlName directive set to 'rating'
     <span *ngIf="( customerForm.get('rating').touched ||
                    customerForm.get('rating').dirty ) &&
                    customerForm.get('rating').errors">
