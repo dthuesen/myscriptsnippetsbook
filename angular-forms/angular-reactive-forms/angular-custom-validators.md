@@ -3,6 +3,7 @@
 * [**First explanation**](#first-explanation)
 * [**Build a custom validator**](#build-a-custom-validator)
 * [**Custom Validator with Parameters**](#custom-validator-with-parameters)
+* [**Cross-Field Validation**](#cross-field-validation)
 
 ### First explanation
 
@@ -264,6 +265,10 @@ ngOnInit(): void {
     });
 }
 ```
+
+### Cross-Field Validation
+
+Comparison **across one or more FormControls** like e.g. start and end date in a form.
 
 
 
