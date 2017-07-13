@@ -357,7 +357,7 @@ The FormControl doesn't need a patter validation because it will be compared aga
 }
 ```
 
-Now group the template as well. First surround both elements with a `<div></div>` element and indent them. Then place the `formGroupName` directive and **set it equal to the name of the nested FormGroup and change each reference of the FormControls for `email` and `confirmEmail`**:
+Now group the template as well. First surround both elements with a `<div></div>` element and indent them. Then place the `formGroupName` directive and **set it equal to the name of the nested FormGroup and change each reference of the FormControls for **`email`** and **`confirmEmail`:
 
 ```js
 <div formGroupName="emailGroup">      // <-- the surrounded div for the nested FormGroup
@@ -387,20 +387,20 @@ Now group the template as well. First surround both elements with a `<div></div>
     </div>
 
     // The confirm email input
-    <div [ngClass]="{ 'has-error': (customerForm.get('confirmEmail').touched ||  
-                                    customerForm.get('confirmEmail').dirty) &&   
-                                    !customerForm.get('confirmEmail').valid }">  
+    <div [ngClass]="{ 'has-error': (customerForm.get('emailGroup.confirmEmail').touched || // <-- and 
+                                    customerForm.get('emailGroup.confirmEmail').dirty) &&  // <-- confirmEmail
+                                    !customerForm.get('emailGroup.confirmEmail').valid }"> // <-- becomes
       <label for="confirmEmailId">Confirm Email</label>
 
         <div>
           <input id="confirmEmailId"
                   type="email"
                   placeholder="Confirm Email (required)"
-                  formControlName="confirmEmail" />
-            <span *ngIf="(customerForm.get('confirmEmail').touched ||           
-                          customerForm.get('confirmEmail').dirty) &&            
-                          customerForm.get('confirmEmail').errors">             
-            <span *ngIf="customerForm.get('confirmEmail').errors.required"> 
+                  formControlName="emailGroup.confirmEmail" />                 // <-- emailGroup.confirmEmail
+            <span *ngIf="(customerForm.get('emailGroup.confirmEmail').touched ||       // <-- like here...           
+                          customerForm.get('emailGroup.confirmEmail').dirty) &&        // <-- and here...          
+                          customerForm.get('emailGroup.confirmEmail').errors">         // <-- and here...          
+            <span *ngIf="customerForm.get('emailGroup.confirmEmail').errors.required"> // <-- and here.
                   Please confirm your email address.
               </span>
           </span>
