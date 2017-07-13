@@ -31,7 +31,7 @@ The broken validation rule is then added to the passed in FormControl or FormGro
 
 ### Build a custom validator
 
-Assume there's a form in the template with an input element for that desired custom validator, like this:
+Assume there's a form in the template with an **input element** for that a custom validator needed, like here:
 
 ```js
 ...
@@ -56,7 +56,7 @@ Assume there's a form in the template with an input element for that desired cus
 </div>
 ```
 
-Now add that new FormControl to the form model in the component class, like here:
+Now **add that new FormControl to the form model** in the component class, like so:
 
 ```js
 ngOnInit(): void {
@@ -69,7 +69,7 @@ ngOnInit(): void {
         rating: '',                // <-- the new added FormControl 'rating'
         sendCatalog: true
     });
-  }
+}
 ```
 
 And then **create a custom numeric range validator** by adding the validator function above the component class \(if it only will be used by this component\) or in an **external file** \(e.g. called 'custom.validators.ts' with export of each validator\)':
@@ -91,21 +91,29 @@ function ratingRange (control: AbstractControl): {[key: string]: boolean} | null
 ...
 ```
 
-The validator function in this case is placed above component class. It takes one parameter of type AbstractControl \(to allow either validation of a **FormControl** or a **FormGroup**\) and returns an **Object with a boolean value for 'range' of true.** **What means the the validation rule broke. **To do that it checks if the input 
+The validator function in this case is placed above component class. It takes one parameter of type AbstractControl \(to allow either validation of a **FormControl** or a **FormGroup**\) and returns an **Object with a boolean value for 'range' of true.** **What means the the validation rule broke. **To do that it checks if the input
 
 * is not equals undefined AND not a number 
 * OR if it is less then 1 
 * OR higher than 5 
 
-If one of these tests pass the validation rule broke and it returns the Object `{ 'range': true }`. Otherwise **it returns null if it is valid.**
+If one of these tests pass the validation rule broke and it returns the Object `{ 'range': true }`.  With this the name of the validation rule name is then added to the validators error collection for the passed in FormControl. Otherwise **it returns null if it is valid.**
 
+After the creation of the the custom validator it can be added to the FormControl in the form model in the component class:
 
-
-
-
-
-
-
+```js
+ngOnInit(): void {
+    this.customerForm = this.fb.group({
+        firstName: ['', [Validators.required, Validators.minLength(3)]],
+        lastName: ['', [Validators.required, Validators.maxLength(50)]],
+        email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]+')]],
+        phone: '',
+        notification: 'email',
+        rating: '',                // <-- the new added FormControl 'rating'
+        sendCatalog: true
+    });
+}
+```
 
 
 
