@@ -217,5 +217,37 @@ function ratingRange(min: number, max: number): ValidatorFn {
 ...
 ```
 
+Now the logic of the validator function has to be modified to use the passed in parameters, like so:
+
+```js
+...
+import {FormBuilder, 
+        FormGroup, 
+        Validators, 
+        AbstractControl, 
+        ValidatorFn                 
+        } from '@angular/forms'
+...
+
+// the factory function which takes two parameters (min and max acceptable value)
+function ratingRange(min: number, max: number): ValidatorFn {
+
+  // the custom validator function
+  return (control: AbstractControl): {[key: string]: boolean} | null => {
+    if (control.value != undefined && 
+                      (isNaN(control.value) || 
+                      control.value < min ||      // <-- the former numbers are changed to the 
+                      control.value > max)) {     // <-- passed in parameters (min and max)
+      return { 'range': true };
+    };
+    return null
+  },
+
+}
+
+@Component({
+...
+```
+
 
 
