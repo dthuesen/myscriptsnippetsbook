@@ -58,7 +58,7 @@ Assume there's a form in the template with an input element for that desired cus
 
 Now add that new FormControl to the form model in the component class, like here:
 
-```
+```js
 ngOnInit(): void {
     this.customerForm = this.fb.group({
         firstName: ['', [Validators.required, Validators.minLength(3)]],
@@ -74,9 +74,26 @@ ngOnInit(): void {
 
 And then **create a custom numeric range validator** by adding the validator function above the component class \(if it only will be used by this component\) or in an **external file** \(e.g. called 'custom.validators.ts' with export of each validator\)':
 
+```js
+...
+import {FormBuilder, FormGroup, Validators, AbstractControl} from '@angular/forms'
+...
+
+// custom validator
+function ratingRange (control: AbstractControl): {[key: string]: boolean} | null {
+  if (control.value != undefined && (isNaN(control.value) || control.value < 1 || control.value > 5)) {
+    return { 'range': true };
+  };
+  return null
+}
+
+@Component({
+...
 ```
 
-```
+The validator function in this case is placed above component class. It takes one parameter of type AbstractControl \(to allow either validation of a FormControl or a FormGroup\) and returns an Object with a boolean value for 'range' of true, if the checked input is not undefined AND not a number OR if it is less then 1 OR higher than 5 otherwise it returns null.
+
+
 
 
 
