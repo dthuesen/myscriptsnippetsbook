@@ -250,9 +250,9 @@ function ratingRange(min: number, max: number): ValidatorFn {
 ...
 ```
 
-At least change the FormControl validation to pass in the minimum and maximum values:
+At least change the **FormControl validation to pass in the minimum and maximum values**:
 
-```
+```js
 ngOnInit(): void {
     this.customerForm = this.fb.group({
         firstName: ['', [Validators.required, Validators.minLength(3)]],
@@ -268,7 +268,19 @@ ngOnInit(): void {
 
 ### Cross-Field Validation
 
-Comparison **across one or more FormControls** like e.g. start and end date in a form.
+Comparison **across one or more FormControls** like e.g. start and end date in a form or comparing an **email address** with an **confirm email address** field. The trick to cross-field validation is to define a nested FormGroup, like so:
+
+```js
+this.customerForm = this.fb.group({
+    firstName: ['', [Validators.required, Validators.minLength(3)]],
+    lastName: ['', [Validators.required, Validators.maxLength(50)]],
+    availability: this.fb.group({
+        start: ['', Validators.required],
+        end: ['', Validators.required],
+
+    })
+});
+```
 
 
 
