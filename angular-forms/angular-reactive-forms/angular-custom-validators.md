@@ -143,7 +143,7 @@ If there should be an error message in the template, one could do it like so:
 
 ### Custom Validator with Parameters
 
-Just adding more parameters to a custom validator is not possible because it takes only one. Thus it is a good way to write a more complex function \(which can take more parameters\) that then returns a custom validator function.
+Just adding more parameters to a custom validator is not possible because it takes only one. Thus it is a good way to write a more complex function, a factory function \(which can take any numbers and type of parameters\) that then returns a custom validator function.
 
 ```js
 function myCustomValidator(param: any): ValidatorFn {
