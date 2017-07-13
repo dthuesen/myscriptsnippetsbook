@@ -277,7 +277,6 @@ this.customerForm = this.fb.group({
     availability: this.fb.group({                                            // <-- the 
         start: ['', Validators.required],                                    // <-- nested
         end: ['', Validators.required],                                      // <-- FormGroup
- 
     })
 });
 ```
