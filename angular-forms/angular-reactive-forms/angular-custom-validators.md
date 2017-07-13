@@ -188,7 +188,7 @@ function ratingRange (control: AbstractControl): {[key: string]: boolean} | null
 ...
 ```
 
-And wrap it in a factory function like this and add **ValidatorFn** to the import statement for the return type of the factory function wrapper. Change the validator function into a returned arrow function by removing the function keyword and the function name and adding the arrow just before the function body:
+And wrap it in a factory function like this and add **ValidatorFn** to the import statement for the return type of the factory function wrapper. **Change the validator function into a returned arrow function** by removing the function keyword and the function name and adding the arrow just before the function body:
 
 ```js
 ...
