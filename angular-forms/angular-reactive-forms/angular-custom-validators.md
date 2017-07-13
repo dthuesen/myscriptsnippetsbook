@@ -56,5 +56,27 @@ Assume there's a form in the template with an input element for that desired cus
 </div>
 ```
 
+Now add that new FormControl to the form model in the component class, like here:
+
+```
+ngOnInit(): void {
+    this.customerForm = this.fb.group({
+        firstName: ['', [Validators.required, Validators.minLength(3)]],
+        lastName: ['', [Validators.required, Validators.maxLength(50)]],
+        email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]+')]],
+        phone: '',
+        notification: 'email',
+        rating: '',                // <-- the new added FormControl 'rating'
+        sendCatalog: true
+    });
+  }
+```
+
+And then **create a custom numeric range validator** by adding the validator function above the component class \(if it only will be used by this component\) or in an external file \(e.g. called 'custom.validators.ts' with export of each validator\)':
+
+```
+
+```
+
 
 
