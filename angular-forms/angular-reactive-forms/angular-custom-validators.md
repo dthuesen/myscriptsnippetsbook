@@ -319,5 +319,22 @@ In this section an email and confirm email field will be added to the form. **Fi
 </div>
 ```
 
+**Now add the FormControl for this input element to the form model:**
+
+```
+ngOnInit(): void {
+    this.customerForm = this.fb.group({
+        firstName: ['', [Validators.required, Validators.minLength(3)]],
+        lastName: ['', [Validators.required, Validators.maxLength(50)]],
+        email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]+')]],
+        confirmEmail: ['', [Validators.required]],
+        phone: '',
+        notification: 'email',
+        rating: ['', ratingRange(1, 5)],
+        sendCatalog: true
+    });
+}
+```
+
 
 
