@@ -99,7 +99,7 @@ The validator function in this case is placed above component class. It takes on
 
 If one of these tests pass the validation rule broke and it returns the Object `{ 'range': true }`.  With this the name of the validation rule name is then added to the validators error collection for the passed in FormControl. Otherwise **it returns null if it is valid.**
 
-After the creation of the the custom validator it can be added to the FormControl in the form model in the component class. Change the value of the FormControl from a single value to an array and pass in the name of the validator function as the second parameter:
+After the creation of the the custom validator it can be added to the FormControl in the form model in the component class. **Change the value of the FormControl from a single value to an array and pass in the name of the validator function as the second parameter**:
 
 ```js
 ngOnInit(): void {
@@ -115,5 +115,5 @@ ngOnInit(): void {
 }
 ```
 
-
+If there should be an error message in the template, one could do it like so:
 
