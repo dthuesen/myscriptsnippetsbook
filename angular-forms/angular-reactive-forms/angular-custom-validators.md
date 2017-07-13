@@ -209,7 +209,7 @@ function ratingRange(min: number, max: number): ValidatorFn {
       return { 'range': true };
     };
     return null
-  }
+  },
 
 }
 
