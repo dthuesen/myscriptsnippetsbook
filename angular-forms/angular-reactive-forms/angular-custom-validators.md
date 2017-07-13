@@ -336,7 +336,7 @@ ngOnInit(): void {
 }
 ```
 
-The FormControl doesn't need a patter validation because it will be compared against the email FormControl and that already has a pattern validation. 
+The FormControl doesn't need a patter validation because it will be compared against the email FormControl and that already has a pattern validation.
 
 **For making the cross-field validation create a nested FormGroup in the form model and name it 'emailGroup':**
 
@@ -357,13 +357,15 @@ The FormControl doesn't need a patter validation because it will be compared aga
 }
 ```
 
-Now group the template as well:
+Now group the template as well. First surround both elements with a `<div></div>` element and indent them. Then place the `formGroupName` directive and set it equal to the name of the nested **FormGroup**:
 
 ```
+<div formGroupName="emailGroup">
+
     // The email input
     <div>
       <label for="emailId">Email</label>
-    
+
         <div>
           <input id="emailId"
                   type="email"
@@ -381,13 +383,13 @@ Now group the template as well:
           </span>
         </div>
     </div>
-    
+
     // The confirm email input
     <div [ngClass]="{ 'has-error': (customerForm.get('confirmEmail').touched ||
                                     customerForm.get('confirmEmail').dirty) &&
                                     !customerForm.get('confirmEmail').valid }">
       <label for="confirmEmailId">Confirm Email</label>
-    
+
         <div>
           <input id="confirmEmailId"
                   type="email"
@@ -402,6 +404,8 @@ Now group the template as well:
           </span>
         </div>
     </div>
+    
+</div>
 ```
 
 
