@@ -360,7 +360,7 @@ The FormControl doesn't need a patter validation because it will be compared aga
 Now group the template as well. First surround both elements with a `<div></div>` element and indent them. Then place the `formGroupName` directive and **set it equal to the name of the nested FormGroup and change each reference of the FormControls for **`email`** and **`confirmEmail`:
 
 ```js
-<div formGroupName="emailGroup">      // <-- the surrounded div for the nested FormGroup
+<div formGroupName="emailGroup">                       // <-- the surrounded div for the nested FormGroup
 
     <!-- The email input -->
     <div [ngClass]="{ 'has-error': (customerForm.get('emailGroup.email').touched || // <-- 'email' becomes
