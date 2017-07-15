@@ -455,5 +455,11 @@ this.customerForm = this.fb.group({
 })
 ```
 
-Note that here it is not possible to add the validator function it self. The FormGroup requires the provision of an object with a validator key and the function as the value.
+Note that here it is not possible to add the validator function it self. The **FormGroup requires the provision of an object with a validator key and the function as the value.**
+
+#### 6\) Correcting the display of the error messages of the cross-field validation
+
+**Because the error if the cross-field validation rule breaks will be collected in the FormGroup error collection** this circumstance has to be taken in concern when writing the code to display error messages.
+
+
 
