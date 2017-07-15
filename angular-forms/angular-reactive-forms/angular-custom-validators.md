@@ -8,7 +8,7 @@
   * [1\) The starting point in the template - confirm email input field as FormGroup](#the-starting-point-in-the-template---confirm-email-input-field-as-formgroup)
   * [2\) Adding the FormControl in the forms model in the component class](#2-adding-the-formcontrol-in-the-forms-model-in-the-component-class)
   * [3\) Transforming the fields into a nested FormGroup \(needed for cross-field validation\)](#3-transforming-the-fields-into-a-nested-formgroup-needed-for-cross-field-validation)
-  * [4\) Create the same nested FormGroup in the template as well](#4-create-the-same-nested-formgroup-in-the-template-as-well)
+  * [4\) Create the same nested FormGroup \(use FormGroupName\) in the template as well](#4-create-the-same-nested-formgroup-use-formgroupname-in-the-template-as-well)
 
 ### First explanation
 
@@ -325,8 +325,6 @@ In this section an email and confirm email field will be added to the form. **Fi
 </div>
 ```
 
-
-
 #### 2\) Adding the FormControl in the forms model in the component class
 
 **Now add the FormControl for this input element to the form model:**
@@ -369,7 +367,7 @@ The FormControl doesn't need a patter validation because it will be compared aga
 }
 ```
 
-#### 4\) Create the same nested FormGroup \(use FormGroupName\) in the template as well
+#### 4\) Create the same nested FormGroup \(with FormGroupName and FormControlName\) in the template as well
 
 Now group the template as well. First surround both elements with a `<div></div>` element and indent them. Then place the `formGroupName` directive and **set it equal to the name of the nested FormGroup and change each reference of the FormControls for **`email`** and **`confirmEmail`:
 
