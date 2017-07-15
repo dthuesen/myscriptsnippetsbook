@@ -397,11 +397,14 @@ Now group the template as well. First surround both elements with a `<div></div>
           </span>
         </div>
     </div>
+```
 
+```js
     <!-- The confirm email input -->
-    <div [ngClass]="{ 'has-error': (customerForm.get('emailGroup.confirmEmail').touched || // <-- and 
-                                    customerForm.get('emailGroup.confirmEmail').dirty) && //<-- confirmEmail
-                                    !customerForm.get('emailGroup.confirmEmail').valid }"> // <-- becomes
+    <div [ngClass]="{ 'has-error': 
+                        (customerForm.get('emailGroup.confirmEmail').touched || // <-- and 
+                        customerForm.get('emailGroup.confirmEmail').dirty) && //<-- confirmEmail
+                        !customerForm.get('emailGroup.confirmEmail').valid }"> // <-- becomes
       <label for="confirmEmailId">Confirm Email</label>
 
         <div>
@@ -409,9 +412,9 @@ Now group the template as well. First surround both elements with a `<div></div>
                   type="email"
                   placeholder="Confirm Email (required)"
                   formControlName="emailGroup.confirmEmail" />             // <-- emailGroup.confirmEmail
-            <span *ngIf="(customerForm.get('emailGroup.confirmEmail').touched ||       // <-- like here...           
-                          customerForm.get('emailGroup.confirmEmail').dirty) &&        // <-- and here...          
-                          customerForm.get('emailGroup.confirmEmail').errors">         // <-- and here...          
+            <span *ngIf="(customerForm.get('emailGroup.confirmEmail').touched ||       // <-- like here... 
+                          customerForm.get('emailGroup.confirmEmail').dirty) &&        // <-- and here... 
+                          customerForm.get('emailGroup.confirmEmail').errors">         // <-- and here...
             <span *ngIf="customerForm.get('emailGroup.confirmEmail').errors.required"> // <-- and here.
                   Please confirm your email address.
               </span>
@@ -420,6 +423,10 @@ Now group the template as well. First surround both elements with a `<div></div>
     </div>
 </div>
 ```
+
+#### 5\) Build the cross-field validator
+
+
 
 
 
