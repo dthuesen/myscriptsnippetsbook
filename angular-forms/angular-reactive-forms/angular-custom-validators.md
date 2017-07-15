@@ -8,7 +8,7 @@
   * [1\) The starting point in the template - confirm email input field as FormGroup](#the-starting-point-in-the-template---confirm-email-input-field-as-formgroup)
   * [2\) Adding the FormControl in the forms model in the component class](#2-adding-the-formcontrol-in-the-forms-model-in-the-component-class)
   * [3\) Transforming the fields into a nested FormGroup \(needed for cross-field validation\)](#3-transforming-the-fields-into-a-nested-formgroup-needed-for-cross-field-validation)
-  * [4\) Create the same nested FormGroup \(use FormGroupName\) in the template as well](#4-create-the-same-nested-formgroup-use-formgroupname-in-the-template-as-well)
+  * [4\) Create the same nested FormGroup \(with FormGroupName and FormControlName\) in the template as well](#4-create-the-same-nested-formgroup-with-formgroupname-and-formcontrolname-in-the-template-as-well)
 
 ### First explanation
 
