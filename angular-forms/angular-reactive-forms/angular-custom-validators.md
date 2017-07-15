@@ -434,7 +434,7 @@ Just to keep it in memory a validator function is build like this:
 function dateCompare(control: AbstractControl): {[key: string]: boolean} | null {
     let startControl = control.get('start');
     let endControl = control.get('end');
-    
+
     if (startControl.value !== endControl.value) {
         return { 'match': true };
     }
@@ -442,7 +442,18 @@ function dateCompare(control: AbstractControl): {[key: string]: boolean} | null 
 }
 ```
 
-In this example first the FormControls \('start' and 'end'\) from the passed in FormGroup get accessed. Then the function compares the start date and the end date. If the values aren't equal it will return an object with the key 'match' and the value true which means the rule is broken an it will go into the error collection of this FormControl.
+In this example first the **FormControls** \('start' and 'end'\) from the passed in **FormGroup** get accessed. Then the function compares the start date and the end date. If the values aren't equal it will return an error object with the key `'match'` and the value `true` which means the rule is broken an it will go into the error collection of this FormControl. If the validation rule passed `null` will be returned. This validator has to be added to the FormGroup of the form model, like here:
+
+```js
+this.customerForm = this.fb.group({
+    firstName: ['', [Validators.required, Validators.minLength(3)]],
+    lastName: ['', [Validators.required, Validators.maxLength(3)]],
+    availability: this.fb.group({
+        start: ['', Validators.required],
+        end: ['', Validators.required]
+    }, { validator: dateCompare })             // <-- the custom cross-field validator as third argument
+})
+```
 
 
 
