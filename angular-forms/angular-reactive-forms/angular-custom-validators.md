@@ -424,9 +424,25 @@ Now group the template as well. First surround both elements with a `<div></div>
 </div>
 ```
 
-#### 5\) Build the cross-field validator
+#### 5\) Build the cross-field validator function
 
+If the validtion does not require parameters there's no need for writing a factory function that returns a validator function - but now it's ok to build a simple validator function. Because the FormGroup gets validated it is passed into the validator function.
 
+Just to keep it in memory a validator function is build like this:
+
+```js
+function dateCompare(control: AbstractControl): {[key: string]: boolean} | null {
+    let startControl = control.get('start');
+    let endControl = control.get('end');
+    
+    if (startControl.value !== endControl.value) {
+        return { 'match': true };
+    }
+    return null
+}
+```
+
+In this example first the FormControls \('start' and 'end'\) from the passed in FormGroup get accessed. Then the function compares the start date and the end date. If the values aren't equal it will return an object with the key 'match' and the value true which means the rule is broken an it will go into the error collection of this FormControl.
 
 
 
