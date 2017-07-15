@@ -455,5 +455,5 @@ this.customerForm = this.fb.group({
 })
 ```
 
-
+Note that here it is not possible to add the validator function it self. The FormGroup requires the provision of an object with a validator key and the function as the value.
 
