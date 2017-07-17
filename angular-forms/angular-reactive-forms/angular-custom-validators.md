@@ -447,12 +447,16 @@ In this example first the **FormControls** \('start' and 'end'\) from the passed
 ```js
 this.customerForm = this.fb.group({
     firstName: ['', [Validators.required, Validators.minLength(3)]],
-    lastName: ['', [Validators.required, Validators.maxLength(3)]],
-    availability: this.fb.group({
-        start: ['', Validators.required],
-        end: ['', Validators.required]
-    }, { validator: dateCompare })             // <-- the custom cross-field validator as third argument
-})
+    lastName: ['', [Validators.required, Validators.maxLength(50)]],
+    emailGroup: this.fb.group({
+        email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]+')]],
+        confirmEmail: ['', [Validators.required]], 
+    }, { validator: dateCompare }),                // <-- the custom cross-field validator as third argument  
+    phone: '',
+    notification: 'email',
+    rating: ['', ratingRange(1, 5)],
+    sendCatalog: true
+});
 ```
 
 Note that here it is not possible to add the validator function it self. The **FormGroup requires the provision of an object with a validator key and the function as the value.**
@@ -463,7 +467,7 @@ Note that here it is not possible to add the validator function it self. The **F
 
 As shown above \(in step 4\) there are three `<span>` elements displaying the error messages. One surounds the nested two and makes them showing up if certain conditions are true - if the element `confimEmail` is touched or dirty and if it has errors. The inner two of them are for showing either if there's an error because the email is `required` or if the entered emails don't `match`. Now there's need for checking the **nested FormGoup** named '`emailGroup`' with it's contained **FormControl** '`confirmEmail`', too. Because **nested FormGroups have their own error collection** the errors of their FormControls will be collected in the error collection of that group. So this has to be taken in concern when writing the code for that, like here:
 
-```
+```js
 <div>
     <input id="confirmEmailId"
         type="email"
@@ -480,7 +484,7 @@ As shown above \(in step 4\) there are three `<span>` elements displaying the er
         </span>
 
         <span *ngIf="customerForm.get('emailGroup').errors?.match">                 //<-- save navigation
-            The confirmation does not macthch the email address.                    //    operator
+            The confirmation does not match the email address.                    //    operator
         </span>
 
     </span>
@@ -488,6 +492,4 @@ As shown above \(in step 4\) there are three `<span>` elements displaying the er
 ```
 
 When there's no error in one of these error types above it would return "`cannot read porperty required of null type of error`" for that empty property in the error collection. To prevent this it is necessary to use the **Save Navigation Operator** \(or Elvis Operator\) for both properties \(`.required` and `.match`\).
-
-
 
