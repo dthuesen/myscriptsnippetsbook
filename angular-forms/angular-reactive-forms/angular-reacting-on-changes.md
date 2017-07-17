@@ -24,17 +24,19 @@ Watching for **any change** over the **entire form and any FormControl on that f
 this.customerForm.valueChanges.subscribe( value => console.log(JSON.stringify(value)) );
 ```
 
-### Implementation 
+
+
+### Implementation of valueChanges for a FormControl
 
 To start watching as soon as the component is initialized the code has to be placed in the ngOnInit\(\) method. First subscribe to the FormControl which shoud be watched by adding the .get\(\) method to the root FormGroup and call it with the name of the FormControl \(in this case 'notification'\). The valueChanges property then will be subscribed to getting its observable events submitted \(here every time either radio buttons changes \). When a change occurs the value of the notification FormControl there's a value available that can be logged out or whatever.:
 
 ```js
 ngOnInit(): void {
-    
+
     ... // form model
-    
+
     this.customerForm.get('notification').valueChanges.subscribe( value => console.log(value) );
-    
+
 }
 ```
 
