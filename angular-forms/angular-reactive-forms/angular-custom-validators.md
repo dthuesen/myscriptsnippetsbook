@@ -445,7 +445,9 @@ function dateCompare(control: AbstractControl): {[key: string]: boolean} | null 
 In this example first the **FormControls** \('start' and 'end'\) from the passed in **FormGroup** get accessed. Then the function compares the start date and the end date. If the values aren't equal it will return an error object with the key `'match'` and the value `true` which means the rule is broken an it will go into the **error collection for FormGroup** not the individual FormControls. If the validation rule passed `null` will be returned. This validator has to be added to the FormGroup of the form model, like here:
 
 ```js
-// the email comparison function (custom cross-field validator) above the component class
+/** 
+/  the email comparison function (custom cross-field validator) above the component class
+*/
 function emailMatcher(control: AbstractControl): {[key: string]: boolean} | null {
   const emailControl = control.get('email');
   const confirmControl = control.get('confirmEmail');
@@ -461,12 +463,17 @@ function emailMatcher(control: AbstractControl): {[key: string]: boolean} | null
 }
 ...
 .....
-// The component class
+
+/** 
+/  The component class
+*/
 @Component({
 ......
 ...
 
-// The form model in the ngOnInit live cycle hook
+/** 
+/  The form model in the ngOnInit live cycle hook
+*/
 ngOnInit(): void {
   this.customerForm = this.fb.group({
       firstName: ['', [Validators.required, Validators.minLength(3)]],
