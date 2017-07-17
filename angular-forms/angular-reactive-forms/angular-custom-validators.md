@@ -469,24 +469,25 @@ As shown above \(in step 4\) there are three `<span>` elements displaying the er
         type="email"
         placeholder="Confirm Email (required)"
         formControlName="emailGroup.confirmEmail" /> 
-        
+
     <span *ngIf="(customerForm.get('emailGroup.confirmEmail').touched ||        
                   customerForm.get('emailGroup.confirmEmail').dirty) &&         
                   (customerForm.get('emailGroup.confirmEmail').errors ||
                   customerForm.get('emailGroup').errors) ">        //<-- checking nested FormGroup for errors
-                   
+
         <span *ngIf="customerForm.get('emailGroup.confirmEmail').errors?.required"> //<-- save navigation
             Please confirm your email address.                                      //    operator
         </span>
-        
+
         <span *ngIf="customerForm.get('emailGroup').errors?.match">                 //<-- save navigation
             The confirmation does not macthch the email address.                    //    operator
         </span>
 
     </span>
 </div>
-
 ```
 
-When there's no error in one of these error types above it would return "`cannot read porperty required of error`" for that empty property in the error collection. To prevent this it is necessary to use the **Save Navigation Operator** \(or Elvis Operator\) for both properties \(`.required` and `.match`\).
+When there's no error in one of these error types above it would return "`cannot read porperty required of null type of error`" for that empty property in the error collection. To prevent this it is necessary to use the **Save Navigation Operator** \(or Elvis Operator\) for both properties \(`.required` and `.match`\).
+
+
 
