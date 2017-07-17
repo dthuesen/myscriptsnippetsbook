@@ -490,7 +490,7 @@ ngOnInit(): void {
 }
 ```
 
-Note that here it is not possible to add the validator function it self. The **FormGroup requires the provision of an object with a validator key and the function as the value.**
+Note that here it is not possible to add the validator function it self. The **FormGroup requires the provision of an object with a validator key and the function as the value **`{ validator: emailMatcher }`**.**
 
 #### 6\) Correcting the display of the error messages of the cross-field validation
 
