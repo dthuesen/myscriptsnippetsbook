@@ -113,7 +113,7 @@ ngOnInit(): void {
     ///
     // the watcher
     ///
-    this.customerForm.get('notification').valueChanges.subscribe( value => console.log(value) );
+    this.customerForm.get('notification').valueChanges.subscribe( value => setNotification(value) );
 }
 ```
 
