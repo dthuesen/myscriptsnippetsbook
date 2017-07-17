@@ -24,8 +24,6 @@ Watching for **any change** over the **entire form and any FormControl on that f
 this.customerForm.valueChanges.subscribe( value => console.log(JSON.stringify(value)) );
 ```
 
-
-
 ### Implementation of valueChanges for a FormControl
 
 To start watching as soon as the component is initialized the code has to be placed in the ngOnInit\(\) method. First subscribe to the FormControl which shoud be watched by adding the .get\(\) method to the root FormGroup and call it with the name of the FormControl \(in this case 'notification'\). The valueChanges property then will be subscribed to getting its observable events submitted \(here every time either radio buttons changes \). When a change occurs the value of the notification FormControl there's a value available that can be logged out or whatever.:
@@ -41,4 +39,43 @@ ngOnInit(): void {
 ```
 
 Keep in mind this code must be after the definition fo the root FormGroup, otherwise this reference is null.
+
+### Reacting to changes 
+
+As the user makes changes to the form, one can react to those changes to provide a more dynamic an customized experience - e.g. 
+
+* adjust the validation rules, 
+* handle validation messages in the component class \(instead of  hardcoded in the template\), 
+* adjust the user interface elements, 
+* add or remove content as needed, 
+* provide automatic suggestions as the user types
+* or anything the imagination allows or the customers requirements.
+
+Currently the changes events in the form are hard coded as click event handlers, like here:
+
+```js
+<div>
+  <label>Send Notifications</label>
+  <div>
+    <label class="radio-inline">
+      <input type="radio"
+             value="email"
+             formControlName="notification"
+             (click)="setNotification('email')" >Email   //<-- currently with click event handlers
+    </label>
+    <label class="radio-inline">
+      <input type="radio"
+             value="text"
+             formControlName="notification"
+             (click)="setNotification('text')" >Text    //<-- here too
+    </label>
+  </div>
+</div>
+```
+
+
+
+
+
+
 
