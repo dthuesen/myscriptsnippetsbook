@@ -93,7 +93,7 @@ As the user makes changes to the form, one can react to those changes to provide
 </div>
 ```
 
-3\) **Set up a watcher** on the notification in the component class' `ngOnOnit()` method like above:
+3\) **Set up a watcher** on the notification in the component class' `ngOnOnit()` method like above and **in the call back function **call the `setNotification()` method:
 
 ```js
 ngOnInit(): void {
