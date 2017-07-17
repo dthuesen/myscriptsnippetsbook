@@ -461,5 +461,32 @@ Note that here it is not possible to add the validator function it self. The **F
 
 **Because the error if the cross-field validation rule breaks will be collected in the FormGroup error collection** this circumstance has to be taken in concern when writing the code to display error messages.
 
+As shown above \(in step 4\) there are three `<span>` elements displaying the error messages. One surounds the nested two and makes them showing up if certain conditions are true - if the element `confimEmail` is touched or dirty and if it has errors. The inner two of them are for showing either if there's an error because the email is `required` or if the entered emails don't `match`. Now there's need for checking the **nested FormGoup** named '`emailGroup`' with it's contained **FormControl** '`confirmEmail`', too. Because **nested FormGroups have their own error collection** the errors of their FormControls will be collected in the error collection of that group. So this has to be taken in concern when writing the code for that, like here:
 
+```
+<div>
+    <input id="confirmEmailId"
+        type="email"
+        placeholder="Confirm Email (required)"
+        formControlName="emailGroup.confirmEmail" /> 
+        
+    <span *ngIf="(customerForm.get('emailGroup.confirmEmail').touched ||        
+                  customerForm.get('emailGroup.confirmEmail').dirty) &&         
+                  (customerForm.get('emailGroup.confirmEmail').errors ||
+                  customerForm.get('emailGroup').errors) ">        //<-- checking nested FormGroup for errors
+                   
+        <span *ngIf="customerForm.get('emailGroup.confirmEmail').errors?.required"> //<-- save navigation
+            Please confirm your email address.                                      //    operator
+        </span>
+        
+        <span *ngIf="customerForm.get('emailGroup').errors?.match">                 //<-- save navigation
+            The confirmation does not macthch the email address.                    //    operator
+        </span>
+
+    </span>
+</div>
+
+```
+
+When there's no error in one of these error types above it would return "`cannot read porperty required of error`" for that empty property in the error collection. To prevent this it is necessary to use the **Save Navigation Operator** \(or Elvis Operator\) for both properties \(`.required` and `.match`\).
 
