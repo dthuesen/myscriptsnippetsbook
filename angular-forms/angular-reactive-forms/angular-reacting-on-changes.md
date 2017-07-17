@@ -16,7 +16,7 @@ Watching for events from **any FormControl within a nested FormGroup** is possib
 this.myFormGroup.valueChanges.subscribe( value => console.log(JSON.stringify(value)) );
 ```
 
-The value of the above emitted observable is **a set of key and value pairs for all of the FormControls and nested FormGroups.**
+The value of the above emitted observable is **a set of key and value pairs for all of the FormControls and nested FormGroups. **Therefore JSON.stringify\(\) for displaying the value.
 
-
+Watching for **any change** over the **entire form** can be made by subscribing to the valueChanges property for the **form's root FormGroup.**
 
