@@ -51,7 +51,7 @@ As the user makes changes to the form, one can react to those changes to provide
 * provide automatic suggestions as the user types
 * or anything the imagination allows or the customers requirements.
 
-Currently the changes events in the form are hard coded as click event handlers, like here:
+Currently the changes **events in the form template are hard coded as click event handlers**, like here:
 
 ```js
 <div>
@@ -68,6 +68,26 @@ Currently the changes events in the form are hard coded as click event handlers,
              value="text"
              formControlName="notification"
              (click)="setNotification('text')" >Text     //<-- here too
+    </label>
+  </div>
+</div>
+```
+
+Now remove the click handlers **in the template:**
+
+```js
+<div>
+  <label>Send Notifications</label>
+  <div>
+    <label class="radio-inline">
+      <input type="radio"
+             value="email"
+             formControlName="notification">Email
+    </label>
+    <label class="radio-inline">
+      <input type="radio"
+             value="text"
+             formControlName="notification">Text
     </label>
   </div>
 </div>
