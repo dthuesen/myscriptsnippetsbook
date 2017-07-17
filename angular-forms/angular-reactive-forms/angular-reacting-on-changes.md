@@ -131,5 +131,5 @@ setNotification(notifyVia: string): void {
 }
 ```
 
-
+Now if the user clicks in the form on the radio 'phone', the watcher calls the setNotification method with the value "phone" and if he clicks on 'text', the submitted value is of cause "text".
 
