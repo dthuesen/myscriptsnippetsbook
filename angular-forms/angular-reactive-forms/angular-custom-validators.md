@@ -355,7 +355,7 @@ The FormControl doesn't need a patter validation because it will be compared aga
     this.customerForm = this.fb.group({
         firstName: ['', [Validators.required, Validators.minLength(3)]],
         lastName: ['', [Validators.required, Validators.maxLength(50)]],
-        emailGroup: this.fb.group({                                      // <-- the nested FormGroup
+        emailGroup: this.fb.group({                                           // <-- the nested FormGroup
             email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]+')]],
             confirmEmail: ['', [Validators.required]],   // <-- here - no pattern is needed for comparison
         }),     
@@ -445,18 +445,42 @@ function dateCompare(control: AbstractControl): {[key: string]: boolean} | null 
 In this example first the **FormControls** \('start' and 'end'\) from the passed in **FormGroup** get accessed. Then the function compares the start date and the end date. If the values aren't equal it will return an error object with the key `'match'` and the value `true` which means the rule is broken an it will go into the **error collection for FormGroup** not the individual FormControls. If the validation rule passed `null` will be returned. This validator has to be added to the FormGroup of the form model, like here:
 
 ```js
-this.customerForm = this.fb.group({
-    firstName: ['', [Validators.required, Validators.minLength(3)]],
-    lastName: ['', [Validators.required, Validators.maxLength(50)]],
-    emailGroup: this.fb.group({
-        email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]+')]],
-        confirmEmail: ['', [Validators.required]], 
-    }, { validator: dateCompare }),                // <-- the custom cross-field validator as third argument  
-    phone: '',
-    notification: 'email',
-    rating: ['', ratingRange(1, 5)],
-    sendCatalog: true
-});
+// the email comparison function above the component class
+function emailMatcher(control: AbstractControl): {[key: string]: boolean} | null {
+  const emailControl = control.get('email');
+  const confirmControl = control.get('confirmEmail');
+
+  if (emailControl.pristine || confirmControl.pristine) {
+    return null;
+  }
+
+  if (emailControl.value === confirmControl.value) {
+    return null
+  }
+  return { 'match': true };
+}
+...
+.....
+// The component class
+@Component({
+......
+...
+
+// The form model in the ngOnInit live cycle hook
+ngOnInit(): void {
+  this.customerForm = this.fb.group({
+      firstName: ['', [Validators.required, Validators.minLength(3)]],
+      lastName: ['', [Validators.required, Validators.maxLength(50)]],
+      emailGroup: this.fb.group({
+          email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]+')]],
+          confirmEmail: ['', [Validators.required]], 
+      }, { validator: dateCompare }),              // <-- the custom cross-field validator as third argument  
+      phone: '',
+      notification: 'email',
+      rating: ['', ratingRange(1, 5)],
+      sendCatalog: true
+  });
+}
 ```
 
 Note that here it is not possible to add the validator function it self. The **FormGroup requires the provision of an object with a validator key and the function as the value.**
@@ -484,7 +508,7 @@ As shown above \(in step 4\) there are three `<span>` elements displaying the er
         </span>
 
         <span *ngIf="customerForm.get('emailGroup').errors?.match">                 //<-- save navigation
-            The confirmation does not match the email address.                    //    operator
+            The confirmation does not match the email address.                      //    operator
         </span>
 
     </span>
