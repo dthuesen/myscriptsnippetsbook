@@ -51,7 +51,7 @@ As the user makes changes to the form, one can react to those changes to provide
 * provide automatic suggestions as the user types
 * or anything the imagination allows or the customers requirements.
 
-Currently the changes **events in the form template are hard coded as click event handlers**, like here:
+1\) Currently the changes **events in the form template are hard coded as click event handlers**, like here:
 
 ```js
 <div>
@@ -73,7 +73,7 @@ Currently the changes **events in the form template are hard coded as click even
 </div>
 ```
 
-Now remove the click handlers **in the template:**
+2\) Now remove the click handlers **in the template:**
 
 ```js
 <div>
@@ -92,6 +92,8 @@ Now remove the click handlers **in the template:**
   </div>
 </div>
 ```
+
+3\) **Set up a watcher** on the notification in the component class' `ngOnOnit()` method like above:
 
 
 
