@@ -40,9 +40,9 @@ ngOnInit(): void {
 
 Keep in mind this code must be after the definition fo the root FormGroup, otherwise this reference is null.
 
-### Reacting to changes 
+### Reacting to changes
 
-As the user makes changes to the form, one can react to those changes to provide a more dynamic an customized experience - e.g. 
+As the user makes changes to the form, one can react to those changes to provide a more dynamic an customized experience - e.g.
 
 * adjust the validation rules, 
 * handle validation messages in the component class \(instead of  hardcoded in the template\), 
@@ -67,15 +67,11 @@ Currently the changes events in the form are hard coded as click event handlers,
       <input type="radio"
              value="text"
              formControlName="notification"
-             (click)="setNotification('text')" >Text    //<-- here too
+             (click)="setNotification('text')" >Text     //<-- here too
     </label>
   </div>
 </div>
 ```
-
-
-
-
 
 
 
