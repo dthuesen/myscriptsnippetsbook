@@ -110,9 +110,9 @@ ngOnInit(): void {
         sendCatalog: true
     });
 
-    ///
-    // the watcher
-    ///
+    //////
+    // the watcher:
+    //////
     this.customerForm.get('notification').valueChanges.subscribe( value => this.setNotification(value) );
 }
 ```
