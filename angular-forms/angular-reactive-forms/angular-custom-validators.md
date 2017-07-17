@@ -446,7 +446,7 @@ In this example first the **FormControls** \('start' and 'end'\) from the passed
 
 ```js
 /** 
-/  the email comparison function (custom cross-field validator) above the component class
+*  the email comparison function (custom cross-field validator) above the component class
 */
 function emailMatcher(control: AbstractControl): {[key: string]: boolean} | null {
   const emailControl = control.get('email');
@@ -465,14 +465,14 @@ function emailMatcher(control: AbstractControl): {[key: string]: boolean} | null
 .....
 
 /** 
-/  The component class
+*  The component class
 */
 @Component({
 ......
 ...
 
 /** 
-/  The form model in the ngOnInit live cycle hook
+*  The form model in the ngOnInit live cycle hook
 */
 ngOnInit(): void {
   this.customerForm = this.fb.group({
