@@ -95,5 +95,27 @@ As the user makes changes to the form, one can react to those changes to provide
 
 3\) **Set up a watcher** on the notification in the component class' `ngOnOnit()` method like above:
 
+```js
+ngOnInit(): void {
+    this.customerForm = this.fb.group({
+        firstName: ['', [Validators.required, Validators.minLength(3)]],
+        lastName: ['', [Validators.required, Validators.maxLength(50)]],
+        emailGroup: this.fb.group({ // <-- the nested FormGroup
+          email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]+')]],
+          confirmEmail: ['', [Validators.required]], // <-- here - no pattern is needed for comparison
+        }, { validator: emailMatcher }),
+        phone: '',
+        notification: 'email',
+        rating: ['', ratingRange(1, 5)],
+        sendCatalog: true
+    });
+
+    ///
+    // the watcher
+    ///
+    this.customerForm.get('notification').valueChanges.subscribe( value => console.log(value) );
+}
+```
+
 
 
