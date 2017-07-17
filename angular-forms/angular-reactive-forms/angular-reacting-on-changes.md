@@ -93,7 +93,7 @@ As the user makes changes to the form, one can react to those changes to provide
 </div>
 ```
 
-3\) **Set up a watcher** on the notification in the component class' `ngOnOnit()` method like above and **in the call back function **call the `setNotification()` method and pass in the value:
+3\) **Set up a watcher** on the notification in the component class' `ngOnOnit()` method like above and **in the call back function **call the already existing `setNotification()` method and pass in the value:
 
 ```js
 ngOnInit(): void {
@@ -114,6 +114,20 @@ ngOnInit(): void {
     // the watcher
     ///
     this.customerForm.get('notification').valueChanges.subscribe( value => this.setNotification(value) );
+}
+```
+
+The already existing setNotification method:
+
+```js
+setNotification(notifyVia: string): void {
+  const phoneControl = this.customerForm.get('phone');
+  if (notifyVia === 'text') {
+    phoneControl.setValidators(Validators.required);
+  } else {
+    phoneControl.clearValidators();
+  }
+  phoneControl.updateValueAndValidity();
 }
 ```
 
