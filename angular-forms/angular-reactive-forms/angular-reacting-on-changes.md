@@ -178,7 +178,7 @@ The currently hard coded error / validation messages in the HTML:
 
 ##### a\) Starting point in the component class:
 
-Set up a data structure for keeping the validation messages as key and value pair, **where the key is the validation rule**:
+Set up a data structure for keeping the **validation messages** as key and value pair, **where the key is the validation rule**:
 
 ```js
 @Component({
@@ -190,14 +190,14 @@ export class CustomersComponent implements OnInit {
 
   customerForm: FormGroup;                  
   customer: Customer= new Customer();
-  
+
   private validationMessages = {                     // <-- the new data structure for the validation 
     required: 'Please enter your email address.',    // <-- messages set up as an object
     pattern: 'Please enter a valid email address.'   // <-- 
   }
 
   constructor(private fb: FormBuilder) { }
-  
+
   ...
 ```
 
