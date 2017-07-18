@@ -1,5 +1,12 @@
 # Angular - Reacting on Changes
 
+* [**Implementation of valueChanges for a FormControl**](#implementation-of-valuechanges-for-a-formcontrol)\#
+* [**Reacting to changes**](#reacting-to-changes)
+  1. [**Currently the changes events in the form template are hard coded** as click event handlers, like here](#1-currently-the-changes-events-in-the-form-template-are-hard-coded-as-click-event-handlers-like-here)
+  2. [Now **remove the click handlers in the template**](#2-now-remove-the-click-handlers-in-the-template)
+  3. [**Set up a watcher **on the notification in the component class' ngOnOnit\(\) method like above and in the call back function call the already existing setNotification\(\) method and pass in the value](#3-set-up-a-watcher-on-the-notification-in-the-component-class-ngononit-method-like-above-and-in-the-call-back-function-call-the-already-existing-setnotification-method-and-pass-in-the-value)
+  4. [Move the **validation messages from the HTML into the component class** and react by setting the appropriate message to display.](#4-move-the-validation-messages-from-the-html-into-the-component-class-and-react-by-setting-the-appropriate-message-to-display)
+
 Forms reacting on user changes dynamically.
 
 The property **valueChanges** of FormControl and FormGroup **emits events on value changes**. It's an `Observable<any>`and collects the events asynchronously. The  property **statusChanges** emits events on validation changes.
@@ -51,7 +58,7 @@ As the user makes changes to the form, one can react to those changes to provide
 * provide automatic suggestions as the user types
 * or anything the imagination allows or the customers requirements.
 
-1\) Currently the changes **events in the form template are hard coded as click event handlers**, like here:
+#### 1\) Currently the changes **events in the form template are hard coded as click event handlers**, like here:
 
 ```js
 <div>
@@ -73,7 +80,7 @@ As the user makes changes to the form, one can react to those changes to provide
 </div>
 ```
 
-2\) Now remove the click handlers **in the template:**
+#### 2\) Now remove the click handlers **in the template:**
 
 ```js
 <div>
@@ -93,7 +100,7 @@ As the user makes changes to the form, one can react to those changes to provide
 </div>
 ```
 
-3\) **Set up a watcher** on the notification in the component class' `ngOnOnit()` method like above and **in the call back function **call the already existing `setNotification()` method and pass in the value:
+#### 3\) **Set up a watcher** on the notification in the component class' `ngOnOnit()` method like above and **in the call back function **call the already existing `setNotification()` method and pass in the value:
 
 ```js
 ngOnInit(): void {
@@ -132,4 +139,8 @@ setNotification(notifyVia: string): void {
 ```
 
 Now if the user clicks in the form on the radio 'phone', the watcher calls the setNotification method with the value "phone" and if he clicks on 'text', the submitted value is of cause "text".
+
+#### 4\) Move the validation messages from the HTML into the component class and react by setting the appropriate message to display.
+
+
 
