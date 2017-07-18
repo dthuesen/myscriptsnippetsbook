@@ -231,7 +231,7 @@ export class CustomersComponent implements OnInit {
   }
 
   constructor(private fb: FormBuilder) { }
-  
+
   ngOnInit(): void {
     this.customerForm = this.fb.group({
         firstName: ['', [Validators.required, Validators.minLength(3)]],
@@ -247,10 +247,20 @@ export class CustomersComponent implements OnInit {
     });
 
     this.customerForm.get('notification').valueChanges.subscribe( value => this.setNotification(value) );
+    
+    ////
+    // The watcher for the FormControl 'emailGroup.email'
+    ////
+    const emailControl = this.customerForm.get('emailGroup.email');                 <---
+    emailControl.valueChanges.subscribe( value => this.setMessage(emailControl) );  <---
   }
 
   ...
 ```
+
+First the FormControl is stored in a constant 'emailControl' for minimizing repeated code. Then the watcher is subscribed to it. In the callback function the `setMessage()` method is called and the FormControl passed in. And so every time the value is changed, the validation messages get reevaluated. The `setMessage()` method will determine the appropriate validation message to display, if any.
+
+##### d\) Add the new `setMessage()` method to the class
 
 
 
