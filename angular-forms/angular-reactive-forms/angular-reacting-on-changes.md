@@ -9,6 +9,7 @@
      * [a\) Set up a data structure for keeping the validation messages](#a-set-up-a-data-structure-for-keeping-the-validation-messages)
      * [b\) Define a property that will contain the validation message to display.](#b-define-a-property-that-will-contain-the-validation-message-to-display)
      * [c\) Add a watcher on the FormControl](#c-add-a-watcher-on-the-formcontrol)
+     * [d\) Add the new setMessage\(\) method to the class](#d-add-the-new-setmessage-method-to-the-class)
 
 Forms reacting on user changes dynamically.
 
@@ -236,9 +237,9 @@ export class CustomersComponent implements OnInit {
     this.customerForm = this.fb.group({
         firstName: ['', [Validators.required, Validators.minLength(3)]],
         lastName: ['', [Validators.required, Validators.maxLength(50)]],
-        emailGroup: this.fb.group({ // <-- the nested FormGroup
+        emailGroup: this.fb.group({ 
           email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]+')]],
-          confirmEmail: ['', [Validators.required]], // <-- here - no pattern is needed for comparison
+          confirmEmail: ['', [Validators.required]],
         }, { validator: emailMatcher }),
         phone: '',
         notification: 'email',
@@ -247,7 +248,7 @@ export class CustomersComponent implements OnInit {
     });
 
     this.customerForm.get('notification').valueChanges.subscribe( value => this.setNotification(value) );
-    
+
     ////
     // The watcher for the FormControl 'emailGroup.email'
     ////
@@ -261,6 +262,85 @@ export class CustomersComponent implements OnInit {
 First the FormControl is stored in a constant 'emailControl' for minimizing repeated code. Then the watcher is subscribed to it. In the callback function the `setMessage()` method is called and the FormControl passed in. And so every time the value is changed, the validation messages get reevaluated. The `setMessage()` method will determine the appropriate validation message to display, if any.
 
 ##### d\) Add the new `setMessage()` method to the class
+
+```js
+@Component({
+  // tslint:disable-next-line:component-selector
+  selector: 'my-signup',
+  templateUrl: './customers.component.html',
+})
+export class CustomersComponent implements OnInit {
+
+  customerForm: FormGroup;                  
+  customer: Customer= new Customer();
+  emailMessage: string;                              
+
+  private validationMessages = {                      
+    required: 'Please enter your email address.',    
+    pattern: 'Please enter a valid email address.'    
+  }
+
+  constructor(private fb: FormBuilder) { }
+
+  ngOnInit(): void {
+    this.customerForm = this.fb.group({
+    firstName: ['', [Validators.required, Validators.minLength(3)]],
+    lastName: ['', [Validators.required, Validators.maxLength(50)]],
+    emailGroup: this.fb.group({ 
+      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]+')]],
+      confirmEmail: ['', [Validators.required]], 
+    }, { validator: emailMatcher }),
+    phone: '',
+    notification: 'email',
+    rating: ['', ratingRange(1, 5)],
+    sendCatalog: true
+  });
+  
+  this.customerForm.get('notification').valueChanges.subscribe( value => this.setNotification(value) );
+
+  const emailControl = this.customerForm.get('emailGroup.email'); <---
+  emailControl.valueChanges.subscribe( value => this.setMessage(emailControl) ); <---
+```
+
+```js
+  populateTestData(): void {
+    this.customerForm.patchValue({
+        firstName: 'Jack',
+        lastName: 'Harkness',
+        sendCatalog: false
+    });
+  }
+
+  save() {
+    console.log(this.customerForm);
+    console.log('Saved: ' + JSON.stringify(this.customerForm.value));
+  }
+  
+  ////
+  // the new method for setting the validation messages
+  ////
+  setMessage(control: AbstractConrol): void {                        // <-- from here
+    this.emailMessage = '';
+    
+    if ( (control.touched || control.dirty ) && control.errors ) {
+        this.emailMessage = Object.keys(control.errors).map( key => this.validationMessages[key].join(' ');
+    }
+  }                                                                  // <-- to here
+
+  setNotification(notifyVia: string): void {
+    const phoneControl = this.customerForm.get('phone');
+    if (notifyVia === 'text') {
+      phoneControl.setValidators(Validators.required);
+    } else {
+      phoneControl.clearValidators();
+    }
+    phoneControl.updateValueAndValidity();
+  }
+
+}
+```
+
+
 
 
 
