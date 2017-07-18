@@ -159,14 +159,16 @@ The currently hard coded error / validation messages in the HTML:
                    type="email"
                    placeholder="Email (required)"
                    formControlName="email" />
-            <span *ngIf="( customerForm.get('emailGroup.email').touched ||
-                           customerForm.get('emailGroup.email').dirty ) &&
-                           customerForm.get('emailGroup.email').errors">
-            
-                <span *ngIf="customerForm.get('emailGroup.email').errors.required">
+           
+           <!-- the validation messages block -->
+            <span *ngIf="( customerForm.get('emailGroup.email').touched ||           <---- moving 
+                           customerForm.get('emailGroup.email').dirty ) &&           <---- these
+                           customerForm.get('emailGroup.email').errors">             <---- into
+
+                <span *ngIf="customerForm.get('emailGroup.email').errors.required">  <---- the 
                     Please enter your email address.
                 </span>
-                <span *ngIf="customerForm.get('emailGroup.email').errors.pattern">
+                <span *ngIf="customerForm.get('emailGroup.email').errors.pattern">   <---- component classs
                     Please enter a valid email address.
                 </span>
             </span>
