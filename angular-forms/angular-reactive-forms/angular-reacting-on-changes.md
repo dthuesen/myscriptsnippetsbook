@@ -176,9 +176,11 @@ The currently hard coded error / validation messages in the HTML:
 </div>
 ```
 
-##### a\) Starting point in the component class:
+##### a\) Set up a data structure for keeping the validation messages
 
-Set up a data structure for keeping the **validation messages** as key and value pair, **where the key is the validation rule**:
+In the component class set up a data structure for keeping the **validation messages** as key and value pair, **where the key is the validation rule and the value is the message to display.**
+
+**b\) Define a property that will contain the validation message to display.**
 
 ```js
 @Component({
@@ -190,8 +192,9 @@ export class CustomersComponent implements OnInit {
 
   customerForm: FormGroup;                  
   customer: Customer= new Customer();
+  emailMessage: string;                              // <-- b) property containing the message to display
 
-  private validationMessages = {                     // <-- the new data structure for the validation 
+  private validationMessages = {                     // <-- a) the new data structure for the validation 
     required: 'Please enter your email address.',    // <-- messages set up as an object
     pattern: 'Please enter a valid email address.'   // <-- 
   }
@@ -200,6 +203,8 @@ export class CustomersComponent implements OnInit {
 
   ...
 ```
+
+Here the messages are also hard coded but they can also be populated by an Angular service that retrieves them from a file or back-end server.
 
 
 
