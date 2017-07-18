@@ -6,6 +6,9 @@
   2. [Now **remove the click handlers in the template**](#2-now-remove-the-click-handlers-in-the-template)
   3. [**Set up a watcher **on the notification in the component class' ngOnOnit\(\) method like above and in the call back function call the already existing setNotification\(\) method and pass in the value](#3-set-up-a-watcher-on-the-notification-in-the-component-class-ngononit-method-like-above-and-in-the-call-back-function-call-the-already-existing-setnotification-method-and-pass-in-the-value)
   4. [Move the **validation messages from the HTML into the component class** and react by setting the appropriate message to display.](#4-move-the-validation-messages-from-the-html-into-the-component-class-and-react-by-setting-the-appropriate-message-to-display)
+     * [a\) Set up a data structure for keeping the validation messages](#a-set-up-a-data-structure-for-keeping-the-validation-messages)
+     * [b\) Define a property that will contain the validation message to display.](#b-define-a-property-that-will-contain-the-validation-message-to-display)
+     * [c\) Add a watcher on the FormControl](#c-add-a-watcher-on-the-formcontrol)
 
 Forms reacting on user changes dynamically.
 
@@ -180,7 +183,7 @@ The currently hard coded error / validation messages in the HTML:
 
 In the component class set up a data structure for keeping the **validation messages** as key and value pair, **where the key is the validation rule and the value is the message to display.**
 
-**b\) Define a property that will contain the validation message to display.**
+##### **b\) Define a property that will contain the validation message to display.**
 
 ```js
 @Component({
@@ -205,6 +208,49 @@ export class CustomersComponent implements OnInit {
 ```
 
 Here the messages are also hard coded but they can also be populated by an Angular service that retrieves them from a file or back-end server.
+
+##### c\) Add a watcher on the FormControl
+
+To let this watcher start watching right away, add the code to the ngOnInit\(\) method
+
+```js
+@Component({
+  // tslint:disable-next-line:component-selector
+  selector: 'my-signup',
+  templateUrl: './customers.component.html',
+})
+export class CustomersComponent implements OnInit {
+
+  customerForm: FormGroup;                  
+  customer: Customer= new Customer();
+  emailMessage: string;                              
+
+  private validationMessages = {                      
+    required: 'Please enter your email address.',    
+    pattern: 'Please enter a valid email address.'    
+  }
+
+  constructor(private fb: FormBuilder) { }
+  
+  ngOnInit(): void {
+    this.customerForm = this.fb.group({
+        firstName: ['', [Validators.required, Validators.minLength(3)]],
+        lastName: ['', [Validators.required, Validators.maxLength(50)]],
+        emailGroup: this.fb.group({ // <-- the nested FormGroup
+          email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]+')]],
+          confirmEmail: ['', [Validators.required]], // <-- here - no pattern is needed for comparison
+        }, { validator: emailMatcher }),
+        phone: '',
+        notification: 'email',
+        rating: ['', ratingRange(1, 5)],
+        sendCatalog: true
+    });
+
+    this.customerForm.get('notification').valueChanges.subscribe( value => this.setNotification(value) );
+  }
+
+  ...
+```
 
 
 
