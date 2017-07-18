@@ -159,9 +159,9 @@ The currently hard coded error / validation messages in the HTML:
                    type="email"
                    placeholder="Email (required)"
                    formControlName="email" />
-           
+
            <!-- the validation messages block -->
-            <span *ngIf="( customerForm.get('emailGroup.email').touched ||           <---- moving 
+            <span *ngIf="( customerForm.get('emailGroup.email').touched ||           <---- move 
                            customerForm.get('emailGroup.email').dirty ) &&           <---- these
                            customerForm.get('emailGroup.email').errors">             <---- into
 
