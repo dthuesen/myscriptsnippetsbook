@@ -142,5 +142,37 @@ Now if the user clicks in the form on the radio 'phone', the watcher calls the s
 
 #### 4\) Move the validation messages from the HTML into the component class and react by setting the appropriate message to display.
 
+The currently hard coded error / validation messages in the HTML:
+
+```
+<div formGroupName="emailGroup"
+[ngClass]="{ 'has-error': customerForm.get('emailGroup').errors }">
+
+    <!-- The email input -->
+    <div [ngClass]="{ 'has-error': (customerForm.get('emailGroup.email').touched ||
+                                    customerForm.get('emailGroup.email').dirty) &&
+                                   !customerForm.get('emailGroup.email').valid }">
+        <label for="emailId">Email</label>
+
+        <div>
+            <input id="emailId"
+                   type="email"
+                   placeholder="Email (required)"
+                   formControlName="email" />
+            <span *ngIf="( customerForm.get('emailGroup.email').touched ||
+                           customerForm.get('emailGroup.email').dirty ) &&
+                           customerForm.get('emailGroup.email').errors">
+            
+                <span *ngIf="customerForm.get('emailGroup.email').errors.required">
+                    Please enter your email address.
+                </span>
+                <span *ngIf="customerForm.get('emailGroup.email').errors.pattern">
+                    Please enter a valid email address.
+                </span>
+            </span>
+        </div>
+</div>
+```
+
 
 
