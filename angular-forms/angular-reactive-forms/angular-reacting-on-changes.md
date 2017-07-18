@@ -295,7 +295,7 @@ export class CustomersComponent implements OnInit {
     rating: ['', ratingRange(1, 5)],
     sendCatalog: true
   });
-  
+
   this.customerForm.get('notification').valueChanges.subscribe( value => this.setNotification(value) );
 
   const emailControl = this.customerForm.get('emailGroup.email'); <---
@@ -315,13 +315,13 @@ export class CustomersComponent implements OnInit {
     console.log(this.customerForm);
     console.log('Saved: ' + JSON.stringify(this.customerForm.value));
   }
-  
+
   ////
   // the new method for setting the validation messages
   ////
   setMessage(control: AbstractConrol): void {                        // <-- from here
     this.emailMessage = '';
-    
+
     if ( (control.touched || control.dirty ) && control.errors ) {
         this.emailMessage = Object.keys(control.errors).map( key => this.validationMessages[key].join(' ');
     }
@@ -339,8 +339,6 @@ export class CustomersComponent implements OnInit {
 
 }
 ```
-
-
 
 
 
