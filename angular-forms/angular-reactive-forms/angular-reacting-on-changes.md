@@ -252,8 +252,8 @@ export class CustomersComponent implements OnInit {
     ////
     // The watcher for the FormControl 'emailGroup.email'
     ////
-    const emailControl = this.customerForm.get('emailGroup.email');                 <---
-    emailControl.valueChanges.subscribe( value => this.setMessage(emailControl) );  <---
+    const emailControl = this.customerForm.get('emailGroup.email');                 // <---
+    emailControl.valueChanges.subscribe( value => this.setMessage(emailControl) );  // <---
   }
 
   ...
@@ -298,8 +298,8 @@ export class CustomersComponent implements OnInit {
 
   this.customerForm.get('notification').valueChanges.subscribe( value => this.setNotification(value) );
 
-  const emailControl = this.customerForm.get('emailGroup.email'); <---
-  emailControl.valueChanges.subscribe( value => this.setMessage(emailControl) ); <---
+  const emailControl = this.customerForm.get('emailGroup.email'); 
+  emailControl.valueChanges.subscribe( value => this.setMessage(emailControl) ); 
 ```
 
 ```js
@@ -319,11 +319,11 @@ export class CustomersComponent implements OnInit {
   ////
   // the new method for setting the validation messages
   ////
-  setMessage(control: AbstractConrol): void {                        // <-- from here
+  setMessage(control: AbstractControl): void {                        // <-- from here
     this.emailMessage = '';
 
     if ( (control.touched || control.dirty ) && control.errors ) {
-        this.emailMessage = Object.keys(control.errors).map( key => this.validationMessages[key].join(' ');
+        this.emailMessage = Object.keys(control.errors).map( key => this.validationMessages[key].join(' ') );
     }
   }                                                                  // <-- to here
 
