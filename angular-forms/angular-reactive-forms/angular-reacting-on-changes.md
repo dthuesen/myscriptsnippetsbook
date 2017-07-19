@@ -392,5 +392,5 @@ ngOnInit(): void {
 }
 ```
 
-That's it. Now the email validation should not display until the user had a chance to enter a value.
+That's it. Now the email validation should not display until the user had a chance to enter a value. Maybe the time value for the `debounceTime()` **Reactive extensions operator** could be a little longer for people not typing so fast.
 
