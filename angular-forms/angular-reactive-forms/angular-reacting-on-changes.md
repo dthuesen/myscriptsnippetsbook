@@ -11,6 +11,7 @@
      * [c\) Add a watcher on the FormControl](#c-add-a-watcher-on-the-formcontrol)
      * [d\) Add the new `setMessage()`method to the class](#d-add-the-new-setmessage-method-to-the-class)
      * [e\) Remove the validation error messages from the template by Reactive Transformations](#e-remove-the-validation-error-messages-from-the-template-by-reactive-transformations) 
+     * [f\) Implement `debounceTime()` Reactive extensions operator for better user experience](#f-implement-debouncetime-reactive-extensions-operator-for-better-user-experience)
 
 Forms reacting on user changes dynamically.
 
@@ -405,6 +406,8 @@ And change it so, that it look like this:
 </div>
 ```
 
+##### f\) Implement `debounceTime()` Reactive extensions operator for better user experience
+
 Observables provide operators that allow to transform how emitted events will be seen. By the way there are many observable operators that di everything from filtering, to mapping, to throttling, etc. One operator is **debounceTime**.
 
 **DebounceTime** ignores all events until a specific time has passed without another event. For example, `debounceTime(1000)` **waits for 1 second with no events before emitting another event.** This is very useful for validation, **especially if one don't want to show the validation messages until the user has stopped typing. DebounceTime** is one of the most commonly used reactive trasformation operators when working with validation, but there are many others.
@@ -423,7 +426,7 @@ import 'rxjs/add/operator/debounceTime';
 ...
 ```
 
-Then call the **debounceTime operator** on the observable and specify the desired wait time:
+Then call the **`debounceTime()` operator** on the observable and specify the desired wait time:
 
 ```js
 ngOnInit(): void {
@@ -450,6 +453,4 @@ ngOnInit(): void {
 ```
 
 That's it. Now the email validation should not display until the user had a chance to enter a value. Maybe the time value for the `debounceTime()` **Reactive extensions operator** could be a little longer for people not typing so fast.
-
-
 
