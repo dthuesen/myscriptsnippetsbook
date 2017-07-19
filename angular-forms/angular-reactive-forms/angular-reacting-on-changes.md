@@ -349,5 +349,5 @@ In the method above in the body of the if statement the JavaScript `Object.keys(
 
 Observables provide operators that allow to transform how emitted events will be seen. By the way there are many observable operators that di everything from filtering, to mapping, to throttling, etc. One operator is **debounceTime**.
 
-**DebounceTime** ignores all events until a specific time has passed without another event. For example, `debounceTime(1000)` **waits for 1 second with no events before emitting another event.** This is very useful for validation, especially if one don't want to show the validation messages until the user has stopped typing.
+**DebounceTime** ignores all events until a specific time has passed without another event. For example, `debounceTime(1000)` **waits for 1 second with no events before emitting another event.** This is very useful for validation, **especially if one don't want to show the validation messages until the user has stopped typing.**
 
