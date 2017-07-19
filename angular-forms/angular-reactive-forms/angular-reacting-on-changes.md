@@ -12,6 +12,7 @@
      * [d\) Add the new `setMessage()`method to the class](#d-add-the-new-setmessage-method-to-the-class)
      * [e\) Remove the validation error messages from the template by Reactive Transformations](#e-remove-the-validation-error-messages-from-the-template-by-reactive-transformations) 
      * [f\) Implement `debounceTime()` Reactive extensions operator for better user experience](#f-implement-debouncetime-reactive-extensions-operator-for-better-user-experience)
+  5. [**Recap**](#recap)
 
 Forms reacting on user changes dynamically.
 
@@ -456,7 +457,7 @@ That's it. Now the email validation should not display until the user had a chan
 
 #### Recap:
 
-* **Use the `valueChanges()` Observable property**
+* **Use the **`valueChanges()`** Observable property**
 * **Subscribe to the Observable by calling the subscribe method, like so:**
 
   ```js
@@ -466,20 +467,22 @@ That's it. Now the email validation should not display until the user had a chan
   _This provides notifications each time the value of myFormControl changes_
 
 * **Write the code to react on the user changes in the subscribe function:**
+
   ```js
   this.myFormControl.valueChanges.subscribe( value => this.setNotification(value) );
   ```
+
 * **Code in the subscribe function can change validation rules,** e.g. watch the send notification rules in the FormControl and add required validation on the phone number when the user selected to be notified.
 
 * **Code in the subscribe function can handle validation messages.** With that the validation messages can be moved to the component class instead of staying hard coded in the HTML.
 
 * **Or the code can adjust elements in the UI, provide automatic suggestions, ...**
 
-* **To use Reactive Extensions such as `debounceTime()`, they first need to be imported to add the operator**
+* **To use Reactive Extensions such as **`debounceTime()`**, they first need to be imported to add the operator**
 
 * Then, **by chaining it on the observable, the operator gets to be used **
 
-* **`debounceTime()` gives the user a chance to enter a valid email address before displaying validation messages.**
+* `debounceTime()`** gives the user a chance to enter a valid email address before displaying validation messages.**
 
 
 
