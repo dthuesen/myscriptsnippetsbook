@@ -348,6 +348,63 @@ In the method above in the body of the if statement the JavaScript `Object.keys(
 
 ##### e\) Remove the validation error messages from the template by Reactive Transformations
 
+```js
+<div class="form-group"
+   [ngClass]="{ 'has-error': // REMOVE --> (customerForm.get('emailGroup.email').touched  || //<-- REMOVE
+                             // REMOVE --> customerForm.get('emailGroup.email').dirty) &&    //<-- REMOVE
+                             // REMOVE --> !customerForm.get('emailGroup.email').valid }">   //<-- REMOVE
+
+<label class="col-md-2 control-label"
+      for="emailId">Email</label>
+
+  <div class="col-md-8">
+    <input class="form-control"
+            id="emailId"
+            type="email"
+            placeholder="Email (required)"
+            formControlName="email" />
+      <div *ngIf="emailMessage" class="help-block">
+        {{emailMessage}}
+      </div>
+      <!-- extract validatin messages to the component class -->
+      <!--
+      <span class="help-block" *ngIf="( // REMOVE --> customerForm.get('emailGroup.email').touched || //<--RE
+                                        // REMOVE --> customerForm.get('emailGroup.email').dirty ) && //<--MO
+                                        // REMOVE --> customerForm.get('emailGroup.email').errors">   //<--VE
+
+       // REMOVE -->  <span *ngIf="customerForm.get('emailGroup.email').errors.required">  //<--
+       // REMOVE -->      Please enter your email address.                                 //<--
+       // REMOVE -->  </span>                                                              //<-- REMOVE
+       // REMOVE -->  <span *ngIf="customerForm.get('emailGroup.email').errors.pattern">   //<--
+       // REMOVE -->      Please enter a valid email address.                              //<--
+       // REMOVE -->  </span>
+    </span>
+      -->
+  </div>
+</div>
+```
+
+And change it so, that it look like this:
+
+```
+<div class="form-group"
+     [ngClass]="{ 'has-error': emailMessage }">
+  <label class="col-md-2 control-label"
+        for="emailId">Email</label>
+
+    <div class="col-md-8">
+      <input class="form-control"
+              id="emailId"
+              type="email"
+              placeholder="Email (required)"
+              formControlName="email" />
+        <span class="help-block" *ngIf="emailMessage">
+          {{ emailMessage }}
+        </span>
+    </div>
+</div>
+```
+
 Observables provide operators that allow to transform how emitted events will be seen. By the way there are many observable operators that di everything from filtering, to mapping, to throttling, etc. One operator is **debounceTime**.
 
 **DebounceTime** ignores all events until a specific time has passed without another event. For example, `debounceTime(1000)` **waits for 1 second with no events before emitting another event.** This is very useful for validation, **especially if one don't want to show the validation messages until the user has stopped typing. DebounceTime** is one of the most commonly used reactive trasformation operators when working with validation, but there are many others.
@@ -393,4 +450,6 @@ ngOnInit(): void {
 ```
 
 That's it. Now the email validation should not display until the user had a chance to enter a value. Maybe the time value for the `debounceTime()` **Reactive extensions operator** could be a little longer for people not typing so fast.
+
+
 
