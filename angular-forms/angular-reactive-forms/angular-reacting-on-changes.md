@@ -340,5 +340,5 @@ export class CustomersComponent implements OnInit {
 }
 ```
 
-
+The method `setMessage(control: AbdtractControl): void` takes in a **FormControl** or **FormGroup** so it is set to type if AbstractControl.
 
