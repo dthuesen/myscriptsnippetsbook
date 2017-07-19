@@ -340,5 +340,7 @@ export class CustomersComponent implements OnInit {
 }
 ```
 
-The method `setMessage(control: AbdtractControl): void` takes in a **FormControl** or **FormGroup** so it is set to type if AbstractControl.
+The method `setMessage(control: AbdtractControl): void` takes in a **FormControl** or **FormGroup** so it is set to type if **AbstractControl**. In the method body any current message will be cleared by an empty string. It has to be passed because the most recent change to that element could could cause all validation rules pass and that would show any left over messages. The next thing is the if statement to determine wheter a validation message should be displayed or not. **All of the dirty, touched or valid checking out of the tempate moves here into the component class.**
+
+
 
