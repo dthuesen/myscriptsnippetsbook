@@ -406,7 +406,7 @@ And change it so, that it look like this:
 </div>
 ```
 
-##### f\) Implement `debounceTime()` Reactive extensions operator for better user experience
+##### f\) Implement the `debounceTime()` Reactive extensions operator for better user experience
 
 Observables provide operators that allow to transform how emitted events will be seen. By the way there are many observable operators that di everything from filtering, to mapping, to throttling, etc. One operator is **debounceTime**.
 
@@ -426,7 +426,7 @@ import 'rxjs/add/operator/debounceTime';
 ...
 ```
 
-Then call the **`debounceTime()` operator** on the observable and specify the desired wait time:
+Then call the `debounceTime()`** operator** on the observable and specify the desired wait time:
 
 ```js
 ngOnInit(): void {
