@@ -9,7 +9,7 @@
      * [a\) Set up a data structure for keeping the validation messages](#a-set-up-a-data-structure-for-keeping-the-validation-messages)
      * [b\) Define a property that will contain the validation message to display.](#b-define-a-property-that-will-contain-the-validation-message-to-display)
      * [c\) Add a watcher on the FormControl](#c-add-a-watcher-on-the-formcontrol)
-     * [d\) Add the new `setMessage() `method to the class](#d-add-the-new-setmessage-method-to-the-class)
+     * [d\) Add the new `setMessage()`method to the class](#d-add-the-new-setmessage-method-to-the-class)
      * [e\) Remove the validation error messages from the template by Reactive Transformations](#e-remove-the-validation-error-messages-from-the-template-by-reactive-transformations) 
 
 Forms reacting on user changes dynamically.
@@ -347,5 +347,7 @@ In the method above in the body of the if statement the JavaScript `Object.keys(
 
 ##### e\) Remove the validation error messages from the template by Reactive Transformations
 
+Observables provide operators that allow to transform how emitted events will be seen. By the way there are many observable operators that di everything from filtering, to mapping, to throttling, etc. One operator is **debounceTime**.
 
+**DebounceTime** ignores all events until a specific time has passed without another event. For example, `debounceTime(1000)` **waits for 1 second with no events before emitting another event. **
 
