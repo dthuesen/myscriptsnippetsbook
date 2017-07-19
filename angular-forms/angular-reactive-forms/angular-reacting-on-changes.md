@@ -285,22 +285,23 @@ export class CustomersComponent implements OnInit {
 
   ngOnInit(): void {
     this.customerForm = this.fb.group({
-    firstName: ['', [Validators.required, Validators.minLength(3)]],
-    lastName: ['', [Validators.required, Validators.maxLength(50)]],
-    emailGroup: this.fb.group({ 
-      email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]+')]],
-      confirmEmail: ['', [Validators.required]], 
-    }, { validator: emailMatcher }),
-    phone: '',
-    notification: 'email',
-    rating: ['', ratingRange(1, 5)],
-    sendCatalog: true
-  });
+      firstName: ['', [Validators.required, Validators.minLength(3)]],
+      lastName: ['', [Validators.required, Validators.maxLength(50)]],
+      emailGroup: this.fb.group({ 
+        email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]+')]],
+        confirmEmail: ['', [Validators.required]], 
+      }, { validator: emailMatcher }),
+      phone: '',
+      notification: 'email',
+      rating: ['', ratingRange(1, 5)],
+      sendCatalog: true
+    });
 
-  this.customerForm.get('notification').valueChanges.subscribe( value => this.setNotification(value) );
-
-  const emailControl = this.customerForm.get('emailGroup.email'); 
-  emailControl.valueChanges.subscribe( value => this.setMessage(emailControl) );
+    this.customerForm.get('notification').valueChanges.subscribe( value => this.setNotification(value) );
+  
+    const emailControl = this.customerForm.get('emailGroup.email'); 
+    emailControl.valueChanges.subscribe( value => this.setMessage(emailControl) );
+  }
 ```
 
 ```js
@@ -349,5 +350,27 @@ In the method above in the body of the if statement the JavaScript `Object.keys(
 
 Observables provide operators that allow to transform how emitted events will be seen. By the way there are many observable operators that di everything from filtering, to mapping, to throttling, etc. One operator is **debounceTime**.
 
-**DebounceTime** ignores all events until a specific time has passed without another event. For example, `debounceTime(1000)` **waits for 1 second with no events before emitting another event.** This is very useful for validation, **especially if one don't want to show the validation messages until the user has stopped typing.**
+**DebounceTime** ignores all events until a specific time has passed without another event. For example, `debounceTime(1000)` **waits for 1 second with no events before emitting another event.** This is very useful for validation, **especially if one don't want to show the validation messages until the user has stopped typing. DebounceTime** is one of the most commonly used reactive trasformation operators when working with validation, but there are many others.
+
+**ThrottleTime** is another one. It emits a value, then ignores subsequent values for a specific amount of time. Thisci is useful when receiving way too many events, as when tracking mouse movements.
+
+**DistinctUntilChange** suppresses duplicate consecutive \(repeating\) items. This is useful when tracking key events to prevent getting events when only the Ctrl or Shift keys are changed.
+
+Now start implementing: First import the **debounceTime Reactive extensions operator** into the component class:
+
+```js
+...
+
+import 'rxjs/add/operator/debounceTime';
+
+...
+```
+
+Then call the debounceTime operator on the observable and specify the desired wait time:
+
+```
+
+```
+
+
 
