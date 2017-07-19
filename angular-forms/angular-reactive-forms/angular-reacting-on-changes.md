@@ -382,15 +382,15 @@ ngOnInit(): void {
         rating: ['', ratingRange(1, 5)],
         sendCatalog: true
     });
-    
+
     this.customerForm.get('notification').valueChanges           // <-- the observable
             .debounceTime(1000)                                  // <-- call the debounceTime operator
             .subscribe( value => this.setNotification(value) );  // <-- subscribing to the observable
-    
+
     const emailControl = this.customerForm.get('emailGroup.email');
     emailControl.valueChanges.subscribe( value => this.setMessage(emailControl) );
 }
 ```
 
-
+That's it. Now the email validation should not display until the user had a chance to enter a value.
 
