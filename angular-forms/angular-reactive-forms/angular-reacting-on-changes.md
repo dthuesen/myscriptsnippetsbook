@@ -342,5 +342,5 @@ export class CustomersComponent implements OnInit {
 
 The method `setMessage(control: AbdtractControl): void` takes in a **FormControl** or **FormGroup** so it is set to type if **AbstractControl**. In the method body any current message will be cleared by an empty string. It has to be passed because the most recent change to that element could could cause all validation rules pass and that would show any left over messages. The next thing is the if statement to determine wheter a validation message should be displayed or not. **All of the dirty, touched or valid checking out of the tempate moves here into the component class.**
 
-In the method above in the body of the if statement the JavaScript `Object.keys()` is used to return **an array of of the validation errors collection keys.** The errors collection uses the validation rule name as the key.
+In the method above in the body of the if statement the JavaScript `Object.keys()` is used to return **an array of of the validation errors collection keys.** The errors collection uses the validation rule name as the key. Since the validation messages data structure of this app also uses the **validation rule as the key**, it can directly map into the app's `validationMessages[key]` data structure. That way this can handle display of multiple messages, if necessary.
 
