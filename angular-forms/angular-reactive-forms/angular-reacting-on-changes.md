@@ -298,7 +298,7 @@ export class CustomersComponent implements OnInit {
     });
 
     this.customerForm.get('notification').valueChanges.subscribe( value => this.setNotification(value) );
-  
+
     const emailControl = this.customerForm.get('emailGroup.email'); 
     emailControl.valueChanges.subscribe( value => this.setMessage(emailControl) );
   }
@@ -366,10 +366,30 @@ import 'rxjs/add/operator/debounceTime';
 ...
 ```
 
-Then call the debounceTime operator on the observable and specify the desired wait time:
+Then call the **debounceTime operator** on the observable and specify the desired wait time:
 
-```
-
+```js
+ngOnInit(): void {
+    this.customerForm = this.fb.group({
+        firstName: ['', [Validators.required, Validators.minLength(3)]],
+        lastName: ['', [Validators.required, Validators.maxLength(50)]],
+        emailGroup: this.fb.group({
+            email: ['', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]+')]],
+            confirmEmail: ['', [Validators.required]],
+        }, { validator: emailMatcher }),
+        phone: '',
+        notification: 'email',
+        rating: ['', ratingRange(1, 5)],
+        sendCatalog: true
+    });
+    
+    this.customerForm.get('notification').valueChanges           // <-- the observable
+            .debounceTime(1000)                                  // <-- call the debounceTime operator
+            .subscribe( value => this.setNotification(value) );  // <-- subscribing to the observable
+    
+    const emailControl = this.customerForm.get('emailGroup.email');
+    emailControl.valueChanges.subscribe( value => this.setMessage(emailControl) );
+}
 ```
 
 
