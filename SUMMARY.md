@@ -57,4 +57,5 @@
 ## RxJS
 
 * [Rx.Observable.forkJoin\(...args, \[resultSelector\]\)](rxjs/rxobservableforjoinargs-resultselector.md)
+* [Rx.AsyncSubject](rxjs/rxasyncsubject.md)
 
