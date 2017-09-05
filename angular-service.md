@@ -82,17 +82,17 @@ export class HighscoresService {
 
 #### Example of a service
 
-The HighscoreService is responsible for providing a list of score and adding new entries to it. 
+The HighscoreService is responsible for providing a list of score and adding new entries to it.
 
-1. This imports the **`Highscore`** model
-2. The **`highscores`** property is the data Array for all entries an starts with an empty array
-3. **`scoreCache`** is for storing the data of the just ended game. It will be filled with an object of type Highscore \(model\)
-4. **`pushHighscore`** will be called by a component with an data object type **`Highscore`**.
-5. First **`pushHighscore`** calls calculate score to get a conceived kind of score indicator and then it set the current scores to the **`scoreCache`** object. 
-6. After the **`scoreCache`** is set from within **`pushHighscore`** to current scores, name and the score indicator, it pushes the data to the **`Highscores`** Array
-7. Finally **`pushHighscore()`** causes to empty the **`scoreCache`** object \(or better to fill it with default values, wich will be overridden if there are any new values from the next game\).
+1. This imports the `Highscore` model
+2. The `highscores` property is the data Array for all entries an starts with an empty array
+3. `scoreCache` is for storing the data of the just ended game. It will be filled with an object of type Highscore \(model\)
+4. `pushHighscore` will be called by a component with an data object type `Highscore`.
+5. First `pushHighscore` calls calculate score to get a conceived kind of score indicator and then it set the current scores to the `scoreCache` object. 
+6. After the `scoreCache` is set from within `pushHighscore` to current scores, name and the score indicator, it pushes the data to the `Highscores` Array
+7. Finally `pushHighscore()` causes to empty the `scoreCache` object \(or better to fill it with default values, wich will be overridden if there are any new values from the next game\).
 
-```
+```js
 import { Injectable } from '@angular/core';
 import { Highscore } from './shared/highscore.model';       // Import model
 
