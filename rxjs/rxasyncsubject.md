@@ -15,11 +15,11 @@ var subject = new Rx.AsyncSubject();
 
 var i = 0;
 var handle = setInterval(function () {
-	subject.onNext(i);
-	if (++i > 3) {
-		subject.onCompleted();
-		clearInterval(handle);
-	}
+    subject.onNext(i);
+    if (++i > 3) {
+        subject.onCompleted();
+        clearInterval(handle);
+    }
 }, 500);
 
 var subscription = subject.subscribe(

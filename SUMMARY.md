@@ -18,6 +18,7 @@
 * [Angular Template-Driven Forms](angular-forms/angular-template-driven-forms.md)
   * [Angular Template-Driven Forms Code Example](angular-forms/angular-template-driven-forms/angular-template-driven-forms-code-example.md)
   * [Second Code Example - Angular Template-Driven Forms](angular-forms/angular-template-driven-forms/second-code-example-angular-template-driven-forms.md)
+  * [Angular form data changes with debounce](angular-forms/angular-template-driven-forms/angular-form-data-changes-with-debounce.md)
 * [Angular Reactive Forms](angular-forms/angular-reactive-forms.md)
   * [Angular - Reactive Forms Code Example](angular-forms/angular-reactive-forms/angular-reactive-forms-code-example.md)
   * [Angular - Create A Reactive Form](angular-forms/angular-reactive-forms/angular-create-a-reactive-form.md)
