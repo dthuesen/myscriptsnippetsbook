@@ -1,6 +1,6 @@
 # Angular Reactive Forms
 
-### Creational structure of template-driven Forms:
+### Creational structure of Reactive Forms:
 
 To use reactive forms first the **ReactiveFormsModule** has to be imported into the component.
 
