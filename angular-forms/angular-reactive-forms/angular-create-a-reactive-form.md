@@ -1,9 +1,27 @@
 # Angular - Create A Reactive Form
 
-**1\) Import ReactiveFormsModule into the app module \(app.module.ts\)**
+**1\) Import ReactiveFormsModule into the app module \(app.module.ts\) and paste it into the imports array.**
 
 ```js
 import { ReactiveFormModule } from '@angular/forms';
+```
+
+```js
+...
+
+@NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    ReactiveFormModule,         // <------- here
+    ...
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+
+...
 ```
 
 **2\) Import FormGroup into the component**
