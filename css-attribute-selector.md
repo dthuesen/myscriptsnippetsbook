@@ -1,43 +1,20 @@
-#  CSS -  Attribute Selector
+# CSS -  Attribute Selector
 
 ```css
-[css^="col-"].  . 
-
- . 
- 
- 
- 
+[css^="col-"]
 ```
 
- Selects all the ements with the attribute that contains 'col' at the beginning. 
+Selects all the ements with the attribute that contains 'col' at the beginning.
 
 ```
-[css*="col-"].  . 
+[css*="col-"]
 ```
 
-```css
-
- . 
- 
- 
- 
-```
-
- Selects all the ements with the attribute that contains 'col' in it. 
-
-
+Selects all the ements with the attribute that contains 'col' in it.
 
 ```
-[css$="col-"].  . 
+[css$="col-"]
 ```
 
-```css
-
- . 
- 
- 
- 
-```
-
- Selects all the ements with the attribute that contains 'col' at the end. 
+Selects all the ements with the attribute that contains 'col' at the end.
 
